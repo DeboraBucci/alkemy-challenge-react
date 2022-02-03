@@ -26,14 +26,14 @@ const BootstrapNavbar = () => {
             </Nav.Link>
             <NavDropdown title="User" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">
-                <i class="far fa-user"></i> Profile
+                <i className="far fa-user"></i> Profile
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                <i class="fas fa-cog"></i> Settings
+                <i className="fas fa-cog"></i> Settings
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">
-                <i class="fas fa-sign-out-alt"></i> Log Out
+              <NavDropdown.Item onClick={onLogout} href="#action/3.3">
+                <i className="fas fa-sign-out-alt"></i> Log Out
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
