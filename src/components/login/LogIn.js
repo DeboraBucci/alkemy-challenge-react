@@ -1,8 +1,15 @@
-import React from "react";
-import { Button, Form } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Form, Spinner } from "react-bootstrap";
 import classes from "./Login.module.css";
 import logo from "../../imgs/cuisine.webp";
+
 const LogIn = () => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const spinnerHandler = () => {
+    setIsClicked(true);
+  };
+
   return (
     <section className={classes.login}>
       <div className={classes.title}>
@@ -15,6 +22,7 @@ const LogIn = () => {
             className={classes.control}
             type="email"
             placeholder="Enter email"
+            disabled={isClicked}
             required
           />
           <Form.Text className="text-muted">
@@ -27,13 +35,25 @@ const LogIn = () => {
           <Form.Control
             className={classes.control}
             type="password"
+            disabled={isClicked}
             placeholder="Password"
             required
           />
         </Form.Group>
-        <Button className={classes.btn} variant="primary" type="submit">
-          Sign In
-        </Button>
+        <div className={classes.actions}>
+          <Button
+            onClick={spinnerHandler}
+            className={classes.btn}
+            disabled={isClicked}
+            variant="primary"
+            type="submit"
+          >
+            Sign In
+          </Button>
+          {isClicked && (
+            <Spinner className={classes.spinner} animation="border" />
+          )}
+        </div>
       </Form>
     </section>
   );

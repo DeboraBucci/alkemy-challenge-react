@@ -33,3 +33,21 @@
 .btn:active {
   box-shadow: 0 0 0 5px rgba(129, 93, 0, 0.5) !important;
 }
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+button:disabled,
+input:disabled {
+  cursor: wait;
+  pointer-events: all !important;
+  background-color: rgb(211, 211, 211) !important;
+}
+
+.spinner {
+  font-size: 10px;
+  height: 20px;
+  width: 20px;
+}
