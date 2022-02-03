@@ -1,0 +1,55 @@
+.meals {
+  background-color: #232323;
+  width: 100%;
+}
+
+.meals-box {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4rem 2rem;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.card {
+  border: none !important;
+  overflow: hidden !important;
+  background-color: transparent !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s;
+}
+
+.card-body {
+  background-color: white;
+}
+
+.img {
+  background-color: #232323 !important;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  border: none !important;
+  background-color: rgb(177, 127, 1) !important;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn:hover {
+  background-color: rgb(129, 93, 0) !important;
+}
+
+.btn:focus,
+.btn:active {
+  box-shadow: 0 0 0 5px rgba(129, 93, 0, 0.25) !important;
+}
+
+.icon {
+  padding: 0 !important;
+  display: inline-block;
+  font-size: 0.8rem;
+}
