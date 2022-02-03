@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Spinner } from "react-bootstrap";
 import classes from "./Login.module.css";
-import logo from "../../imgs/cuisine.webp";
+import logo from "../../imgs/brand.webp";
 
 const LogIn = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
