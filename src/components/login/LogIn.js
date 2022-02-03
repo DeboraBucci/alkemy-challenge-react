@@ -3,7 +3,7 @@ import { Button, Form, FormSelect, Spinner } from "react-bootstrap";
 import classes from "./Login.module.css";
 import logo from "../../imgs/cuisine.webp";
 
-const LogIn = () => {
+const LogIn = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
 
@@ -17,6 +17,7 @@ const LogIn = () => {
       enteredPassword === "react"
     ) {
       setFormIsValid(true);
+      props.onLogin(enteredEmail, enteredPassword);
     } else {
       setFormIsValid(false);
     }
