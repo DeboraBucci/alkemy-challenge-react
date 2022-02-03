@@ -1,13 +1,33 @@
 import React, { useState } from "react";
-import { Button, Form, Spinner } from "react-bootstrap";
+import { Button, Form, FormSelect, Spinner } from "react-bootstrap";
 import classes from "./Login.module.css";
 import logo from "../../imgs/cuisine.webp";
 
 const LogIn = () => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
 
-  const spinnerHandler = () => {
-    setIsClicked(true);
+  const [formIsValid, setFormIsValid] = useState();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    if (
+      enteredEmail.trim().toLocaleLowerCase() === "challenge@alkemy.org" &&
+      enteredPassword === "react"
+    ) {
+      setFormIsValid(true);
+    } else {
+      setFormIsValid(false);
+    }
+  };
+
+  const emailChangeHandler = (e) => {
+    setEnteredEmail(e.target.value);
+  };
+
+  const passwordChangeHandler = (e) => {
+    setEnteredPassword(e.target.value);
   };
 
   return (
@@ -15,15 +35,19 @@ const LogIn = () => {
       <div className={classes.title}>
         <img src={logo} />
       </div>
-      <Form>
+      <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
-            className={classes.control}
+            required
             type="email"
             placeholder="Enter email"
-            disabled={isClicked}
-            required
+            value={enteredEmail}
+            onChange={emailChangeHandler}
+            className={`${classes.control} ${
+              formIsValid === false ? classes.invalid : ""
+            }`}
+            disabled={formIsValid === true}
           />
           <Form.Text className="text-muted">
             we'll never share your email with anyone else.
@@ -33,24 +57,29 @@ const LogIn = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            className={classes.control}
+            value={enteredPassword}
+            onChange={passwordChangeHandler}
+            className={`${classes.control} ${
+              formIsValid === false ? classes.invalid : ""
+            }`}
             type="password"
-            disabled={isClicked}
+            disabled={formIsValid === true}
             placeholder="Password"
             required
           />
         </Form.Group>
         <div className={classes.actions}>
           <Button
-            onClick={spinnerHandler}
             className={classes.btn}
-            disabled={isClicked}
+            disabled={formIsValid === true}
             variant="primary"
             type="submit"
           >
             Sign In
           </Button>
-          {isClicked && (
+
+          {formIsValid === false && <p>wrong email or password</p>}
+          {formIsValid === true && (
             <Spinner className={classes.spinner} animation="border" />
           )}
         </div>
