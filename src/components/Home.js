@@ -1,5 +1,5 @@
 import React from "react";
-import BootstrapNavbar from "./BootstrapNavbar";
+import BootstrapNavbar from "./navbar/BootstrapNavbar";
 import classes from "./Home.module.css";
 import Meals from "./Meals";
 import Search from "./Search";
