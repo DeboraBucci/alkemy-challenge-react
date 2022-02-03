@@ -3,7 +3,7 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import cuisine from "../imgs/brand.webp";
 import classes from "./BootstrapNavbar.module.css";
 
-const BootstrapNavbar = () => {
+const BootstrapNavbar = ({ onLogout }) => {
   return (
     <Navbar
       className={classes.navbar}
