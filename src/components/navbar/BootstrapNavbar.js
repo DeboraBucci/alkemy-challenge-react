@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import cuisine from "../imgs/brand.webp";
+import cuisine from "../../imgs/brand.webp";
 import classes from "./BootstrapNavbar.module.css";
 
 const BootstrapNavbar = ({ onLogout }) => {
