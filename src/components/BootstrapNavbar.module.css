@@ -1,0 +1,12 @@
+.navbar {
+  height: 60px;
+  position: fixed !important;
+  width: 100%;
+  z-index: 9999;
+}
+
+@media (max-width: 1000px) {
+  .navbar {
+    height: auto;
+  }
+}
