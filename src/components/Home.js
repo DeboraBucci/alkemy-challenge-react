@@ -8,6 +8,7 @@ const Home = ({ onLogout }) => {
   return (
     <main className={classes.home}>
       <BootstrapNavbar onLogout={onLogout} />
+      <div className={classes["navbar-space"]}></div>
       <Search />
       <Meals />
     </main>
