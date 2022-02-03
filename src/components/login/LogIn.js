@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, FormSelect, Spinner } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import classes from "./Login.module.css";
 import logo from "../../imgs/cuisine.webp";
 
