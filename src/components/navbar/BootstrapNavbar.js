@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import cuisine from "../../imgs/brand.webp";
+import brand from "../../imgs/brand.webp";
 import classes from "./BootstrapNavbar.module.css";
 
 const BootstrapNavbar = ({ onLogout }) => {
@@ -14,7 +14,7 @@ const BootstrapNavbar = ({ onLogout }) => {
     >
       <Container>
         <Navbar.Brand href="#home">
-          <img src={cuisine} style={{ height: 70 }} />
+          <img src={brand} style={{ height: 70 }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
