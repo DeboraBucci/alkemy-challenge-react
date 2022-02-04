@@ -3,6 +3,7 @@ import BootstrapNavbar from "./navbar/BootstrapNavbar";
 import classes from "./Home.module.css";
 import Meals from "./Meals";
 import Search from "./Search";
+import Menu from "./menu/Menu";
 
 const Home = ({ onLogout }) => {
   return (
@@ -11,6 +12,7 @@ const Home = ({ onLogout }) => {
       <div className={classes["navbar-space"]}></div>
       <Search />
       <Meals />
+      <Menu />
     </main>
   );
 };
