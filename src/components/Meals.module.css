@@ -53,3 +53,48 @@
   display: inline-block;
   font-size: 0.8rem;
 }
+
+.list {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0.5rem 1rem !important;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.list li p {
+  margin: 0 !important;
+  color: #5f5f5f;
+}
+
+.list li i {
+  filter: grayscale(40%);
+}
+
+.strong {
+  color: #232323;
+  font-weight: bolder;
+}
+
+.fire {
+  color: orange;
+}
+
+.heart {
+  color: crimson;
+}
+
+.rate {
+  color: goldenrod;
+}
+
+.time {
+  color: purple;
+}
