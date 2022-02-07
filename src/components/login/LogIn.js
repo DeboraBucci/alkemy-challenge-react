@@ -11,16 +11,7 @@ const LogIn = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    if (
-      enteredEmail.trim().toLocaleLowerCase() === "challenge@alkemy.org" &&
-      enteredPassword === "react"
-    ) {
-      setFormIsValid(true);
-      props.onLogin(enteredEmail, enteredPassword);
-    } else {
-      setFormIsValid(false);
-    }
+    props.onLogin(enteredEmail, enteredPassword);
   };
 
   const emailChangeHandler = (e) => {
