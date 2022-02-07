@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./components/Home";
 import LogIn from "./components/login/LogIn";
 import Axios from "axios";
+import Swal from "sweetalert2";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,6 +33,11 @@ function App() {
         .catch(function (error) {
           console.error(error);
           setFormIsValid(false);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Wrong credentials!",
+          });
         });
     }, 1000);
   };
