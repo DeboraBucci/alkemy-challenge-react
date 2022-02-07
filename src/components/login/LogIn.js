@@ -37,7 +37,7 @@ const LogIn = (props) => {
             className={`${classes.control} ${
               props.isValid === false ? classes.invalid : ""
             }`}
-            disabled={""}
+            disabled={props.isWaiting === true}
           />
           <Form.Text className="text-muted">
             we'll never share your email with anyone else.
@@ -53,7 +53,7 @@ const LogIn = (props) => {
               props.isValid === false ? classes.invalid : ""
             }`}
             type="password"
-            disabled={""}
+            disabled={props.isWaiting === true}
             placeholder="Password"
             required
           />
@@ -61,15 +61,19 @@ const LogIn = (props) => {
         <div className={classes.actions}>
           <Button
             className={classes.btn}
-            disabled={""}
+            disabled={props.isWaiting === true}
             variant="primary"
             type="submit"
           >
             Sign In
           </Button>
 
-          {props.isValid === false && <p>wrong credentials</p>}
-          {"" && <Spinner className={classes.spinner} animation="border" />}
+          {props.isWaiting === false && props.isValid === false && (
+            <p>wrong credentials</p>
+          )}
+          {props.isWaiting === true && (
+            <Spinner className={classes.spinner} animation="border" />
+          )}
         </div>
       </Form>
     </section>
