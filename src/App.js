@@ -6,6 +6,7 @@ import Axios from "axios";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [formIsValid, setFormIsValid] = useState();
 
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn") === "1") {
@@ -20,10 +21,12 @@ function App() {
     })
       .then(function (response) {
         setIsLoggedIn(true);
+        setFormIsValid(true);
         localStorage.setItem("isLoggedIn", `${response.data.token}`);
       })
       .catch(function (error) {
         console.error(error);
+        setFormIsValid(false);
       });
   };
 
@@ -34,7 +37,7 @@ function App() {
 
   return (
     <div className="app">
-      {!isLoggedIn && <LogIn onLogin={loginHandler} />}
+      {!isLoggedIn && <LogIn onLogin={loginHandler} isValid={formIsValid} />}
       {isLoggedIn && <Home onLogout={logoutHandler} />}
     </div>
   );

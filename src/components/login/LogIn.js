@@ -7,8 +7,6 @@ const LogIn = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
 
-  const [formIsValid, setFormIsValid] = useState();
-
   const submitHandler = (e) => {
     e.preventDefault();
     props.onLogin(enteredEmail, enteredPassword);
@@ -37,9 +35,9 @@ const LogIn = (props) => {
             value={enteredEmail}
             onChange={emailChangeHandler}
             className={`${classes.control} ${
-              formIsValid === false ? classes.invalid : ""
+              props.isValid === false ? classes.invalid : ""
             }`}
-            disabled={formIsValid === true}
+            disabled={""}
           />
           <Form.Text className="text-muted">
             we'll never share your email with anyone else.
@@ -52,10 +50,10 @@ const LogIn = (props) => {
             value={enteredPassword}
             onChange={passwordChangeHandler}
             className={`${classes.control} ${
-              formIsValid === false ? classes.invalid : ""
+              props.isValid === false ? classes.invalid : ""
             }`}
             type="password"
-            disabled={formIsValid === true}
+            disabled={""}
             placeholder="Password"
             required
           />
@@ -63,17 +61,15 @@ const LogIn = (props) => {
         <div className={classes.actions}>
           <Button
             className={classes.btn}
-            disabled={formIsValid === true}
+            disabled={""}
             variant="primary"
             type="submit"
           >
             Sign In
           </Button>
 
-          {formIsValid === false && <p>wrong email or password</p>}
-          {formIsValid === true && (
-            <Spinner className={classes.spinner} animation="border" />
-          )}
+          {props.isValid === false && <p>wrong credentials</p>}
+          {"" && <Spinner className={classes.spinner} animation="border" />}
         </div>
       </Form>
     </section>
