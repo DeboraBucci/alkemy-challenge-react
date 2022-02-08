@@ -1,0 +1,19 @@
+.bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: fixed;
+  bottom: 5%;
+  left: 25%;
+  right: 25%;
+  background-color: rgb(65, 64, 68);
+  padding: 1rem;
+  border-radius: 7px;
+  color: white;
+  max-width: 900px;
+}
+
+.bar p {
+  margin: 0 !important;
+}
