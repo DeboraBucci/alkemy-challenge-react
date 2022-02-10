@@ -8,6 +8,8 @@ const Search = (props) => {
   const [meals, setMeals] = useState([]);
 
   useEffect(() => {
+    if (meals.length < 1) return;
+
     props.onSearchMeals(meals);
   }, [meals]);
 
