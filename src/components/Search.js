@@ -8,6 +8,36 @@ const Search = (props) => {
   const [vegetarianCheck, setVegetarianCheck] = useState(false);
   const [meals, setMeals] = useState([]);
 
+  const dropdownOpt = [
+    "None",
+    "African",
+    "American",
+    "British",
+    "Cajun",
+    "Caribbean",
+    "Chinese",
+    "Eastern European",
+    "European",
+    "French",
+    "German",
+    "Greek",
+    "Indian",
+    "Irish",
+    "Italian",
+    "Japanese",
+    "Jewish",
+    "Korean",
+    "Latin American",
+    "Mediterranean",
+    "Mexican",
+    "Middle Eastern",
+    "Nordic",
+    "Southern",
+    "Spanish",
+    "Thai",
+    "Vietnamese",
+  ];
+
   useEffect(() => {
     if (meals.length < 1) return;
 
@@ -75,13 +105,26 @@ const Search = (props) => {
             Search
           </Button>
         </InputGroup>
+
+        <InputGroup>
+          <Form.Label visuallyHidden>cuisine</Form.Label>
+          <InputGroup.Text>Cuisine</InputGroup.Text>
+          <Form.Select aria-label="Default select example">
+            {dropdownOpt.map((opt, i) => (
+              <option value={i + 1} key={`${opt} cuisine`}>
+                {opt}
+              </option>
+            ))}
+          </Form.Select>
+        </InputGroup>
+
+        <Form.Check
+          onChange={vegetarianCheckHandler}
+          type="switch"
+          id="custom-switch"
+          label="Vegetarian"
+        />
       </Form>
-      <Form.Check
-        onChange={vegetarianCheckHandler}
-        type="switch"
-        id="custom-switch"
-        label="Vegetarian"
-      />
     </section>
   );
 };
