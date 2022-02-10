@@ -46,38 +46,35 @@ const Search = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setMeals([]);
     let diet = "";
 
     if (enteredInput.trim().length < 2) return;
     if (vegetarianCheck) diet = "vegetarian";
 
     Axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&diet=${diet}&maxFat=25&number=1&apiKey=d4d951265a704dc49ac9ee0d5a116060`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&diet=${diet}&addRecipeInformation=true&addRecipeNutrition=true&number=1&apiKey=d4d951265a704dc49ac9ee0d5a116060`
     ).then(function (response) {
-      response.data.results.map((meal) => {
-        Axios.get(
-          `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=d4d951265a704dc49ac9ee0d5a116060`
-        ).then(function (response) {
-          setMeals((prevMeals) => [
-            ...prevMeals,
-            {
-              id: meal.id,
-              title: meal.title,
-              image: meal.image,
-              calories: meal.calories,
-              healthScore: response.data.healthScore,
-              vegan: response.data.vegan,
-              vegetarian: response.data.vegetarian,
-              price:
-                response.data.pricePerServing * response.data.pricePerServing,
-              time: response.data.readyInMinutes,
-              servings: response.data.pricePerServing,
-              summary: response.data.summary,
-            },
-          ]);
+      const mealsArr = [];
+      const mealsData = response.data.results;
+      mealsData.map((meal) => {
+        mealsArr.push({
+          id: meal.id,
+          title: meal.title,
+          image: meal.image,
+          calories: `${Math.round(meal.nutrition.nutrients[0].amount)} ${
+            meal.nutrition.nutrients[0].unit
+          }`,
+          healthScore: meal.healthScore,
+          vegan: meal.vegan,
+          vegetarian: meal.vegetarian,
+          price: meal.pricePerServing * meal.pricePerServing,
+          time: meal.readyInMinutes,
+          servings: meal.pricePerServing,
+          summary: meal.summary,
         });
       });
+
+      setMeals(mealsArr);
     });
   };
 
