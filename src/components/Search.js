@@ -106,7 +106,7 @@ const Search = (props) => {
       <h1>Lily's Cuisine</h1>
       <p>Your meal in one click</p>
 
-      <Form onSubmit={submitHandler}>
+      <Form className={classes.form} onSubmit={submitHandler}>
         <InputGroup className={`mb-3 ${classes["input-group"]}`}>
           <FormControl
             onChange={inputHandler}
@@ -124,32 +124,34 @@ const Search = (props) => {
           </Button>
         </InputGroup>
 
-        <InputGroup>
-          <Form.Label visuallyHidden>cuisine</Form.Label>
-          <InputGroup.Text>Cuisine</InputGroup.Text>
-          <Form.Select aria-label="Default select example">
-            {dropdownOpt.map((opt, i) => (
-              <option value={i + 1} key={`${opt} cuisine`}>
-                {opt}
-              </option>
-            ))}
-          </Form.Select>
-        </InputGroup>
+        <div className={classes.options}>
+          <InputGroup>
+            <Form.Label visuallyHidden>cuisine</Form.Label>
+            <InputGroup.Text>Cuisine</InputGroup.Text>
+            <Form.Select aria-label="Default select example">
+              {dropdownOpt.map((opt, i) => (
+                <option value={i + 1} key={`${opt} cuisine`}>
+                  {opt}
+                </option>
+              ))}
+            </Form.Select>
+          </InputGroup>
 
-        <InputGroup>
-          <Form.Label visuallyHidden>diet</Form.Label>
-          <InputGroup.Text>Diet</InputGroup.Text>
-          <Form.Select
-            onChange={dietCheckHandler}
-            aria-label="Default select example"
-          >
-            {dietOpt.map((opt, i) => (
-              <option value={opt} key={`${opt} diet`}>
-                {opt}
-              </option>
-            ))}
-          </Form.Select>
-        </InputGroup>
+          <InputGroup>
+            <Form.Label visuallyHidden>diet</Form.Label>
+            <InputGroup.Text>Diet</InputGroup.Text>
+            <Form.Select
+              onChange={dietCheckHandler}
+              aria-label="Default select example"
+            >
+              {dietOpt.map((opt, i) => (
+                <option value={opt} key={`${opt} diet`}>
+                  {opt}
+                </option>
+              ))}
+            </Form.Select>
+          </InputGroup>
+        </div>
       </Form>
     </section>
   );
