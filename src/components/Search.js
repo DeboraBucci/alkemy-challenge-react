@@ -15,8 +15,9 @@ const Search = (props) => {
     Axios.get(
       `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&apiKey=602e462c798141faa4b7fd415ba7a619`
     ).then(function (response) {
-      const mealsData = response.data.results;
+      setMeals([]);
 
+      const mealsData = response.data.results;
       mealsData.map((meal) =>
         setMeals((prevMeals) => [
           ...prevMeals,
@@ -29,6 +30,8 @@ const Search = (props) => {
       );
     });
   };
+
+  console.log(meals);
 
   const inputHandler = (e) => {
     console.log(e.target.value);
