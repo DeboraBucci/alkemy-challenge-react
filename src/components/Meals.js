@@ -1,48 +1,8 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import classes from "./Meals.module.css";
-import Meal1 from "../imgs/meal1.webp";
 
-const Meals = () => {
-  const meals = [
-    {
-      img: Meal1,
-      title: "Mozzarella Pizza with Tomatoe",
-      text: "this pizza has mozzarella, tomatoe, garlic...",
-      tag: "",
-      time: "",
-      healthPoints: "",
-      key: "meal1",
-    },
-    {
-      img: Meal1,
-      title: "Mozzarella Pizza with Tomatoe",
-      text: "this pizza has mozzarella, tomatoe, garlic...",
-      tags: "",
-      time: "",
-      healthPoints: "",
-      key: "meal2",
-    },
-    {
-      img: Meal1,
-      title: "Mozzarella Pizza with Tomatoe",
-      text: "this pizza has mozzarella, tomatoe, garlic...",
-      tag: "",
-      time: "",
-      healthPoints: "",
-      key: "meal3",
-    },
-    {
-      img: Meal1,
-      title: "Mozzarella Pizza with Tomatoe",
-      text: "this pizza has mozzarella, tomatoe, garlic...",
-      tag: "",
-      time: "",
-      healthPoints: "",
-      key: "meal4",
-    },
-  ];
-
+const Meals = ({ meals }) => {
   return (
     <section className={classes.meals}>
       <div className={classes["meals-box"]}>
@@ -52,7 +12,7 @@ const Meals = () => {
             className={classes.card}
             style={{ width: "18rem" }}
           >
-            <Card.Img className={classes.img} variant="top" src={meal.img} />
+            <Card.Img className={classes.img} variant="top" src={meal.image} />
             <Card.Body className={classes["card-body"]}>
               <Card.Title>{meal.title}</Card.Title>
               <Card.Text>{meal.text}</Card.Text>
