@@ -5,7 +5,8 @@ import Axios from "axios";
 
 const Search = (props) => {
   const [enteredInput, setEnteredInput] = useState();
-  const [vegetarianCheck, setVegetarianCheck] = useState(false);
+  const [selectedDiet, setSelectedDiet] = useState("");
+
   const [meals, setMeals] = useState([]);
 
   const dropdownOpt = [
@@ -38,6 +39,21 @@ const Search = (props) => {
     "Vietnamese",
   ];
 
+  const dietOpt = [
+    "All",
+    "Whole30",
+    "Paleo",
+    "Vegan",
+    "Vegetarian",
+    "Gluten Free",
+    "Ketogenic",
+    "Lacto-Vegetarian",
+    "Ovo-Vegetarian",
+    "Pescetarian",
+    "Primal",
+    "Low FODMAP",
+  ];
+
   useEffect(() => {
     if (meals.length < 1) return;
 
@@ -46,15 +62,14 @@ const Search = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    let diet = "";
 
     if (enteredInput.trim().length < 2) return;
-    if (vegetarianCheck) diet = "vegetarian";
 
     Axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&diet=${diet}&addRecipeInformation=true&addRecipeNutrition=true&number=1&apiKey=d4d951265a704dc49ac9ee0d5a116060`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&diet=${selectedDiet}&addRecipeInformation=true&addRecipeNutrition=true&number=1&apiKey=d4d951265a704dc49ac9ee0d5a116060`
     ).then(function (response) {
       const mealsArr = [];
+      console.log(response.data.results);
       const mealsData = response.data.results;
       mealsData.map((meal) => {
         mealsArr.push({
@@ -70,7 +85,6 @@ const Search = (props) => {
           price: meal.pricePerServing * meal.pricePerServing,
           time: meal.readyInMinutes,
           servings: meal.pricePerServing,
-          summary: meal.summary,
         });
       });
 
@@ -82,12 +96,9 @@ const Search = (props) => {
     setEnteredInput(e.target.value);
   };
 
-  const vegetarianCheckHandler = (e) => {
-    if (e.target.checked) {
-      setVegetarianCheck(true);
-    } else {
-      setVegetarianCheck(false);
-    }
+  const dietCheckHandler = (e) => {
+    if (selectedDiet === "all") setSelectedDiet("");
+    setSelectedDiet(e.target.value);
   };
 
   return (
@@ -125,12 +136,20 @@ const Search = (props) => {
           </Form.Select>
         </InputGroup>
 
-        <Form.Check
-          onChange={vegetarianCheckHandler}
-          type="switch"
-          id="custom-switch"
-          label="Vegetarian"
-        />
+        <InputGroup>
+          <Form.Label visuallyHidden>diet</Form.Label>
+          <InputGroup.Text>Diet</InputGroup.Text>
+          <Form.Select
+            onChange={dietCheckHandler}
+            aria-label="Default select example"
+          >
+            {dietOpt.map((opt, i) => (
+              <option value={opt} key={`${opt} diet`}>
+                {opt}
+              </option>
+            ))}
+          </Form.Select>
+        </InputGroup>
       </Form>
     </section>
   );
