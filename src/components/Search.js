@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
 import classes from "./Search.module.css";
 import Axios from "axios";
@@ -6,6 +6,10 @@ import Axios from "axios";
 const Search = (props) => {
   const [enteredInput, setEnteredInput] = useState();
   const [meals, setMeals] = useState([]);
+
+  useEffect(() => {
+    props.onSearchMeals(meals);
+  }, [meals]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -17,24 +21,21 @@ const Search = (props) => {
     ).then(function (response) {
       setMeals([]);
 
+      const mealsArr = [];
       const mealsData = response.data.results;
       mealsData.map((meal) =>
-        setMeals((prevMeals) => [
-          ...prevMeals,
-          {
-            id: meal.id,
-            title: meal.title,
-            image: meal.image,
-          },
-        ])
+        mealsArr.push({
+          id: meal.id,
+          title: meal.title,
+          image: meal.image,
+        })
       );
+
+      setMeals(mealsArr);
     });
   };
 
-  console.log(meals);
-
   const inputHandler = (e) => {
-    console.log(e.target.value);
     setEnteredInput(e.target.value);
   };
 
