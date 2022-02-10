@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Button, FormControl, InputGroup } from "react-bootstrap";
+import { Button, Form, FormControl, InputGroup } from "react-bootstrap";
 import classes from "./Search.module.css";
 import Axios from "axios";
 
 const Search = (props) => {
   const [enteredInput, setEnteredInput] = useState();
+  const [vegetarianCheck, setVegetarianCheck] = useState(false);
   const [meals, setMeals] = useState([]);
 
   useEffect(() => {
@@ -15,11 +16,14 @@ const Search = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    let diet = "";
 
     if (enteredInput.trim().length < 2) return;
 
+    if (vegetarianCheck) diet = "vegetarian";
+
     Axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&apiKey=602e462c798141faa4b7fd415ba7a619`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&diet=${diet}&apiKey=602e462c798141faa4b7fd415ba7a619`
     ).then(function (response) {
       setMeals([]);
 
@@ -41,12 +45,20 @@ const Search = (props) => {
     setEnteredInput(e.target.value);
   };
 
+  const vegetarianCheckHandler = (e) => {
+    if (e.target.checked) {
+      setVegetarianCheck(true);
+    } else {
+      setVegetarianCheck(false);
+    }
+  };
+
   return (
     <section className={classes.search}>
       <h1>Lily's Cuisine</h1>
       <p>Your meal in one click</p>
 
-      <form onSubmit={submitHandler}>
+      <Form onSubmit={submitHandler}>
         <InputGroup className={`mb-3 ${classes["input-group"]}`}>
           <FormControl
             onChange={inputHandler}
@@ -63,7 +75,13 @@ const Search = (props) => {
             Search
           </Button>
         </InputGroup>
-      </form>
+      </Form>
+      <Form.Check
+        onChange={vegetarianCheckHandler}
+        type="switch"
+        id="custom-switch"
+        label="Vegetarian"
+      />
     </section>
   );
 };
