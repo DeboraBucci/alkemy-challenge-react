@@ -4,6 +4,7 @@ import classes from "./Home.module.css";
 import Meals from "./Meals";
 import Search from "./Search";
 import Menu from "./menu/Menu";
+import Bar from "./bar/Bar";
 
 const Home = ({ onLogout }) => {
   return (
@@ -13,6 +14,7 @@ const Home = ({ onLogout }) => {
       <Search />
       <Meals />
       <Menu />
+      <Bar />
     </main>
   );
 };
