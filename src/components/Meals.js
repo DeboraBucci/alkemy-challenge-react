@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import classes from "./Meals.module.css";
 
@@ -21,13 +21,15 @@ const Meals = ({ meals }) => {
                 <li>
                   <i className={`fas fa-fire-alt ${classes.fire}`}></i>{" "}
                   <p>
-                    <span className={classes.strong}>2,200</span> calories
+                    <span className={classes.strong}>{meal.calories}</span>{" "}
+                    calories
                   </p>
                 </li>
                 <li>
                   <i className={`fas fa-heartbeat ${classes.heart}`}></i>
                   <p>
-                    Health Score <span className={classes.strong}>67</span>
+                    Health Score{" "}
+                    <span className={classes.strong}>{meal.healthScore}</span>
                   </p>
                 </li>
                 <li>
@@ -39,7 +41,8 @@ const Meals = ({ meals }) => {
                 <li>
                   <i className={`far fa-clock ${classes.time}`}></i>{" "}
                   <p>
-                    Cooking time <span className={classes.strong}>39 mins</span>
+                    Cooking time{" "}
+                    <span className={classes.strong}>{meal.time} mins</span>
                   </p>
                 </li>
               </ul>
