@@ -6,6 +6,8 @@ import Axios from "axios";
 const Search = (props) => {
   const [enteredInput, setEnteredInput] = useState();
   const [selectedDiet, setSelectedDiet] = useState("");
+  const [selectedCuisine, setSelecteCuisine] = useState("");
+
   const [noSugar, setNoSugar] = useState(false);
   const [noEggs, setNoEggs] = useState(false);
 
@@ -68,9 +70,8 @@ const Search = (props) => {
     if (enteredInput.trim().length < 2) return;
 
     Axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&diet=${selectedDiet}${
-        noSugar ? `&excludeIngredients=sugar` : ""
-      }${
+      `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&cuisine=${selectedCuisine}
+      &diet=${selectedDiet}${noSugar ? `&excludeIngredients=sugar` : ""}${
         noEggs ? `&excludeIngredients=eggs` : ""
       }&addRecipeInformation=true&addRecipeNutrition=true&number=5&apiKey=d4d951265a704dc49ac9ee0d5a116060`
     ).then(function (response) {
@@ -103,8 +104,13 @@ const Search = (props) => {
   };
 
   const dietCheckHandler = (e) => {
-    if (selectedDiet === "all") setSelectedDiet("");
+    if (selectedDiet === "All") setSelectedDiet("");
     setSelectedDiet(e.target.value);
+  };
+
+  const cuisineCheckHandler = (e) => {
+    if (selectedCuisine === "None") setSelecteCuisine("");
+    setSelecteCuisine(e.target.value);
   };
 
   const sugarHandler = (e) => {
@@ -150,9 +156,12 @@ const Search = (props) => {
           <InputGroup>
             <Form.Label visuallyHidden>cuisine</Form.Label>
             <InputGroup.Text>Cuisine</InputGroup.Text>
-            <Form.Select aria-label="Default select example">
-              {dropdownOpt.map((opt, i) => (
-                <option value={i + 1} key={`${opt} cuisine`}>
+            <Form.Select
+              onChange={cuisineCheckHandler}
+              aria-label="Default select example"
+            >
+              {dropdownOpt.map((opt) => (
+                <option value={opt} key={`${opt} cuisine`}>
                   {opt}
                 </option>
               ))}
