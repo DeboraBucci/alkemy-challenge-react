@@ -4,11 +4,13 @@ import Home from "./components/Home";
 import LogIn from "./components/login/LogIn";
 import Axios from "axios";
 import Swal from "sweetalert2";
+import Cart from "./components/cart/Cart";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formIsValid, setFormIsValid] = useState();
   const [waiting, setWaiting] = useState(false);
+  const [cartIsOpened, setCartIsOpened] = useState(false);
 
   useEffect(() => {
     if (
@@ -50,6 +52,14 @@ function App() {
     setIsLoggedIn(false);
   };
 
+  const openCartHandler = () => {
+    setCartIsOpened(true);
+  };
+
+  const closeCartHandler = () => {
+    setCartIsOpened(false);
+  };
+
   return (
     <React.Fragment>
       {cartIsOpened && <Cart onCloseCart={closeCartHandler} />}
@@ -60,7 +70,9 @@ function App() {
           isWaiting={waiting}
         />
       )}
-      {isLoggedIn && <Home onLogout={logoutHandler} />}
+      {isLoggedIn && (
+        <Home onLogout={logoutHandler} onOpenCart={openCartHandler} />
+      )}
     </React.Fragment>
   );
 }
