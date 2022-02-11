@@ -6,6 +6,7 @@ import Axios from "axios";
 const Search = (props) => {
   const [enteredInput, setEnteredInput] = useState();
   const [selectedDiet, setSelectedDiet] = useState("");
+  const [noSugar, setNoSugar] = useState(false);
 
   const [meals, setMeals] = useState([]);
 
@@ -66,7 +67,9 @@ const Search = (props) => {
     if (enteredInput.trim().length < 2) return;
 
     Axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&diet=${selectedDiet}&addRecipeInformation=true&addRecipeNutrition=true&number=1&apiKey=d4d951265a704dc49ac9ee0d5a116060`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&diet=${selectedDiet}${
+        noSugar ? `&excludeIngredients=sugar` : ""
+      }&addRecipeInformation=true&addRecipeNutrition=true&number=5&apiKey=d4d951265a704dc49ac9ee0d5a116060`
     ).then(function (response) {
       const mealsArr = [];
       console.log(response.data.results);
@@ -99,6 +102,14 @@ const Search = (props) => {
   const dietCheckHandler = (e) => {
     if (selectedDiet === "all") setSelectedDiet("");
     setSelectedDiet(e.target.value);
+  };
+
+  const sugarHandler = (e) => {
+    if (e.target.checked) {
+      setNoSugar(true);
+    } else {
+      setNoSugar(false);
+    }
   };
 
   return (
@@ -152,6 +163,13 @@ const Search = (props) => {
             </Form.Select>
           </InputGroup>
         </div>
+
+        <Form.Check
+          onChange={sugarHandler}
+          type="switch"
+          id="custom-switch"
+          label="No Added sugar"
+        />
       </Form>
     </section>
   );
