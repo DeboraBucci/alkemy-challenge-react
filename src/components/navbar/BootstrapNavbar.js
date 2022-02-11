@@ -2,8 +2,10 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import brand from "../../imgs/brand.webp";
 import classes from "./BootstrapNavbar.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-const BootstrapNavbar = ({ onLogout }) => {
+const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
   return (
     <Navbar
       className={classes.navbar}
@@ -21,8 +23,8 @@ const BootstrapNavbar = ({ onLogout }) => {
           <Nav className="me-auto"></Nav>
           <Nav>
             <Nav.Link href="#meals">Meals</Nav.Link>
-            <Nav.Link eventKey={2} href="#cart">
-              $ 0.00 <i className="fab fa-opencart"></i>
+            <Nav.Link onClick={onOpenCart} eventKey={2} href="#cart">
+              $ 0.00 <FontAwesomeIcon icon={faCartShopping} />
             </Nav.Link>
             <NavDropdown title="User" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">
