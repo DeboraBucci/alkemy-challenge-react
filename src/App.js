@@ -48,7 +48,8 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <CartProvider>
+      {cartIsOpened && <Cart onCloseCart={closeCartHandler} />}
       {!isLoggedIn && (
         <LogIn
           onLogin={loginHandler}
