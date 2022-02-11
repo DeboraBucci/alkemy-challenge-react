@@ -6,19 +6,28 @@ import Search from "./Search";
 import Menu from "./menu/Menu";
 import Bar from "./bar/Bar";
 
-const Home = ({ onLogout }) => {
+const Home = ({ onLogout, onOpenCart }) => {
   const [meals, setMeals] = useState([]);
+  const [isWait, setIsWait] = useState(false);
 
   const searchMealsHandler = (meals) => {
-    setMeals(meals);
+    setTimeout(() => {
+      setMeals(meals);
+      setIsWait(false);
+    }, 1000);
   };
 
   return (
     <main className={classes.home}>
       <BootstrapNavbar onLogout={onLogout} />
       <div className={classes["navbar-space"]}></div>
-      <Search onSearchMeals={searchMealsHandler} />
-      <Meals meals={meals} />
+      <Search
+        onSearchMeals={searchMealsHandler}
+        setIsWait={setIsWait}
+        setMeals={setMeals}
+        meals={meals}
+      />
+      <Meals meals={meals} waiting={isWait} />
       <Menu />
       <Bar />
     </main>
