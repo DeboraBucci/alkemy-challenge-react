@@ -7,6 +7,7 @@ const Search = (props) => {
   const [enteredInput, setEnteredInput] = useState();
   const [selectedDiet, setSelectedDiet] = useState("");
   const [noSugar, setNoSugar] = useState(false);
+  const [noEggs, setNoEggs] = useState(false);
 
   const [meals, setMeals] = useState([]);
 
@@ -69,6 +70,8 @@ const Search = (props) => {
     Axios.get(
       `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&diet=${selectedDiet}${
         noSugar ? `&excludeIngredients=sugar` : ""
+      }${
+        noEggs ? `&excludeIngredients=eggs` : ""
       }&addRecipeInformation=true&addRecipeNutrition=true&number=5&apiKey=d4d951265a704dc49ac9ee0d5a116060`
     ).then(function (response) {
       const mealsArr = [];
@@ -109,6 +112,14 @@ const Search = (props) => {
       setNoSugar(true);
     } else {
       setNoSugar(false);
+    }
+  };
+
+  const eggsHandler = (e) => {
+    if (e.target.checked) {
+      setNoEggs(true);
+    } else {
+      setNoEggs(false);
     }
   };
 
@@ -164,12 +175,20 @@ const Search = (props) => {
           </InputGroup>
         </div>
 
-        <Form.Check
-          onChange={sugarHandler}
-          type="switch"
-          id="custom-switch"
-          label="No Added sugar"
-        />
+        <div className={classes.checkboxes}>
+          <Form.Check
+            onChange={sugarHandler}
+            type="switch"
+            id="custom-switch"
+            label="No Added sugar"
+          />
+          <Form.Check
+            onChange={eggsHandler}
+            type="switch"
+            id="custom-switch"
+            label="No Eggs"
+          />
+        </div>
       </Form>
     </section>
   );
