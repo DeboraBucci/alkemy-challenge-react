@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button, Card } from "react-bootstrap";
 import classes from "./Meals.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Meals = ({ meals }) => {
   return (
@@ -47,9 +49,16 @@ const Meals = ({ meals }) => {
                 </li>
               </ul>
 
-              <Button className={classes.btn} variant="primary">
-                Add to Cart <i className={`fas fa-plus ${classes.icon}`}></i>
-              </Button>
+              <div className={classes.actions}>
+                <Button className={classes["btn-add"]} variant="primary">
+                  Add to Cart
+                  <FontAwesomeIcon className={classes.icon} icon={faCartPlus} />
+                </Button>
+
+                <Button className={classes["btn-info"]} variant="primary">
+                  More Info <i className={`fas fa-plus ${classes.icon}`}></i>
+                </Button>
+              </div>
             </Card.Body>
           </Card>
         ))}
