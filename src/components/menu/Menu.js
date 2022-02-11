@@ -2,6 +2,13 @@ import React from "react";
 import classes from "./Menu.module.css";
 
 const Menu = () => {
+  const dishes = [
+    { id: "dish-1" },
+    { id: "dish-2" },
+    { id: "dish-3" },
+    { id: "dish-4" },
+  ];
+
   return (
     <section className={classes.menu}>
       <div className={classes.container}>
@@ -9,9 +16,15 @@ const Menu = () => {
           <h2 className={classes.title}>My Menu</h2>
         </div>
         <div className={classes.box}>
-          <div className={classes.inner}>
-            <p>you don't have any meals inside your menu.</p>
-          </div>
+          <ul className={classes.inner}>
+            {dishes.map((dish) => {
+              return (
+                <li key={Math.random()}>
+                  <h3>?</h3>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </section>

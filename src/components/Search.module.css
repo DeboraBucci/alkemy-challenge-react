@@ -29,3 +29,15 @@
 .btn {
   background-color: #232323 !important;
 }
+
+.options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.checkboxes {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}

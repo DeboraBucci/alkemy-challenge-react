@@ -6,8 +6,6 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Spinner } from "react-bootstrap";
 
 const Meals = ({ meals, waiting }) => {
-  console.log(meals);
-  console.log(waiting);
   return (
     <section className={classes.meals}>
       <div className={classes["meals-box"]}>

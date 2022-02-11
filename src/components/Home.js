@@ -19,7 +19,7 @@ const Home = ({ onLogout, onOpenCart }) => {
 
   return (
     <main className={classes.home}>
-      <BootstrapNavbar onLogout={onLogout} />
+      <BootstrapNavbar onLogout={onLogout} onOpenCart={onOpenCart} />
       <div className={classes["navbar-space"]}></div>
       <Search
         onSearchMeals={searchMealsHandler}
