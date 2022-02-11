@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./components/Home";
 import LogIn from "./components/login/LogIn";
@@ -11,7 +11,10 @@ function App() {
   const [waiting, setWaiting] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("isLoggedIn") === "1") {
+    if (
+      localStorage.getItem("isLoggedIn") ===
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJjaGFsbGVuZ2VAYWxrZW15Lm9yZyIsImlhdCI6MTUxNjIzOTAyMn0.ilhFPrG0y7olRHifbjvcMOlH7q2YwlegT0f4aSbryBE"
+    ) {
       setIsLoggedIn(true);
     }
   }, []);
@@ -48,7 +51,7 @@ function App() {
   };
 
   return (
-    <CartProvider>
+    <React.Fragment>
       {cartIsOpened && <Cart onCloseCart={closeCartHandler} />}
       {!isLoggedIn && (
         <LogIn
@@ -58,7 +61,7 @@ function App() {
         />
       )}
       {isLoggedIn && <Home onLogout={logoutHandler} />}
-    </div>
+    </React.Fragment>
   );
 }
 
