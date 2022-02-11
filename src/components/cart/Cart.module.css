@@ -1,0 +1,38 @@
+.cart {
+  position: fixed;
+  z-index: 100;
+  background-color: rgb(221, 221, 221);
+  top: 30%;
+  left: 50%;
+  margin-left: -400px;
+  width: 800px;
+  height: 400px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart div {
+  font-size: 4rem;
+  color: black;
+}
+
+.backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 88;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.btn-close {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+}
