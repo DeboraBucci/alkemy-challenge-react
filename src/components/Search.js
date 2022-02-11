@@ -11,8 +11,6 @@ const Search = (props) => {
   const [noSugar, setNoSugar] = useState(false);
   const [noEggs, setNoEggs] = useState(false);
 
-  const [meals, setMeals] = useState([]);
-
   const dropdownOpt = [
     "None",
     "African",
@@ -59,21 +57,20 @@ const Search = (props) => {
   ];
 
   useEffect(() => {
-    if (meals.length < 1) return;
-
-    props.onSearchMeals(meals);
-  }, [meals]);
+    props.onSearchMeals(props.meals);
+  }, [props.meals]);
 
   const submitHandler = (e) => {
     e.preventDefault();
+    props.setIsWait(true);
 
-    if (enteredInput.trim().length < 2) return;
+    if (!enteredInput || enteredInput.trim().length < 2) return;
 
     Axios.get(
       `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&cuisine=${selectedCuisine}
       &diet=${selectedDiet}${noSugar ? `&excludeIngredients=sugar` : ""}${
         noEggs ? `&excludeIngredients=eggs` : ""
-      }&addRecipeInformation=true&addRecipeNutrition=true&number=5&apiKey=d4d951265a704dc49ac9ee0d5a116060`
+      }&addRecipeInformation=true&addRecipeNutrition=true&number=1&apiKey=d4d951265a704dc49ac9ee0d5a116060`
     ).then(function (response) {
       const mealsArr = [];
       console.log(response.data.results);
@@ -95,7 +92,7 @@ const Search = (props) => {
         });
       });
 
-      setMeals(mealsArr);
+      props.setMeals(mealsArr);
     });
   };
 
