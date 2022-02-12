@@ -54,7 +54,12 @@ const Cart = (props) => {
             </p>
           </div>
           <div className={classes.actions}>
-            <button className={classes["btn-close"]}>Close</button>
+            <button
+              onClick={props.onCloseCart}
+              className={classes["btn-close"]}
+            >
+              Close
+            </button>
             <button className={classes["btn-order"]}>
               Order <FontAwesomeIcon icon={faCircleCheck} />
             </button>
