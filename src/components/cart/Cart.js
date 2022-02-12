@@ -13,7 +13,7 @@ import CartItem from "./CartItem";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const hours = +cartCtx.totalTime / 60;
+  const hours = Math.floor(+cartCtx.totalTime / 60);
   const minutes = +cartCtx.totalTime % 60;
 
   const cartItems = (
