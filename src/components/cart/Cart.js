@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import classes from "./Cart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,6 +15,8 @@ const Cart = (props) => {
 
   const hours = Math.floor(+cartCtx.totalTime / 60);
   const minutes = +cartCtx.totalTime % 60;
+
+  const emptyCart = cartCtx.totalDishes.length === 0;
 
   const cartItems = (
     <ul className={classes.list}>
@@ -60,7 +62,12 @@ const Cart = (props) => {
             >
               Close
             </button>
-            <button className={classes["btn-order"]}>
+            <button
+              disabled={emptyCart}
+              className={`${classes["btn-order"]} ${
+                emptyCart && classes.disabled
+              }`}
+            >
               Order <FontAwesomeIcon icon={faCircleCheck} />
             </button>
           </div>

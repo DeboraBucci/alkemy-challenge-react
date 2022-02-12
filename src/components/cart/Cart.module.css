@@ -95,3 +95,11 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+
+.disabled {
+  cursor: not-allowed !important;
+}
+
+.emtpy-list {
+  opacity: 0.7;
+}
