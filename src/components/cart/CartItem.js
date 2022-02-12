@@ -3,7 +3,7 @@ import classes from "./CartItem.module.css";
 
 const CartItem = (props) => {
   return (
-    <li key={props.key} className={classes["cart-item"]}>
+    <li className={classes["cart-item"]}>
       <div className={classes["img-box"]}>
         <img width={200} alt={props.title} src={props.image} />
       </div>
