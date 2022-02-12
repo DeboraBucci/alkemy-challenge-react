@@ -1,0 +1,12 @@
+.meals {
+  background-color: #232323;
+  width: 100%;
+}
+
+.meals-box {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4rem 2rem;
+  gap: 1rem;
+  justify-content: center;
+}
