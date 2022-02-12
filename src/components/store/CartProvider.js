@@ -8,19 +8,18 @@ const defaultCart = {
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    if (state.totalDishes > 4) return;
-    console.log(state);
-    console.log(action);
-
-    const updatedDishes = {
-      title: action.item.name,
-      image: action.item.image,
-    };
-
-    return {
-      totalDishes: [updatedDishes],
-      totalPrice: 0,
-    };
+    if (state.totalDishes.length > 3) {
+      return {
+        totalDishes: state.totalDishes,
+        totalPrice: 0,
+      };
+    } else {
+      const updatedDishes = state.totalDishes.concat(action);
+      return {
+        totalDishes: updatedDishes,
+        totalPrice: 0,
+      };
+    }
   }
 
   return defaultCart;
