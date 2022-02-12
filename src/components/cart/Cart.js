@@ -40,7 +40,7 @@ const Cart = (props) => {
         <div>
           <div className={classes.info}>
             <p>
-              <FontAwesomeIcon icon={faUtensils} /> 4
+              <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalDishes.length}
             </p>
             <p>
               <FontAwesomeIcon icon={faClock} /> 2hs
