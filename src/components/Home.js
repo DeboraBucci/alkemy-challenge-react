@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BootstrapNavbar from "./navbar/BootstrapNavbar";
 import classes from "./Home.module.css";
-import Meals from "./Meals";
+import Meals from "./meals/Meals";
 import Search from "./Search";
 import Menu from "./menu/Menu";
 import Bar from "./bar/Bar";
@@ -9,8 +9,11 @@ import Bar from "./bar/Bar";
 const Home = ({ onLogout, onOpenCart }) => {
   const [meals, setMeals] = useState([]);
   const [isWait, setIsWait] = useState(false);
+  const [sectionShown, setSectionShown] = useState(false);
 
   const searchMealsHandler = (meals) => {
+    setSectionShown(true);
+
     setTimeout(() => {
       setMeals(meals);
       setIsWait(false);
@@ -27,7 +30,7 @@ const Home = ({ onLogout, onOpenCart }) => {
         setMeals={setMeals}
         meals={meals}
       />
-      <Meals meals={meals} waiting={isWait} />
+      {sectionShown && <Meals meals={meals} waiting={isWait} />}
       <Menu />
       <Bar />
     </main>
