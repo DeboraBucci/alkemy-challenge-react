@@ -41,6 +41,15 @@ const Cart = (props) => {
 
         {cartItems}
 
+        {emptyCart && (
+          <ul className={`${classes.list} ${classes["empty-list"]}`}>
+            <CartItem />
+            <CartItem />
+            <CartItem />
+            <CartItem />
+          </ul>
+        )}
+
         <div>
           <div className={classes.info}>
             <p>
