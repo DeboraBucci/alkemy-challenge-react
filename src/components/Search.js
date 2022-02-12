@@ -70,10 +70,9 @@ const Search = (props) => {
       `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&cuisine=${selectedCuisine}
       &diet=${selectedDiet}${noSugar ? `&excludeIngredients=sugar` : ""}${
         noEggs ? `&excludeIngredients=eggs` : ""
-      }&addRecipeInformation=true&addRecipeNutrition=true&number=1&apiKey=e78e76391dfa45abb3ea5a277c917c29`
+      }&addRecipeInformation=true&addRecipeNutrition=true&number=20&apiKey=e78e76391dfa45abb3ea5a277c917c29`
     ).then(function (response) {
       const mealsArr = [];
-      console.log(response.data.results);
       const mealsData = response.data.results;
       mealsData.map((meal) => {
         mealsArr.push({
@@ -86,9 +85,9 @@ const Search = (props) => {
           healthScore: meal.healthScore,
           vegan: meal.vegan,
           vegetarian: meal.vegetarian,
-          price: meal.pricePerServing * meal.pricePerServing,
+          price: meal.pricePerServing,
           time: meal.readyInMinutes,
-          servings: meal.pricePerServing,
+          servings: meal.servings,
         });
       });
 
