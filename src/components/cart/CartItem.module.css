@@ -5,6 +5,7 @@
   height: 250px;
   width: 150px;
   overflow: hidden;
+  position: relative;
 }
 
 .img-box {
@@ -47,4 +48,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.btn-delete {
+  background-color: crimson;
+  color: white;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border: none;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
 }

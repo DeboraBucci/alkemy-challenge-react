@@ -2,6 +2,8 @@ import React from "react";
 import classes from "./CartItem.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+
 const CartItem = (props) => {
   return (
     <li className={`${classes["cart-item"]} ${props.className}`}>
@@ -20,6 +22,12 @@ const CartItem = (props) => {
         {props.price && <p className={classes.price}>Price: $ {props.price}</p>}
         {!props.price && <p>Add a meal!</p>}
       </div>
+
+      {props.title && (
+        <button className={classes["btn-delete"]}>
+          <FontAwesomeIcon icon={faTrashCan} />
+        </button>
+      )}
     </li>
   );
 };
