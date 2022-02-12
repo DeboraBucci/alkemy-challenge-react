@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Card } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,6 +10,7 @@ import {
 
 import { faStar, faClock } from "@fortawesome/free-regular-svg-icons";
 import classes from "./MealItem.module.css";
+import CartContext from "../store/cart-context";
 
 const MealItem = ({ meal }) => {
   const info = [
@@ -20,6 +21,7 @@ const MealItem = ({ meal }) => {
           <span className={classes.strong}>{meal.calories}</span> calories
         </p>
       ),
+      key: "calories",
     },
     {
       icon: <FontAwesomeIcon className={classes.heart} icon={faHeartbeat} />,
@@ -29,6 +31,7 @@ const MealItem = ({ meal }) => {
           <span className={classes.strong}>{meal.healthScore}</span>
         </p>
       ),
+      key: "health score",
     },
     {
       icon: <FontAwesomeIcon className={classes.rate} icon={faStar} />,
@@ -37,6 +40,7 @@ const MealItem = ({ meal }) => {
           <span className={classes.strong}>4.9</span> rating (482)
         </p>
       ),
+      key: "rating",
     },
     {
       icon: <FontAwesomeIcon className={classes.time} icon={faClock} />,
@@ -45,8 +49,20 @@ const MealItem = ({ meal }) => {
           Cooking time <span className={classes.strong}>{meal.time} mins</span>
         </p>
       ),
+      key: "time",
     },
   ];
+
+  const cartCtx = useContext(CartContext);
+
+  const addToCartHandler = () => {
+    cartCtx.addItem({
+      id: meal.id,
+      title: meal.title,
+      image: meal.image,
+      price: meal.price,
+    });
+  };
 
   return (
     <Card
@@ -61,7 +77,7 @@ const MealItem = ({ meal }) => {
 
         <ul className={classes.list}>
           {info.map((mealInfo) => (
-            <li>
+            <li key={mealInfo.key}>
               {mealInfo.icon}
               {mealInfo.text}
             </li>
@@ -69,7 +85,11 @@ const MealItem = ({ meal }) => {
         </ul>
 
         <div className={classes.actions}>
-          <Button className={classes["btn-add"]} variant="primary">
+          <Button
+            onClick={addToCartHandler}
+            className={classes["btn-add"]}
+            variant="primary"
+          >
             Add to Cart
             <FontAwesomeIcon className={classes.icon} icon={faCartPlus} />
           </Button>
