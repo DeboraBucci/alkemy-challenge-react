@@ -14,7 +14,7 @@ const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
   const hours = Math.floor(+cartCtx.totalTime / 60);
-  const minutes = +cartCtx.totalTime % 60;
+  const minutes = Math.floor(+cartCtx.totalTime % 60);
 
   const emptyCart = cartCtx.totalDishes.length === 0;
 
@@ -47,7 +47,8 @@ const Cart = (props) => {
               <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalDishes.length}
             </p>
             <p>
-              <FontAwesomeIcon icon={faClock} /> {hours} h{" "}
+              <FontAwesomeIcon icon={faClock} />{" "}
+              {hours !== 0 ? `${hours} h` : ""}{" "}
               {minutes !== 0 ? `${minutes} min` : ""}
             </p>
             <p>
