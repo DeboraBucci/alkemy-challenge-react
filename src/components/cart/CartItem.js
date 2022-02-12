@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 const CartItem = (props) => {
   return (
-    <li className={classes["cart-item"]}>
+    <li className={`${classes["cart-item"]} ${props.className}`}>
       <div className={classes["img-box"]}>
         {props.image && <img width={200} alt={props.title} src={props.image} />}
         {!props.image && (
@@ -17,7 +17,8 @@ const CartItem = (props) => {
       </div>
       <div className={classes.text}>
         <h3>{props.title}</h3>
-        <p className={classes.price}>Price: $ {props.price}</p>
+        {props.price && <p className={classes.price}>Price: $ {props.price}</p>}
+        {!props.price && <p>Add a meal!</p>}
       </div>
     </li>
   );

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classes from "./Cart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,7 +11,47 @@ import CartContext from "../store/cart-context";
 import CartItem from "./CartItem";
 
 const Cart = (props) => {
+  const [meals, setMeals] = useState([]);
   const cartCtx = useContext(CartContext);
+  const defaultArr = [
+    {
+      item: {
+        id: Math.random(),
+        title: null,
+        image: null,
+      },
+    },
+    {
+      item: {
+        id: Math.random(),
+        title: null,
+        image: null,
+      },
+    },
+    {
+      item: {
+        id: Math.random(),
+        title: null,
+        image: null,
+      },
+    },
+    {
+      item: {
+        id: Math.random(),
+        title: null,
+        image: null,
+      },
+    },
+  ];
+
+  useEffect(() => {
+    cartCtx.totalDishes.map((dish) => {
+      defaultArr.pop();
+      defaultArr.unshift(dish);
+    });
+
+    setMeals(defaultArr);
+  }, []);
 
   const hours = Math.floor(+cartCtx.totalTime / 60);
   const minutes = Math.floor(+cartCtx.totalTime % 60);
@@ -20,12 +60,13 @@ const Cart = (props) => {
 
   const cartItems = (
     <ul className={classes.list}>
-      {cartCtx.totalDishes.map((dish) => (
+      {meals.map((dish) => (
         <CartItem
           key={dish.item.id}
           title={dish.item.title}
           image={dish.item.image}
           price={dish.item.price}
+          className={!dish.item.title && classes["empty-item"]}
         />
       ))}
     </ul>
