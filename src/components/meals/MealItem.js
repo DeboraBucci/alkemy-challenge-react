@@ -1,7 +1,14 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartPlus,
+  faFire,
+  faHeartbeat,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
+
+import { faStar, faClock } from "@fortawesome/free-regular-svg-icons";
 import classes from "./MealItem.module.css";
 
 const MealItem = ({ meal }) => {
@@ -18,26 +25,26 @@ const MealItem = ({ meal }) => {
 
         <ul className={classes.list}>
           <li>
-            <i className={`fas fa-fire-alt ${classes.fire}`}></i>{" "}
+            <FontAwesomeIcon className={classes.fire} icon={faFire} />
             <p>
               <span className={classes.strong}>{meal.calories}</span> calories
             </p>
           </li>
           <li>
-            <i className={`fas fa-heartbeat ${classes.heart}`}></i>
+            <FontAwesomeIcon className={classes.heart} icon={faHeartbeat} />
             <p>
               Health Score{" "}
               <span className={classes.strong}>{meal.healthScore}</span>
             </p>
           </li>
           <li>
-            <i className={`far fa-star ${classes.rate}`}></i>{" "}
+            <FontAwesomeIcon className={classes.rate} icon={faStar} />
             <p>
               <span className={classes.strong}>4.9</span> rating (482)
             </p>
           </li>
           <li>
-            <i className={`far fa-clock ${classes.time}`}></i>{" "}
+            <FontAwesomeIcon className={classes.time} icon={faClock} />
             <p>
               Cooking time{" "}
               <span className={classes.strong}>{meal.time} mins</span>
@@ -52,7 +59,7 @@ const MealItem = ({ meal }) => {
           </Button>
 
           <Button className={classes["btn-info"]} variant="primary">
-            More Info <i className={`fas fa-plus ${classes.icon}`}></i>
+            More Info <FontAwesomeIcon className={classes.icon} icon={faPlus} />
           </Button>
         </div>
       </Card.Body>
