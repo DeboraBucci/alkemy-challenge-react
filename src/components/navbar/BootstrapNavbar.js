@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import brand from "../../imgs/brand.webp";
 import classes from "./BootstrapNavbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import CartContext from "../store/cart-context";
 
 const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
+  const cartCtx = useContext(CartContext);
+
   return (
     <Navbar
       className={classes.navbar}
@@ -24,7 +27,8 @@ const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
           <Nav>
             <Nav.Link href="#meals">Meals</Nav.Link>
             <Nav.Link onClick={onOpenCart} eventKey={2} href="#cart">
-              $ 0.00 <FontAwesomeIcon icon={faCartShopping} />
+              {cartCtx.totalDishes.length} items{" "}
+              <FontAwesomeIcon icon={faCartShopping} />
             </Nav.Link>
             <NavDropdown title="User" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">
