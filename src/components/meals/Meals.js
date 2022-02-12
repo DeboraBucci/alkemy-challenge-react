@@ -24,7 +24,9 @@ const Meals = ({ meals, waiting }) => {
         {!waiting && displayedMeals.length === 0 ? (
           <p>No meals found.</p>
         ) : (
-          displayedMeals.map((meal) => <MealItem meal={meal} />)
+          displayedMeals.map((meal) => (
+            <MealItem key={Math.random()} meal={meal} />
+          ))
         )}
       </div>
     </section>
