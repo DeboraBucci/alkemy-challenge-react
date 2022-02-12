@@ -6,18 +6,27 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Spinner } from "react-bootstrap";
 
 const Meals = ({ meals, waiting }) => {
+  const [displayedMeals, setDisplayedMeals] = useState([]);
+  useEffect(() => {
+    if (waiting) {
+      setDisplayedMeals([]);
+    } else {
+      setDisplayedMeals(meals);
+    }
+  }, [waiting, meals]);
+
   return (
     <section className={classes.meals}>
       <div className={classes["meals-box"]}>
-        {waiting && meals.length === 0 && (
+        {waiting && displayedMeals.length === 0 && (
           <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
           </Spinner>
         )}
-        {!waiting && meals.length === 0 ? (
+        {!waiting && displayedMeals.length === 0 ? (
           <p>No meals found.</p>
         ) : (
-          meals.map((meal) => (
+          displayedMeals.map((meal) => (
             <Card
               key={Math.random()}
               className={classes.card}
