@@ -46,7 +46,7 @@ const Cart = (props) => {
               <FontAwesomeIcon icon={faClock} /> 2hs
             </p>
             <p>
-              <FontAwesomeIcon icon={faDollarSign} /> 350
+              <FontAwesomeIcon icon={faDollarSign} /> {cartCtx.totalPrice}
             </p>
           </div>
           <div className={classes.actions}>

@@ -9,15 +9,17 @@ const defaultCart = {
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
     if (state.totalDishes.length > 3) {
+      const updatedTotalPrice = state.totalPrice;
       return {
         totalDishes: state.totalDishes,
-        totalPrice: 0,
+        totalPrice: updatedTotalPrice,
       };
     } else {
       const updatedDishes = state.totalDishes.concat(action);
+      const updatedTotalPrice = state.totalPrice + action.item.price;
       return {
         totalDishes: updatedDishes,
-        totalPrice: 0,
+        totalPrice: updatedTotalPrice,
       };
     }
   }
