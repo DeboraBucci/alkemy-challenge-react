@@ -2,11 +2,11 @@
   position: fixed;
   z-index: 100;
   background-color: white;
-  top: 30%;
+  top: 20%;
   left: 50%;
   margin-left: -400px;
   width: 800px;
-  height: 400px;
+  height: 500px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,15 @@
 
 .cart div {
   color: #232323;
+}
+
+.title-box {
+  width: 100%;
+  border-bottom: 3px solid rgb(177, 127, 1);
+}
+
+.title-box h3 {
+  padding-left: 40px;
 }
 
 .backdrop {
@@ -45,27 +54,44 @@
 }
 
 .actions button {
-  font-size: 1.2rem;
+  margin-top: 10px;
   font-weight: 500;
   border: none;
-  padding: 1rem 3rem;
+  padding: 0.5rem 2rem;
   border-radius: 24px;
 }
 
 .btn-x {
-  color: rgb(177, 127, 1);
+  color: rgb(153, 28, 53);
 }
 
 .btn-order {
   background-color: rgb(177, 127, 1);
   color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .btn-close {
-  background-color: #dddddd;
+  border: 2px solid rgb(177, 127, 1) !important;
+  color: rgb(177, 127, 1);
+  background-color: transparent;
 }
 
 .info {
   display: flex;
+  justify-content: center;
   gap: 2rem;
+  font-size: 1.4rem;
+}
+
+.info p {
+  border-right: 2px solid rgb(177, 127, 1);
+  padding-right: 2rem;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
