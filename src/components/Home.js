@@ -3,7 +3,6 @@ import BootstrapNavbar from "./navbar/BootstrapNavbar";
 import classes from "./Home.module.css";
 import Meals from "./meals/Meals";
 import Search from "./Search";
-import Menu from "./menu/Menu";
 import Bar from "./bar/Bar";
 
 const Home = ({ onLogout, onOpenCart }) => {
@@ -31,7 +30,6 @@ const Home = ({ onLogout, onOpenCart }) => {
         meals={meals}
       />
       {sectionShown && <Meals meals={meals} waiting={isWait} />}
-      <Menu />
       <Bar />
     </main>
   );
