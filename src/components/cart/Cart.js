@@ -49,7 +49,8 @@ const Cart = (props) => {
               {minutes !== 0 ? `${minutes} min` : ""}
             </p>
             <p>
-              <FontAwesomeIcon icon={faDollarSign} /> {cartCtx.totalPrice}
+              <FontAwesomeIcon icon={faDollarSign} />{" "}
+              {cartCtx.totalPrice.toFixed(2)}
             </p>
           </div>
           <div className={classes.actions}>
