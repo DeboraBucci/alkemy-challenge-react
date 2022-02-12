@@ -3,6 +3,7 @@ import React from "react";
 const CartContext = React.createContext({
   totalDishes: [],
   totalPrice: 0,
+  totalTime: 0,
   addItem: (item) => {},
   removeItem: (id) => {},
 });

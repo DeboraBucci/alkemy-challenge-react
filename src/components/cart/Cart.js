@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import classes from "./Cart.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,7 +12,9 @@ import CartItem from "./CartItem";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-  console.log(cartCtx);
+
+  const hours = +cartCtx.totalTime / 60;
+  const minutes = +cartCtx.totalTime % 60;
 
   const cartItems = (
     <ul className={classes.list}>
@@ -43,7 +45,8 @@ const Cart = (props) => {
               <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalDishes.length}
             </p>
             <p>
-              <FontAwesomeIcon icon={faClock} /> 2hs
+              <FontAwesomeIcon icon={faClock} /> {hours} h{" "}
+              {minutes !== 0 ? `${minutes} min` : ""}
             </p>
             <p>
               <FontAwesomeIcon icon={faDollarSign} /> {cartCtx.totalPrice}

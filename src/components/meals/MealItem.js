@@ -61,6 +61,7 @@ const MealItem = ({ meal }) => {
       title: meal.title,
       image: meal.image,
       price: meal.price,
+      time: meal.time,
     });
   };
 
