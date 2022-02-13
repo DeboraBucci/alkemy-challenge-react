@@ -28,6 +28,19 @@ const cartReducer = (state, action) => {
     }
   }
 
+  if (action.type === "REMOVE") {
+    const updatedItems = state.totalDishes.filter(
+      (item) => item.item.id !== action.id
+    );
+
+    console.log(state.totalDishes);
+    return {
+      totalDishes: updatedItems,
+      totalPrice: 0,
+      totalTime: 0,
+    };
+  }
+
   return defaultCart;
 };
 
