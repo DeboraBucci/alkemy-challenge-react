@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import classes from "./Bar.module.css";
 import CartContext from "../store/cart-context";
 import { faUtensils, faHeartPulse } from "@fortawesome/free-solid-svg-icons";
-import { faClock } from "@fortawesome/free-regular-svg-icons";
+import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Bar = () => {
@@ -26,7 +26,10 @@ const Bar = () => {
         {cartCtx.totalHealthScore / cartCtx.totalDishes.length}
       </p>
       <p>TOTAL : ${Math.round(cartCtx.totalPrice)}</p>
-      <button>Order</button>
+
+      <button className={classes["btn-order"]}>
+        Order <FontAwesomeIcon icon={faCircleCheck} />
+      </button>
     </div>
   );
 };
