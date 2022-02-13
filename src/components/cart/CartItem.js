@@ -24,7 +24,7 @@ const CartItem = (props) => {
       </div>
 
       {props.title && (
-        <button className={classes["btn-delete"]}>
+        <button onClick={props.onRemove} className={classes["btn-delete"]}>
           <FontAwesomeIcon icon={faTrashCan} />
         </button>
       )}
