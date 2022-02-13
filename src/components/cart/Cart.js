@@ -5,6 +5,7 @@ import {
   faXmark,
   faUtensils,
   faDollarSign,
+  faHeartPulse,
 } from "@fortawesome/free-solid-svg-icons";
 import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 import CartContext from "../store/cart-context";
@@ -80,6 +81,12 @@ const Cart = (props) => {
                 <FontAwesomeIcon icon={faClock} />{" "}
                 {hours !== 0 ? `${hours} h` : ""}{" "}
                 {minutes !== 0 ? `${minutes} min` : ""}
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faHeartPulse} />{" "}
+                {Math.round(
+                  cartCtx.totalHealthScore / cartCtx.totalDishes.length
+                )}
               </p>
               <p>
                 <FontAwesomeIcon icon={faDollarSign} />{" "}
