@@ -11,6 +11,8 @@
 .img-box {
   height: 60%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .cart-item h3 {
