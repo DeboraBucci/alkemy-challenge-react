@@ -13,7 +13,7 @@ const cartReducer = (state, action) => {
       return {
         totalDishes: state.totalDishes,
         totalPrice: state.totalPrice,
-        updatedTotalTime: state.totalTime,
+        totalTime: state.totalTime,
       };
     } else {
       const updatedDishes = state.totalDishes.concat(action);
