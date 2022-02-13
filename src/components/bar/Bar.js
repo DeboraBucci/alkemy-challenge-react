@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import classes from "./Bar.module.css";
 import CartContext from "../store/cart-context";
+import { faUtensils, faHeartPulse } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Bar = () => {
   const cartCtx = useContext(CartContext);
@@ -11,15 +14,18 @@ const Bar = () => {
 
   return (
     <div className={classes.bar}>
-      <p>Total: ${Math.round(cartCtx.totalPrice)}</p>
       <p>
-        Preparation Time: {hours ? `${hours} h` : ""}{" "}
+        <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalDishes.length}
+      </p>
+      <p>
+        <FontAwesomeIcon icon={faClock} /> {hours ? `${hours} h` : ""}{" "}
         {minutes ? `${minutes} min` : ""}
       </p>
       <p>
-        Health Score: {cartCtx.totalHealthScore / cartCtx.totalDishes.length}
+        <FontAwesomeIcon icon={faHeartPulse} />{" "}
+        {cartCtx.totalHealthScore / cartCtx.totalDishes.length}
       </p>
-      <p>Dishes: {cartCtx.totalDishes.length}</p>
+      <p>TOTAL : ${Math.round(cartCtx.totalPrice)}</p>
       <button>Order</button>
     </div>
   );
