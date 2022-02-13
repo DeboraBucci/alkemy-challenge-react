@@ -70,20 +70,23 @@ const Cart = (props) => {
         {cartItems}
 
         <div>
-          <div className={classes.info}>
-            <p>
-              <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalDishes.length}
-            </p>
-            <p>
-              <FontAwesomeIcon icon={faClock} />{" "}
-              {hours !== 0 ? `${hours} h` : ""}{" "}
-              {minutes !== 0 ? `${minutes} min` : ""}
-            </p>
-            <p>
-              <FontAwesomeIcon icon={faDollarSign} />{" "}
-              {cartCtx.totalPrice.toFixed(2)}
-            </p>
-          </div>
+          {!emptyCart && (
+            <div className={classes.info}>
+              <p>
+                <FontAwesomeIcon icon={faUtensils} />{" "}
+                {cartCtx.totalDishes.length}
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faClock} />{" "}
+                {hours !== 0 ? `${hours} h` : ""}{" "}
+                {minutes !== 0 ? `${minutes} min` : ""}
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faDollarSign} />{" "}
+                {cartCtx.totalPrice.toFixed(2)}
+              </p>
+            </div>
+          )}
           <div className={classes.actions}>
             <button
               onClick={props.onCloseCart}

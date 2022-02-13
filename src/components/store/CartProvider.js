@@ -33,11 +33,20 @@ const cartReducer = (state, action) => {
       (item) => item.item.id !== action.id
     );
 
+    const index = state.totalDishes.findIndex(
+      (item) => item.item.id === action.id
+    );
+
+    const deletedItem = state.totalDishes[index].item;
+
+    const updatedTotalPrice = state.totalPrice - deletedItem.price;
+    const updatedTotalTime = state.totalTime - deletedItem.time;
+
     console.log(state.totalDishes);
     return {
       totalDishes: updatedItems,
-      totalPrice: 0,
-      totalTime: 0,
+      totalPrice: updatedTotalPrice,
+      totalTime: updatedTotalTime,
     };
   }
 
