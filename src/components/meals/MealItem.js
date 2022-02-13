@@ -62,6 +62,7 @@ const MealItem = ({ meal }) => {
       image: meal.image,
       price: meal.price,
       time: meal.time,
+      healthScore: meal.healthScore,
     });
   };
 
