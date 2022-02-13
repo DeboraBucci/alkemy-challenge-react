@@ -13,36 +13,16 @@ import CartItem from "./CartItem";
 const Cart = (props) => {
   const [meals, setMeals] = useState([]);
   const cartCtx = useContext(CartContext);
-  const defaultArr = [
-    {
-      item: {
-        id: Math.random(),
-        title: null,
-        image: null,
-      },
+
+  const defaultObj = {
+    item: {
+      id: null,
+      title: null,
+      image: null,
     },
-    {
-      item: {
-        id: Math.random(),
-        title: null,
-        image: null,
-      },
-    },
-    {
-      item: {
-        id: Math.random(),
-        title: null,
-        image: null,
-      },
-    },
-    {
-      item: {
-        id: Math.random(),
-        title: null,
-        image: null,
-      },
-    },
-  ];
+  };
+
+  const defaultArr = [defaultObj, defaultObj, defaultObj, defaultObj];
 
   useEffect(() => {
     cartCtx.totalDishes.map((dish) => {
@@ -51,22 +31,29 @@ const Cart = (props) => {
     });
 
     setMeals(defaultArr);
-  }, []);
+  }, [cartCtx]);
 
   const hours = Math.floor(+cartCtx.totalTime / 60);
   const minutes = Math.floor(+cartCtx.totalTime % 60);
 
   const emptyCart = cartCtx.totalDishes.length === 0;
 
+  const cartItemRemoveHandler = (id) => {
+    cartCtx.removeItem(id);
+  };
+
   const cartItems = (
     <ul className={classes.list}>
       {meals.map((dish) => (
         <CartItem
-          key={dish.item.id}
+          key={dish.item.id || Math.random()}
           title={dish.item.title}
           image={dish.item.image}
           price={dish.item.price}
           className={!dish.item.title && classes["empty-item"]}
+          onRemove={
+            cartItemRemoveHandler.bind(null, dish.item.id) || Math.random()
+          }
         />
       ))}
     </ul>
@@ -81,15 +68,6 @@ const Cart = (props) => {
         </div>
 
         {cartItems}
-
-        {emptyCart && (
-          <ul className={`${classes.list} ${classes["empty-list"]}`}>
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
-          </ul>
-        )}
 
         <div>
           <div className={classes.info}>
