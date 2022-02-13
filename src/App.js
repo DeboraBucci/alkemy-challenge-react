@@ -61,7 +61,7 @@ function App() {
   };
 
   return (
-    <React.Fragment>
+    <div className="app">
       {cartIsOpened && <Cart onCloseCart={closeCartHandler} />}
       {!isLoggedIn && (
         <LogIn
@@ -73,7 +73,7 @@ function App() {
       {isLoggedIn && (
         <Home onLogout={logoutHandler} onOpenCart={openCartHandler} />
       )}
-    </React.Fragment>
+    </div>
   );
 }
 
