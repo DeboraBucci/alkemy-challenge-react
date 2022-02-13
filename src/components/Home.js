@@ -8,11 +8,8 @@ import Bar from "./bar/Bar";
 const Home = ({ onLogout, onOpenCart }) => {
   const [meals, setMeals] = useState([]);
   const [isWait, setIsWait] = useState(false);
-  const [sectionShown, setSectionShown] = useState(false);
 
   const searchMealsHandler = (meals) => {
-    setSectionShown(true);
-
     setTimeout(() => {
       setMeals(meals);
       setIsWait(false);
@@ -29,7 +26,7 @@ const Home = ({ onLogout, onOpenCart }) => {
         setMeals={setMeals}
         meals={meals}
       />
-      {sectionShown && <Meals meals={meals} waiting={isWait} />}
+      <Meals meals={meals} waiting={isWait} />
       <Bar />
     </main>
   );
