@@ -83,8 +83,7 @@ const Search = (props) => {
             meal.nutrition.nutrients[0].unit
           }`,
           healthScore: meal.healthScore,
-          vegan: meal.vegan,
-          vegetarian: meal.vegetarian,
+          diets: meal.diets,
           price: meal.pricePerServing,
           time: meal.readyInMinutes,
           servings: meal.servings,

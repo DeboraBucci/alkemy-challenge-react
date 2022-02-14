@@ -75,7 +75,12 @@ const MealItem = ({ meal }) => {
       <Card.Img className={classes.img} variant="top" src={meal.image} />
       <Card.Body className={classes["card-body"]}>
         <Card.Title>{meal.title}</Card.Title>
-        <Card.Text>{meal.text}</Card.Text>
+
+        <ul className={classes["diet-list"]}>
+          {meal.diets.map((diet) => (
+            <li key={diet}>{diet}</li>
+          ))}
+        </ul>
 
         <ul className={classes.list}>
           {info.map((mealInfo) => (

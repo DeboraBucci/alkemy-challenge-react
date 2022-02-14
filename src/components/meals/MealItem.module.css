@@ -11,6 +11,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 330px;
+}
+
+.card-body * {
+  margin: 0 !important;
 }
 
 .img {
@@ -115,4 +120,19 @@
 
 .meals-box {
   color: white !important;
+}
+
+.diet-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: white;
+}
+
+.diet-list li {
+  padding: 2px 5px;
+  border-radius: 14px;
+  background-color: green;
 }
