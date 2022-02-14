@@ -84,9 +84,10 @@ const Cart = (props) => {
               </p>
               <p>
                 <FontAwesomeIcon icon={faHeartPulse} />{" "}
-                {Math.round(
-                  cartCtx.totalHealthScore / cartCtx.totalDishes.length
-                )}
+                {!emptyCart &&
+                  Math.round(
+                    cartCtx.totalHealthScore / cartCtx.totalDishes.length
+                  )}
               </p>
               <p>
                 <FontAwesomeIcon icon={faDollarSign} />{" "}
