@@ -4,14 +4,17 @@
   align-items: center;
   gap: 2rem;
   position: fixed;
-  bottom: 5%;
-  left: 25%;
-  right: 25%;
+  bottom: 0;
+  width: 1000px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
   background-color: rgb(65, 64, 68);
   padding: 1rem;
   border-radius: 7px;
   color: white;
   max-width: 900px;
+  z-index: 444;
 }
 
 .bar p {
