@@ -70,7 +70,7 @@ const Search = (props) => {
       `https://api.spoonacular.com/recipes/complexSearch?query=${enteredInput.trim()}&cuisine=${selectedCuisine}
       &diet=${selectedDiet}${noSugar ? `&excludeIngredients=sugar` : ""}${
         noEggs ? `&excludeIngredients=eggs` : ""
-      }&addRecipeInformation=true&addRecipeNutrition=true&number=20&apiKey=e78e76391dfa45abb3ea5a277c917c29`
+      }&addRecipeInformation=true&addRecipeNutrition=true&number=100&apiKey=e78e76391dfa45abb3ea5a277c917c29`
     ).then(function (response) {
       const mealsArr = [];
       const mealsData = response.data.results;
