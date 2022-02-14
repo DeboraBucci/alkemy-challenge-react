@@ -15,9 +15,42 @@
 
 .pag-num li a {
   color: crimson !important;
+  margin: 0 !important;
+  text-align: center;
 }
 
-.pag-num li span {
+.pag-num li span .active {
   background-color: crimson !important;
   border: 1px solid crimson !important;
+}
+
+.pag-num li a:last-child {
+  border-right: none;
+}
+
+.pag-num li,
+.pag-num button {
+  width: 45px;
+}
+
+.active {
+  background-color: crimson !important;
+}
+
+.pag-num button {
+  border: none;
+  background-color: white;
+  color: crimson;
+  border-left: 1px solid #dee2e6;
+  font-size: 0.8rem;
+}
+
+.first {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.last {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
 }
