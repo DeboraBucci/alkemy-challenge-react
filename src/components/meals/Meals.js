@@ -23,12 +23,12 @@ const Meals = ({ meals, waiting }) => {
   return (
     <section className={classes.meals}>
       {waiting && displayedMeals.length === 0 && (
-        <Spinner animation="border" role="status">
+        <Spinner className={classes.spinner} animation="border" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       )}
       {!waiting && displayedMeals.length === 0 ? (
-        <p>No meals found.</p>
+        <p className={classes["no-meals"]}>No meals found.</p>
       ) : (
         <MealPagination displayedMeals={displayedMeals} />
       )}
