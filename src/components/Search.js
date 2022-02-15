@@ -74,6 +74,7 @@ const Search = (props) => {
     ).then(function (response) {
       const mealsArr = [];
       const mealsData = response.data.results;
+
       mealsData.map((meal) => {
         mealsArr.push({
           id: meal.id,
@@ -87,6 +88,10 @@ const Search = (props) => {
           price: meal.pricePerServing,
           time: meal.readyInMinutes,
           servings: meal.servings,
+          ingredients: meal.nutrition.ingredients,
+          caloricBreakdown: meal.nutrition.caloricBreakdown,
+          summary: meal.summary,
+          nutrients: meal.nutrition.nutrients,
         });
       });
 
