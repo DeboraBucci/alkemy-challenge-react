@@ -12,7 +12,7 @@ import { faStar, faClock } from "@fortawesome/free-regular-svg-icons";
 import classes from "./MealItem.module.css";
 import CartContext from "../store/cart-context";
 
-const MealItem = ({ meal }) => {
+const MealItem = ({ meal, setInfoHandler }) => {
   const info = [
     {
       icon: <FontAwesomeIcon className={classes.fire} icon={faFire} />,
@@ -66,6 +66,24 @@ const MealItem = ({ meal }) => {
     });
   };
 
+  const moreInfoHandler = () => {
+    setInfoHandler({
+      id: meal.id,
+      title: meal.title,
+      image: meal.image,
+      price: meal.price,
+      time: meal.time,
+      healthScore: meal.healthScore,
+      calories: meal.calories,
+      diets: meal.diets,
+      servings: meal.servings,
+      caloricBreakdown: meal.caloricBreakdown,
+      ingredients: meal.ingredients,
+      summary: meal.summary,
+      nutrients: meal.nutrients,
+    });
+  };
+
   return (
     <Card
       key={Math.random()}
@@ -101,7 +119,11 @@ const MealItem = ({ meal }) => {
             <FontAwesomeIcon className={classes.icon} icon={faCartPlus} />
           </Button>
 
-          <Button className={classes["btn-info"]} variant="primary">
+          <Button
+            onClick={moreInfoHandler}
+            className={classes["btn-info"]}
+            variant="primary"
+          >
             More Info <FontAwesomeIcon className={classes.icon} icon={faPlus} />
           </Button>
         </div>

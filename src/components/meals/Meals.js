@@ -2,9 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import classes from "./Meals.module.css";
 import { Spinner } from "react-bootstrap";
 import MealPagination from "./MealPagination";
+import MoreInfo from "./MoreInfo";
 
 const Meals = ({ meals, waiting }) => {
   const [displayedMeals, setDisplayedMeals] = useState([]);
+  const [info, setInfo] = useState({});
+  const [infoIsShown, setInfoIsShown] = useState(false);
 
   useEffect(() => {
     if (waiting) {
@@ -20,6 +23,11 @@ const Meals = ({ meals, waiting }) => {
     }
   }, [waiting, meals]);
 
+  const setInfoHandler = (info) => {
+    setInfo(info);
+    setInfoIsShown(true);
+  };
+
   return (
     <section className={classes.meals}>
       {waiting && displayedMeals.length === 0 && (
@@ -30,8 +38,12 @@ const Meals = ({ meals, waiting }) => {
       {!waiting && displayedMeals.length === 0 ? (
         <p className={classes["no-meals"]}>No meals found.</p>
       ) : (
-        <MealPagination displayedMeals={displayedMeals} />
+        <MealPagination
+          setInfoHandler={setInfoHandler}
+          displayedMeals={displayedMeals}
+        />
       )}
+      {infoIsShown && <MoreInfo info={info} setInfoIsShown={setInfoIsShown} />}
     </section>
   );
 };

@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const MealPagination = ({ displayedMeals }) => {
+const MealPagination = ({ displayedMeals, setInfoHandler }) => {
   let items = [];
   let current = 0;
 
@@ -66,7 +66,11 @@ const MealPagination = ({ displayedMeals }) => {
               <div className={classes.pagination}>
                 <div className={classes["chunk-meals"]}>
                   {mealPag.map((meal) => (
-                    <MealItem key={Math.random()} meal={meal} />
+                    <MealItem
+                      setInfoHandler={setInfoHandler}
+                      key={Math.random()}
+                      meal={meal}
+                    />
                   ))}
                 </div>
                 <Pagination
