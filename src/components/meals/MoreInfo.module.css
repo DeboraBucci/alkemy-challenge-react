@@ -1,0 +1,159 @@
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 555;
+}
+
+.modal {
+  width: 900px;
+  height: 650px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 666;
+  background-color: white;
+  color: #232323;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+}
+
+.modal * {
+  margin: 0 !important;
+}
+
+.modal ul {
+  list-style: none;
+}
+
+.modal h4 {
+  font-size: 1rem;
+}
+
+.img-box {
+  height: 100%;
+  width: 30%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-box:before {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  width: 30%;
+}
+
+.img-box img {
+  height: 100%;
+}
+
+.content {
+  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.title {
+  grid-column: 1/3;
+  background-color: #232323;
+  color: white;
+  padding: 1rem 4rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.content p {
+  grid-column: 1/3;
+  color: #232323;
+}
+
+.btn-add {
+  grid-column: 1/3;
+  background-color: rgb(177, 127, 1);
+  color: white;
+  border: none;
+  padding: 1rem;
+}
+
+.btn-delete {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  color: rgb(177, 127, 1);
+  font-size: 2rem;
+  right: 20px;
+  top: 15px;
+}
+
+.ingredients {
+  padding: 0 1rem !important;
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: auto;
+}
+
+.ingredients h4 {
+  padding: 3px;
+  grid-column: 1/3;
+  text-align: center;
+  background-color: #232323;
+  color: white;
+}
+
+.ingredients li {
+  padding: 10px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.ingredients li:last-child,
+.ingredients li:nth-last-child(1):nth-child(odd),
+.ingredients li:nth-last-child(2):nth-child(even),
+.ingredients li:nth-last-child(1):nth-child(even) {
+  border: none !important;
+}
+
+.nutrients p {
+  margin: 0 !important;
+}
+
+.nutrients {
+  line-height: 10px;
+  padding: 5px 1rem;
+  grid-column: 1/3;
+  display: flex;
+  flex-direction: row;
+  font-size: 0.6rem;
+}
+
+.nutrients p,
+.nutrients span {
+  color: #6e6e6e;
+}
+
+.icon {
+  color: green;
+}
+
+.some-info {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+  color: rgb(61, 61, 61);
+}
+
+.some-info svg {
+  color: rgb(177, 127, 1);
+}
