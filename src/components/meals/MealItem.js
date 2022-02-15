@@ -57,7 +57,7 @@ const MealItem = ({ meal, setInfoHandler }) => {
 
   const addToCartHandler = () => {
     cartCtx.addItem({
-      id: meal.id,
+      id: meal.id + Math.random(),
       title: meal.title,
       image: meal.image,
       price: meal.price,
