@@ -3,14 +3,20 @@ import classes from "./Search.module.css";
 import Axios from "axios";
 import SearchForm from "./SearchForm";
 
-const Search = (props) => {
+const Search = ({
+  onSearchMeals,
+  meals,
+  setIsWait,
+  setIsMealsShown,
+  setMeals,
+}) => {
   useEffect(() => {
-    props.onSearchMeals(props.meals);
-  }, [props.meals]);
+    onSearchMeals(meals);
+  }, [meals, onSearchMeals]);
 
   const onSubmit = (text, preferences) => {
-    props.setIsWait(true);
-    props.setIsMealsShown(true);
+    setIsWait(true);
+    setIsMealsShown(true);
 
     const cuisine = `&cuisine=${preferences.selectedCuisine}`;
     const diet = `&diet=${preferences.selectedDiet}`;
@@ -24,7 +30,7 @@ const Search = (props) => {
       const mealsArr = [];
       const mealsData = response.data.results;
 
-      mealsData.map((meal) => {
+      mealsData.forEach((meal) => {
         mealsArr.push({
           id: meal.id,
           title: meal.title,
@@ -44,7 +50,7 @@ const Search = (props) => {
         });
       });
 
-      props.setMeals(mealsArr);
+      setMeals(mealsArr);
     });
   };
 
