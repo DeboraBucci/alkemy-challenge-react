@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0 0 0;
+}
+
+.btn-page {
+  width: 45px;
+  color: crimson;
+  background-color: white;
+  border: 1px solid #dee2e6;
+  margin: 0 0 0 -1px;
+}
+
+.btn-first {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.btn-last {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
