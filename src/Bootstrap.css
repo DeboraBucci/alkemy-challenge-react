@@ -1,0 +1,31 @@
+/* BUTTONS
+------------------------------------------------------- */
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+/* PAGINATION
+------------------------------------------------------- */
+.page-link {
+  color: crimson !important;
+  text-align: center;
+}
+
+.page-link {
+  width: 45px;
+}
+
+.page-link:focus {
+  box-shadow: 0 0 0 0.25rem rgba(220, 20, 60, 0.4) !important;
+}
+
+.page-item.active .page-link {
+  color: white !important;
+  background-color: crimson !important;
+  border-color: crimson !important;
+  transform: scale(1.12);
+}
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
