@@ -4,11 +4,13 @@ import classes from "./Home.module.css";
 import Meals from "./meals/Meals";
 import Search from "./search/Search";
 import Bar from "./bar/Bar";
+import Cart from "./cart/Cart";
 
-const Home = ({ onLogout, onOpenCart }) => {
+const Home = ({ onLogout }) => {
   const [meals, setMeals] = useState([]);
   const [isMealsShown, setIsMealsShown] = useState(null);
   const [isWait, setIsWait] = useState(false);
+  const [cartIsOpened, setCartIsOpened] = useState(false);
 
   const searchMealsHandler = (meals) => {
     setTimeout(() => {
@@ -17,9 +19,17 @@ const Home = ({ onLogout, onOpenCart }) => {
     }, 2000);
   };
 
+  const openCartHandler = () => {
+    setCartIsOpened(true);
+  };
+
+  const closeCartHandler = () => {
+    setCartIsOpened(false);
+  };
+
   return (
     <main className={classes.home}>
-      <BootstrapNavbar onLogout={onLogout} onOpenCart={onOpenCart} />
+      <BootstrapNavbar onLogout={onLogout} onOpenCart={openCartHandler} />
       <div className={classes["navbar-space"]}></div>
       <Search
         setIsMealsShown={setIsMealsShown}
@@ -30,6 +40,7 @@ const Home = ({ onLogout, onOpenCart }) => {
       />
       {isMealsShown && <Meals meals={meals} waiting={isWait} />}
       <Bar />
+      {cartIsOpened && <Cart onCloseCart={closeCartHandler} />}
     </main>
   );
 };
