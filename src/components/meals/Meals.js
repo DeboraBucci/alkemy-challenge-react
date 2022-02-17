@@ -4,12 +4,12 @@ import { Spinner } from "react-bootstrap";
 import classes from "./Meals.module.css";
 
 import MoreInfo from "./MoreInfo";
-import MealPagination from "./MealPagination";
+import AllDisplayedMeals from "./AllDisplayedMeals";
 
 const Meals = ({ meals, waiting }) => {
-  const [displayedMeals, setDisplayedMeals] = useState([]);
-  const [info, setInfo] = useState({});
-  const [infoIsShown, setInfoIsShown] = useState(false);
+  const [mealsList, setmealsList] = useState([]);
+  const [extraInfo, setExtraInfo] = useState({});
+  const [extraInfoIsShown, setExtraInfoIsShown] = useState(false);
 
   let chunk = 5;
 
@@ -19,30 +19,30 @@ const Meals = ({ meals, waiting }) => {
       arr.push(meals.slice(i, i + chunk));
     }
 
-    waiting ? setDisplayedMeals([]) : setDisplayedMeals(arr);
+    waiting ? setmealsList([]) : setmealsList(arr);
   }, [waiting, meals]);
 
   const setInfoHandler = (info) => {
-    setInfo(info);
-    setInfoIsShown(true);
+    setExtraInfo(info);
+    setExtraInfoIsShown(true);
   };
 
   // CONTENT
   // -----------------------------------------------------------------------
   let content = <p></p>;
 
-  if (waiting && displayedMeals.length === 0) {
+  if (waiting && mealsList.length === 0) {
     content = (
       <Spinner className={classes.spinner} animation="border" role="status">
         <span className="visually-hidden">Loading...</span>
       </Spinner>
     );
-  } else if (!waiting && displayedMeals.length === 0) {
+  } else if (!waiting && mealsList.length === 0) {
     content = <p className={classes["no-meals"]}>No meals found.</p>;
   } else {
     content = (
-      <MealPagination
-        displayedMeals={displayedMeals}
+      <AllDisplayedMeals
+        mealsList={mealsList}
         setInfoHandler={setInfoHandler}
       />
     );
@@ -53,7 +53,9 @@ const Meals = ({ meals, waiting }) => {
   return (
     <section className={classes.meals}>
       {content}
-      {infoIsShown && <MoreInfo info={info} setInfoIsShown={setInfoIsShown} />}
+      {extraInfoIsShown && (
+        <MoreInfo info={extraInfo} setInfoIsShown={setExtraInfoIsShown} />
+      )}
     </section>
   );
 };
