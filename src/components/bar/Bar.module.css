@@ -1,20 +1,25 @@
 .bar {
+  position: fixed;
+  z-index: 100;
+
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  position: fixed;
+
   bottom: 0;
-  width: 1000px;
   left: 50%;
-  right: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
+  transition: all 1s;
+
   background-color: rgb(65, 64, 68);
-  padding: 1rem;
-  border-radius: 7px;
   color: white;
-  max-width: 900px;
-  z-index: 444;
+
+  width: 900px;
+  padding: 1rem;
+
+  border-top-right-radius: 14px;
+  border-top-left-radius: 14px;
 }
 
 .bar p {
@@ -22,18 +27,58 @@
 }
 
 .btn-order {
-  border-radius: 24px;
-  padding: 10px 20px;
-  border: none;
-  font-weight: 500;
-  text-transform: uppercase;
-  background-color: rgb(177, 127, 1);
-  color: white;
   display: flex;
   align-items: center;
   gap: 10px;
+
+  border: none;
+  border-radius: 24px;
+
+  padding: 10px 20px;
+
+  font-weight: 500;
+  text-transform: uppercase;
+
+  background-color: rgb(177, 127, 1);
+  color: white;
 }
 
 .disabled {
   cursor: not-allowed !important;
+}
+
+.btn-close {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+
+  font-size: 1.3rem;
+
+  color: white;
+}
+
+.btn-open {
+  position: fixed;
+
+  bottom: 0;
+  right: 30%;
+
+  transition: all 1s;
+
+  background-color: crimson;
+  color: white;
+
+  font-size: 1.3rem;
+  padding: 0 0.5rem;
+
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+
+.closed {
+  bottom: -100px;
+}
+
+.hide {
+  bottom: -100px;
 }

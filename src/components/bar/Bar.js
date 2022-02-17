@@ -1,13 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
 import classes from "./Bar.module.css";
 import CartContext from "../store/cart-context";
-import { faUtensils, faHeartPulse } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUtensils,
+  faHeartPulse,
+  faAngleDown,
+  faAngleUp,
+} from "@fortawesome/free-solid-svg-icons";
 import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Bar = () => {
-  const cartCtx = useContext(CartContext);
   const [isEmpty, setIsEmpty] = useState(true);
+  const [isBarOpened, setIsBarOpened] = useState(false);
+
+  const cartCtx = useContext(CartContext);
+
+  const hours = Math.floor(+cartCtx.totalTime / 60);
+  const minutes = Math.floor(+cartCtx.totalTime % 60);
 
   useEffect(() => {
     if (cartCtx.totalDishes.length === 0) {
@@ -18,34 +28,54 @@ const Bar = () => {
     setIsEmpty(false);
   }, [cartCtx]);
 
-  const hours = Math.floor(+cartCtx.totalTime / 60);
-  const minutes = Math.floor(+cartCtx.totalTime % 60);
+  const openBarHandler = () => {
+    setIsBarOpened(true);
+  };
+
+  const closeBarHandler = () => {
+    setIsBarOpened(false);
+  };
 
   return (
-    <div className={classes.bar}>
-      <p>
-        <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalDishes.length}
-      </p>
-      <p>
-        <FontAwesomeIcon icon={faClock} /> {hours ? `${hours} h` : ""}{" "}
-        {minutes ? `${minutes} min` : ""}
-        {!hours && !minutes && "0 hs"}
-      </p>
-      <p>
-        <FontAwesomeIcon icon={faHeartPulse} />{" "}
-        {!isEmpty
-          ? Math.round(cartCtx.totalHealthScore / cartCtx.totalDishes.length)
-          : "0"}
-      </p>
-      <p>TOTAL : ${Math.round(cartCtx.totalPrice)}</p>
-
+    <React.Fragment>
       <button
-        className={`${classes["btn-order"]} ${isEmpty && classes.disabled}`}
-        disabled={isEmpty}
+        className={`${classes["btn-open"]} ${isBarOpened && classes.hide}`}
+        onClick={openBarHandler}
       >
-        Order <FontAwesomeIcon icon={faCircleCheck} />
+        <FontAwesomeIcon icon={faAngleUp} />
       </button>
-    </div>
+      <div className={`${classes.bar} ${!isBarOpened && classes.closed}`}>
+        <button onClick={closeBarHandler}>
+          <FontAwesomeIcon
+            className={classes["btn-close"]}
+            icon={faAngleDown}
+          />
+        </button>
+
+        <p>
+          <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalDishes.length}
+        </p>
+        <p>
+          <FontAwesomeIcon icon={faClock} /> {hours ? `${hours} h` : ""}{" "}
+          {minutes ? `${minutes} min` : ""}
+          {!hours && !minutes && "0 hs"}
+        </p>
+        <p>
+          <FontAwesomeIcon icon={faHeartPulse} />{" "}
+          {!isEmpty
+            ? Math.round(cartCtx.totalHealthScore / cartCtx.totalDishes.length)
+            : "0"}
+        </p>
+        <p>TOTAL : ${Math.round(cartCtx.totalPrice)}</p>
+
+        <button
+          className={`${classes["btn-order"]} ${isEmpty && classes.disabled}`}
+          disabled={isEmpty}
+        >
+          Order <FontAwesomeIcon icon={faCircleCheck} />
+        </button>
+      </div>
+    </React.Fragment>
   );
 };
 
