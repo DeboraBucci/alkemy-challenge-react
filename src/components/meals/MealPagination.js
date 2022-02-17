@@ -78,20 +78,26 @@ const MealPagination = ({ displayedMeals, setInfoHandler }) => {
                   className={classes["pag-num"]}
                 >
                   <button
-                    className={classes.first}
+                    className={`${classes["btn-first"]} ${classes["btn-page"]}`}
                     onClick={firstPaginationHandler}
                   >
                     <FontAwesomeIcon icon={faAnglesLeft} />
                   </button>
-                  <button onClick={prevPaginationHandler}>
+                  <button
+                    className={`${classes["btn-page"]}`}
+                    onClick={prevPaginationHandler}
+                  >
                     <FontAwesomeIcon icon={faAngleLeft} />
                   </button>
                   {items}
-                  <button onClick={nextPaginationHandler}>
+                  <button
+                    className={` ${classes["btn-page"]}`}
+                    onClick={nextPaginationHandler}
+                  >
                     <FontAwesomeIcon icon={faAngleRight} />
                   </button>
                   <button
-                    className={classes.last}
+                    className={`${classes["btn-last"]} ${classes["btn-page"]}`}
                     onClick={lastPaginationHandler}
                   >
                     <FontAwesomeIcon icon={faAnglesRight} />

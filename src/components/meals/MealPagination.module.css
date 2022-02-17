@@ -13,44 +13,24 @@
   gap: 1rem;
 }
 
-.pag-num li a {
-  color: crimson !important;
-  margin: 0 !important;
-  text-align: center;
-}
-
-.pag-num li span .active {
-  background-color: crimson !important;
-  border: 1px solid crimson !important;
-}
-
-.pag-num li a:last-child {
-  border-right: none;
-}
-
-.pag-num li,
-.pag-num button {
+.btn-page {
   width: 45px;
 }
 
-.active {
-  background-color: crimson !important;
-}
-
-.pag-num button {
+.btn-page {
   border: none;
   background-color: white;
   color: crimson;
   border-left: 1px solid #dee2e6;
-  font-size: 0.8rem;
+  margin: 0 0 0 -1px;
 }
 
-.first {
+.btn-first {
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
 
-.last {
+.btn-last {
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
