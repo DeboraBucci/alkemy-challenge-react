@@ -1,26 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
-import classes from "./Meals.module.css";
+import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
-import MealPagination from "./MealPagination";
+
+import classes from "./Meals.module.css";
+
 import MoreInfo from "./MoreInfo";
+import MealPagination from "./MealPagination";
 
 const Meals = ({ meals, waiting }) => {
   const [displayedMeals, setDisplayedMeals] = useState([]);
   const [info, setInfo] = useState({});
   const [infoIsShown, setInfoIsShown] = useState(false);
 
-  useEffect(() => {
-    if (waiting) {
-      setDisplayedMeals([]);
-    } else {
-      let chunk = 5;
-      const arr = [];
+  let chunk = 5;
 
-      for (let i = 0; i < meals.length; i += chunk) {
-        arr.push(meals.slice(i, i + chunk));
-      }
-      setDisplayedMeals(arr);
+  useEffect(() => {
+    const arr = [];
+    for (let i = 0; i < meals.length; i += chunk) {
+      arr.push(meals.slice(i, i + chunk));
     }
+
+    waiting ? setDisplayedMeals([]) : setDisplayedMeals(arr);
   }, [waiting, meals]);
 
   const setInfoHandler = (info) => {
@@ -28,21 +27,32 @@ const Meals = ({ meals, waiting }) => {
     setInfoIsShown(true);
   };
 
+  // CONTENT
+  // -----------------------------------------------------------------------
+  let content = <p></p>;
+
+  if (waiting && displayedMeals.length === 0) {
+    content = (
+      <Spinner className={classes.spinner} animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
+  } else if (!waiting && displayedMeals.length === 0) {
+    content = <p className={classes["no-meals"]}>No meals found.</p>;
+  } else {
+    content = (
+      <MealPagination
+        displayedMeals={displayedMeals}
+        setInfoHandler={setInfoHandler}
+      />
+    );
+  }
+
+  // RETURN
+  // -----------------------------------------------------------------------
   return (
     <section className={classes.meals}>
-      {waiting && displayedMeals.length === 0 && (
-        <Spinner className={classes.spinner} animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      )}
-      {!waiting && displayedMeals.length === 0 ? (
-        <p className={classes["no-meals"]}>No meals found.</p>
-      ) : (
-        <MealPagination
-          setInfoHandler={setInfoHandler}
-          displayedMeals={displayedMeals}
-        />
-      )}
+      {content}
       {infoIsShown && <MoreInfo info={info} setInfoIsShown={setInfoIsShown} />}
     </section>
   );
