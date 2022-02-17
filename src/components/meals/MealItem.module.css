@@ -27,46 +27,6 @@
   gap: 10px;
 }
 
-.actions button {
-  border: none !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-}
-
-.btn-add,
-.btn-add:visited {
-  background-color: rgb(177, 127, 1) !important;
-}
-
-.btn-add:hover {
-  background-color: rgb(129, 93, 0) !important;
-}
-
-.btn-add:focus,
-.btn-add:active {
-  box-shadow: 0 0 0 5px rgba(129, 93, 0, 0.25) !important;
-}
-
-.btn-info,
-.btn-info:visited {
-  background-color: #d8d8d8 !important;
-  color: #232323 !important;
-}
-
-.btn-info:hover,
-.btn-info:focus,
-.btn-info:active {
-  background-color: #adadad !important;
-  color: #232323 !important;
-}
-
-.btn-info:focus,
-.btn-info:active {
-  box-shadow: 0 0 0 5px rgba(82, 82, 82, 0.25) !important;
-}
-
 .icon {
   padding: 0 !important;
   display: inline-block;
@@ -142,3 +102,43 @@
   border-radius: 14px;
   background-color: green;
 }
+
+/* BUTTONS 
+------------------------------------------------- */
+.btn-add {
+  color: white !important;
+  background-color: rgb(177, 127, 1) !important;
+  border-color: rgb(177, 127, 1) !important;
+}
+
+.btn-info {
+  color: #232323 !important;
+  background-color: #d8d8d8 !important;
+  border-color: #d8d8d8 !important;
+}
+
+.btn-add:hover,
+.btn-add:active,
+.btn-add:focus {
+  background-color: rgb(128, 92, 0) !important;
+  border-color: rgb(128, 92, 0) !important;
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active {
+  color: #232323 !important;
+  background-color: #adadad !important;
+  border-color: #adadad !important;
+}
+
+.btn-add:focus,
+.btn-add:active {
+  box-shadow: 0 0 0 5px rgba(129, 93, 0, 0.25) !important;
+}
+
+.btn-info:focus,
+.btn-info:active {
+  box-shadow: 0 0 0 5px rgba(82, 82, 82, 0.25) !important;
+}
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
