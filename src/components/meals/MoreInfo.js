@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import classes from "./MoreInfo.module.css";
 import {
   faCartPlus,
@@ -45,7 +45,7 @@ const MoreInfo = ({ info, setInfoIsShown }) => {
   ));
 
   return (
-    <div>
+    <React.Fragment>
       <div className={classes.backdrop}></div>
       <div className={classes.modal}>
         <div className={classes["img-box"]}>
@@ -91,7 +91,7 @@ const MoreInfo = ({ info, setInfoIsShown }) => {
           </button>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
