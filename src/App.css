@@ -1,17 +1,12 @@
+* {
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .app {
   max-width: 100vw;
   min-height: 100vh;
   overflow: hidden;
   background-color: #232323;
-}
-
-.page-item.active .page-link {
-  background-color: crimson !important;
-  border: 1px solid crimson !important;
-  transform: scale(1.12);
-}
-
-.page-link {
-  margin: 0 !important;
-  text-align: center;
 }
