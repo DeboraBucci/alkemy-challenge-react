@@ -3,17 +3,9 @@ import { Spinner } from "react-bootstrap";
 
 import classes from "./Meals.module.css";
 
-import MoreInfo from "./MoreInfo";
 import AllDisplayedMeals from "./AllDisplayedMeals";
 
-const Meals = ({
-  meals,
-  waiting,
-  setInfoHandler,
-  extraInfoIsShown,
-  extraInfo,
-  setExtraInfoIsShown,
-}) => {
+const Meals = ({ meals, waiting, setInfoHandler }) => {
   const [mealsList, setmealsList] = useState([]);
 
   let chunk = 5;
@@ -50,14 +42,7 @@ const Meals = ({
 
   // RETURN
   // -----------------------------------------------------------------------
-  return (
-    <section className={classes.meals}>
-      {content}
-      {extraInfoIsShown && (
-        <MoreInfo info={extraInfo} setInfoIsShown={setExtraInfoIsShown} />
-      )}
-    </section>
-  );
+  return <section className={classes.meals}>{content}</section>;
 };
 
 export default Meals;
