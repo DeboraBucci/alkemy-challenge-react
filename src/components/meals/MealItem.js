@@ -1,11 +1,13 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFire, faHeartbeat, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faStar, faClock } from "@fortawesome/free-regular-svg-icons";
 
 import classes from "./MealItem.module.css";
 import AddToCartButton from "../UI/AddToCartButton";
+import MoreInfoButton from "../UI/MoreInfoButton";
 
 const MealItem = ({ meal, setInfoHandler }) => {
   const info = [
@@ -48,24 +50,6 @@ const MealItem = ({ meal, setInfoHandler }) => {
     },
   ];
 
-  const moreInfoHandler = () => {
-    setInfoHandler({
-      id: meal.id,
-      title: meal.title,
-      image: meal.image,
-      price: meal.price,
-      time: meal.time,
-      healthScore: meal.healthScore,
-      calories: meal.calories,
-      diets: meal.diets,
-      servings: meal.servings,
-      caloricBreakdown: meal.caloricBreakdown,
-      ingredients: meal.ingredients,
-      summary: meal.summary,
-      nutrients: meal.nutrients,
-    });
-  };
-
   return (
     <Card
       key={Math.random()}
@@ -94,13 +78,7 @@ const MealItem = ({ meal, setInfoHandler }) => {
         <div className={classes.actions}>
           <AddToCartButton meal={meal} />
 
-          <Button
-            onClick={moreInfoHandler}
-            className={classes["btn-info"]}
-            variant="primary"
-          >
-            More Info <FontAwesomeIcon className={classes.icon} icon={faPlus} />
-          </Button>
+          <MoreInfoButton setInfoHandler={setInfoHandler} meal={meal} />
         </div>
       </Card.Body>
     </Card>

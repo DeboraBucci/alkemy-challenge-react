@@ -1,0 +1,18 @@
+.btn-info {
+  color: #232323 !important;
+  background-color: #d8d8d8 !important;
+  border-color: #d8d8d8 !important;
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active {
+  color: #232323 !important;
+  background-color: #adadad !important;
+  border-color: #adadad !important;
+}
+
+.btn-info:focus,
+.btn-info:active {
+  box-shadow: 0 0 0 5px rgba(82, 82, 82, 0.25) !important;
+}
