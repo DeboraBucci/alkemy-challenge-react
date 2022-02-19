@@ -22,11 +22,6 @@
   background-color: #232323 !important;
 }
 
-.actions {
-  display: flex;
-  gap: 10px;
-}
-
 .icon {
   padding: 0 !important;
   display: inline-block;
@@ -105,6 +100,11 @@
 
 /* BUTTONS 
 ------------------------------------------------- */
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
 .btn-info {
   color: #232323 !important;
   background-color: #d8d8d8 !important;
