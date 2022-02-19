@@ -1,13 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import CartContext from "../store/cart-context";
-import MoreInfoButton from "../UI/MoreInfoButton";
 
+import CartContext from "../store/cart-context";
 import { defaultObj } from "../../Data";
 
 import classes from "./Menu.module.css";
 
+import MoreInfoButton from "../UI/MoreInfoButton";
+import RemoveFromCartButton from "../UI/RemoveFromCartButton";
+
 const Menu = ({ setInfoHandler }) => {
   const [meals, setMeals] = useState([]);
+
   const cartCtx = useContext(CartContext);
 
   const defaultArr = [defaultObj, defaultObj, defaultObj, defaultObj];
@@ -20,6 +23,10 @@ const Menu = ({ setInfoHandler }) => {
 
     setMeals(defaultArr);
   }, [cartCtx]);
+
+  const removeItemHandler = (id) => {
+    cartCtx.removeItem(id);
+  };
 
   return (
     <section className={classes.menu}>
@@ -43,6 +50,11 @@ const Menu = ({ setInfoHandler }) => {
                   meal={dish.item}
                   setInfoHandler={setInfoHandler}
                 />
+                {dish.item.title && (
+                  <RemoveFromCartButton
+                    onClick={removeItemHandler.bind(null, dish.item.id)}
+                  />
+                )}
               </li>
             );
           })}
