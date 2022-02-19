@@ -1,8 +1,10 @@
 import React from "react";
+
 import classes from "./CartItem.module.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
-import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import RemoveFromCartButton from "../UI/RemoveFromCartButton";
 
 const CartItem = (props) => {
   return (
@@ -22,12 +24,7 @@ const CartItem = (props) => {
         {props.price && <p className={classes.price}>Price: $ {props.price}</p>}
         {!props.price && <p>Add a meal!</p>}
       </div>
-
-      {props.title && (
-        <button onClick={props.onRemove} className={classes["btn-delete"]}>
-          <FontAwesomeIcon icon={faTrashCan} />
-        </button>
-      )}
+      {props.title && <RemoveFromCartButton onClick={props.onRemove} />}
     </li>
   );
 };

@@ -1,0 +1,11 @@
+.btn-delete {
+  background-color: crimson;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  height: 35px;
+  width: 35px;
+  border-bottom-right-radius: 25%;
+}
