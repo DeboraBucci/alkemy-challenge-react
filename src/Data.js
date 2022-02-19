@@ -51,4 +51,22 @@ const defaultObj = {
   },
 };
 
-export { dropdownOpt, dietOpt, defaultObj };
+const mealInfoHandler = (meal) => {
+  return {
+    id: meal.id,
+    title: meal.title,
+    image: meal.image,
+    price: meal.price,
+    time: meal.time,
+    healthScore: meal.healthScore,
+    calories: meal.calories,
+    diets: meal.diets,
+    servings: meal.servings,
+    caloricBreakdown: meal.caloricBreakdown,
+    ingredients: meal.ingredients,
+    summary: meal.summary,
+    nutrients: meal.nutrients,
+  };
+};
+
+export { dropdownOpt, dietOpt, defaultObj, mealInfoHandler };
