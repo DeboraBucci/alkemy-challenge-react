@@ -11,6 +11,8 @@ const Home = ({ onLogout }) => {
   const [isMealsShown, setIsMealsShown] = useState(null);
   const [isWait, setIsWait] = useState(false);
   const [cartIsOpened, setCartIsOpened] = useState(false);
+  const [extraInfo, setExtraInfo] = useState({});
+  const [extraInfoIsShown, setExtraInfoIsShown] = useState(false);
 
   const searchMealsHandler = (meals) => {
     setTimeout(() => {
@@ -27,6 +29,11 @@ const Home = ({ onLogout }) => {
     setCartIsOpened(false);
   };
 
+  const setInfoHandler = (info) => {
+    setExtraInfo(info);
+    setExtraInfoIsShown(true);
+  };
+
   return (
     <main className={classes.home}>
       <BootstrapNavbar onLogout={onLogout} onOpenCart={openCartHandler} />
@@ -38,9 +45,18 @@ const Home = ({ onLogout }) => {
         setMeals={setMeals}
         meals={meals}
       />
-      {isMealsShown && <Meals meals={meals} waiting={isWait} />}
-      <Bar />
+      {isMealsShown && (
+        <Meals
+          meals={meals}
+          waiting={isWait}
+          extraInfo={extraInfo}
+          extraInfoIsShown={extraInfoIsShown}
+          setExtraInfoIsShown={setExtraInfoIsShown}
+          setInfoHandler={setInfoHandler}
+        />
+      )}
       {cartIsOpened && <Cart onCloseCart={closeCartHandler} />}
+      <Bar />
     </main>
   );
 };

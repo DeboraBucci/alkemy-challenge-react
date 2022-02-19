@@ -6,10 +6,15 @@ import classes from "./Meals.module.css";
 import MoreInfo from "./MoreInfo";
 import AllDisplayedMeals from "./AllDisplayedMeals";
 
-const Meals = ({ meals, waiting }) => {
+const Meals = ({
+  meals,
+  waiting,
+  setInfoHandler,
+  extraInfoIsShown,
+  extraInfo,
+  setExtraInfoIsShown,
+}) => {
   const [mealsList, setmealsList] = useState([]);
-  const [extraInfo, setExtraInfo] = useState({});
-  const [extraInfoIsShown, setExtraInfoIsShown] = useState(false);
 
   let chunk = 5;
 
@@ -21,11 +26,6 @@ const Meals = ({ meals, waiting }) => {
 
     waiting ? setmealsList([]) : setmealsList(arr);
   }, [waiting, meals]);
-
-  const setInfoHandler = (info) => {
-    setExtraInfo(info);
-    setExtraInfoIsShown(true);
-  };
 
   // CONTENT
   // -----------------------------------------------------------------------
