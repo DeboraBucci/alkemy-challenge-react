@@ -13,10 +13,12 @@ const LogIn = (props) => {
   };
 
   const emailChangeHandler = (e) => {
+    props.setIsValid(null);
     setEnteredEmail(e.target.value);
   };
 
   const passwordChangeHandler = (e) => {
+    props.setIsValid(null);
     setEnteredPassword(e.target.value);
   };
 

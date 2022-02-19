@@ -61,6 +61,7 @@ function App() {
         <LogIn
           onLogin={loginHandler}
           isValid={formIsValid}
+          setIsValid={setFormIsValid}
           isWaiting={waiting}
         />
       )}
