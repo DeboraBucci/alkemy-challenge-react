@@ -9,7 +9,7 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 import CartContext from "../store/cart-context";
 
-const AddToCartButton = (meal) => {
+const AddToCartButton = ({ meal }) => {
   const cartCtx = useContext(CartContext);
 
   const addToCartHandler = () => {

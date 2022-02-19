@@ -6,7 +6,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import classes from "./MoreInfoButton.module.css";
 
-const MoreInfoButton = (meal, setInfoHandler) => {
+const MoreInfoButton = ({ meal, setInfoHandler }) => {
   const moreInfoHandler = () => {
     setInfoHandler({
       id: meal.id,
