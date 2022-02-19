@@ -43,4 +43,12 @@ const dietOpt = [
   "Low FODMAP",
 ];
 
-export { dropdownOpt, dietOpt };
+const defaultObj = {
+  item: {
+    id: null,
+    title: null,
+    image: null,
+  },
+};
+
+export { dropdownOpt, dietOpt, defaultObj };
