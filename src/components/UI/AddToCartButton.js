@@ -9,7 +9,7 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 import CartContext from "../store/cart-context";
 
-const AddToCartButton = ({ meal }) => {
+const AddToCartButton = ({ meal, className = classes["btn-add-default"] }) => {
   const cartCtx = useContext(CartContext);
 
   const addToCartHandler = () => {
@@ -26,7 +26,7 @@ const AddToCartButton = ({ meal }) => {
   return (
     <Button
       onClick={addToCartHandler}
-      className={classes["btn-add"]}
+      className={`${classes.btn} ${className}`}
       variant="primary"
     >
       Add to Cart
