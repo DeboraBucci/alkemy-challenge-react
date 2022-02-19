@@ -1,0 +1,98 @@
+.meal {
+  position: relative;
+
+  width: 22%;
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  text-align: center;
+
+  background-color: rgb(41, 41, 41);
+
+  border-radius: 7px;
+  overflow: hidden;
+
+  height: 100%;
+}
+
+.content h3 {
+  font-size: 1.3rem;
+  padding: 0.5rem;
+}
+
+.img {
+  height: 45%;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-add {
+  position: absolute;
+
+  top: 70px;
+  left: -5px;
+
+  background-color: rgb(177, 127, 1) !important;
+  border-color: rgb(177, 127, 1) !important;
+
+  width: 40px;
+}
+
+.btn-add:hover,
+.btn-remove:hover {
+  transition: all 0.3s !important;
+  width: 60px;
+}
+
+.btn-add:hover,
+.btn-add:focus {
+  background-color: rgb(104, 74, 0) !important;
+  border-color: rgb(104, 74, 0) !important;
+}
+
+.btn-add:focus {
+  box-shadow: 0 0 0 0.25rem rgba(177, 127, 1, 0.8) !important  ;
+}
+
+.btn-info {
+  border-radius: 0 !important;
+}
+
+.btn-remove {
+  border-radius: 4px;
+  width: 40px;
+  height: 30px;
+
+  left: -5px !important;
+  top: 25px !important;
+}
+
+.fallback {
+  height: 100%;
+  width: 100%;
+  font-size: 5rem;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid goldenrod;
+}
+
+.circle {
+  border: 3px solid goldenrod;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -5,8 +5,7 @@ import { defaultObj } from "../../Data";
 
 import classes from "./Menu.module.css";
 
-import MoreInfoButton from "../UI/MoreInfoButton";
-import RemoveFromCartButton from "../UI/RemoveFromCartButton";
+import MenuDish from "./MenuDish";
 
 const Menu = ({ setInfoHandler }) => {
   const [meals, setMeals] = useState([]);
@@ -37,30 +36,22 @@ const Menu = ({ setInfoHandler }) => {
         <ul>
           {meals.map((dish) => {
             return (
-              <li className={classes.meal} key={dish.item.id || Math.random()}>
-                <div className={classes.img}>
-                  <img src={dish.item.image} />
-                </div>
-                <div>
-                  <h3>{dish.item.title}</h3>
-                  <p>Price: ${dish.item.price}</p>
-                  <p>Servings: {dish.item.servings}</p>
-                </div>
-                <MoreInfoButton
-                  meal={dish.item}
-                  setInfoHandler={setInfoHandler}
-                />
-                {dish.item.title && (
-                  <RemoveFromCartButton
-                    onClick={removeItemHandler.bind(null, dish.item.id)}
-                  />
-                )}
-              </li>
+              <MenuDish
+                dish={dish}
+                setInfoHandler={setInfoHandler}
+                removeItemHandler={removeItemHandler}
+              />
             );
           })}
         </ul>
-        <div className={classes.actions}>
-          <button>Order Menu</button>
+        <div
+          className={`${classes.actions} ${
+            cartCtx.totalDishes.length === 0 && classes.disabled
+          }`}
+        >
+          <button disabled={cartCtx.totalDishes.length === 0}>
+            Order Menu
+          </button>
         </div>
       </div>
     </section>
