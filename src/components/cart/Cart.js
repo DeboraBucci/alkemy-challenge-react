@@ -11,19 +11,11 @@ import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 import CartContext from "../store/cart-context";
 import CartItem from "./CartItem";
 
-import { defaultArr } from "../../Data";
+import { defaultObj } from "../../Data";
 
 const Cart = (props) => {
   const [meals, setMeals] = useState([]);
   const cartCtx = useContext(CartContext);
-
-  const defaultObj = {
-    item: {
-      id: null,
-      title: null,
-      image: null,
-    },
-  };
 
   const defaultArr = [defaultObj, defaultObj, defaultObj, defaultObj];
 
