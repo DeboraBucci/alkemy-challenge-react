@@ -1,3 +1,21 @@
+:root {
+  --main: 178, 128, 1;
+
+  --dark-main: 142, 102, 1;
+  --darkest-main: 124, 89, 1;
+
+  --light-main: 193, 153, 52;
+  --lightest-main: 208, 178, 103;
+
+  --secondary: 220, 20, 60;
+
+  --dark-secondary: 176, 16, 48;
+  --darkest-secondary: 154, 14, 42;
+
+  --light-secondary: 224, 44, 80;
+  --lightest-secondary: 245, 185, 197;
+}
+
 * {
   border: 0;
   padding: 0;
