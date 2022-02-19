@@ -13,7 +13,6 @@
   transition: all 1s;
 
   background-color: rgb(65, 64, 68);
-  color: white;
 
   width: 900px;
   padding: 1rem;
@@ -24,6 +23,52 @@
 
 .bar p {
   margin: 0 !important;
+}
+
+.bar * {
+  color: white;
+}
+
+/* BUTTONS & INPUTS
+--------------------------------------- */
+.btn-open {
+  position: fixed;
+
+  bottom: 0;
+  right: 30%;
+
+  transition: all 1s;
+
+  background-color: rgb(var(--secondary));
+  color: white;
+
+  font-size: 1.3rem;
+  padding: 0 0.5rem;
+
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+
+.btn-open:hover {
+  background-color: rgb(var(--darkest-secondary));
+}
+
+.btn-open:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(var(--lightest-secondary), 0.5);
+}
+
+.btn-close {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+
+  font-size: 1.3rem;
+}
+
+.hide,
+.closed {
+  bottom: -100px;
 }
 
 .btn-order {
@@ -39,46 +84,9 @@
   font-weight: 500;
   text-transform: uppercase;
 
-  background-color: rgb(177, 127, 1);
-  color: white;
+  background-color: rgb(var(--main));
 }
 
 .disabled {
   cursor: not-allowed !important;
-}
-
-.btn-close {
-  position: absolute;
-  top: 15px;
-  right: 30px;
-
-  font-size: 1.3rem;
-
-  color: white;
-}
-
-.btn-open {
-  position: fixed;
-
-  bottom: 0;
-  right: 30%;
-
-  transition: all 1s;
-
-  background-color: crimson;
-  color: white;
-
-  font-size: 1.3rem;
-  padding: 0 0.5rem;
-
-  border-top-right-radius: 7px;
-  border-top-left-radius: 7px;
-}
-
-.closed {
-  bottom: -100px;
-}
-
-.hide {
-  bottom: -100px;
 }
