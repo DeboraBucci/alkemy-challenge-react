@@ -1,0 +1,92 @@
+.menu {
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+    url("/src/imgs/menu-background.webp");
+  background-size: cover;
+  background-position: center;
+
+  padding: 3rem 1rem;
+}
+
+.title {
+  border-bottom: 3px solid rgb(177, 127, 1);
+}
+
+.title,
+.box {
+  width: 1200px;
+}
+
+.box {
+  background-color: rgb(61, 61, 61);
+
+  height: 600px;
+  padding: 3rem 1rem;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box ul {
+  list-style: none;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  gap: 2rem;
+
+  height: 80%;
+}
+
+.meal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  text-align: center;
+
+  background-color: rgb(41, 41, 41);
+
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.meal h3 {
+  font-size: 1.3rem;
+  padding: 0.5rem;
+}
+
+.img {
+  height: 200px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions button {
+  background-color: rgb(177, 127, 1);
+  color: white;
+
+  padding: 0.75rem 1.5rem;
+  border-radius: 7px;
+  font-size: 1.3rem;
+}
