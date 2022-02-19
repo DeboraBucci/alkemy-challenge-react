@@ -6,6 +6,7 @@ import Search from "./search/Search";
 import Bar from "./bar/Bar";
 import Cart from "./cart/Cart";
 import MoreInfo from "./meals/MoreInfo";
+import Menu from "./menu/Menu";
 
 const Home = ({ onLogout }) => {
   const [meals, setMeals] = useState([]);
@@ -56,6 +57,7 @@ const Home = ({ onLogout }) => {
           setInfoHandler={setInfoHandler}
         />
       )}
+      <Menu setInfoHandler={setInfoHandler} />
       {cartIsOpened && <Cart onCloseCart={closeCartHandler} />}
       {extraInfoIsShown && (
         <MoreInfo info={extraInfo} setInfoIsShown={setExtraInfoIsShown} />
