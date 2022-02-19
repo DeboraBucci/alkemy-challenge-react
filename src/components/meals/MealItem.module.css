@@ -105,23 +105,10 @@
 
 /* BUTTONS 
 ------------------------------------------------- */
-.btn-add {
-  color: white !important;
-  background-color: rgb(177, 127, 1) !important;
-  border-color: rgb(177, 127, 1) !important;
-}
-
 .btn-info {
   color: #232323 !important;
   background-color: #d8d8d8 !important;
   border-color: #d8d8d8 !important;
-}
-
-.btn-add:hover,
-.btn-add:active,
-.btn-add:focus {
-  background-color: rgb(128, 92, 0) !important;
-  border-color: rgb(128, 92, 0) !important;
 }
 
 .btn-info:hover,
@@ -130,11 +117,6 @@
   color: #232323 !important;
   background-color: #adadad !important;
   border-color: #adadad !important;
-}
-
-.btn-add:focus,
-.btn-add:active {
-  box-shadow: 0 0 0 5px rgba(129, 93, 0, 0.25) !important;
 }
 
 .btn-info:focus,

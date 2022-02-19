@@ -1,16 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCartPlus,
-  faFire,
-  faHeartbeat,
-  faPlus,
-} from "@fortawesome/free-solid-svg-icons";
-
+import { faFire, faHeartbeat, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faStar, faClock } from "@fortawesome/free-regular-svg-icons";
+
 import classes from "./MealItem.module.css";
-import CartContext from "../store/cart-context";
+import AddToCartButton from "../UI/AddToCartButton";
 
 const MealItem = ({ meal, setInfoHandler }) => {
   const info = [
@@ -52,19 +47,6 @@ const MealItem = ({ meal, setInfoHandler }) => {
       key: "time",
     },
   ];
-
-  const cartCtx = useContext(CartContext);
-
-  const addToCartHandler = () => {
-    cartCtx.addItem({
-      id: meal.id + Math.random(),
-      title: meal.title,
-      image: meal.image,
-      price: meal.price,
-      time: meal.time,
-      healthScore: meal.healthScore,
-    });
-  };
 
   const moreInfoHandler = () => {
     setInfoHandler({
@@ -110,14 +92,7 @@ const MealItem = ({ meal, setInfoHandler }) => {
         </ul>
 
         <div className={classes.actions}>
-          <Button
-            onClick={addToCartHandler}
-            className={classes["btn-add"]}
-            variant="primary"
-          >
-            Add to Cart
-            <FontAwesomeIcon className={classes.icon} icon={faCartPlus} />
-          </Button>
+          <AddToCartButton meal={meal} />
 
           <Button
             onClick={moreInfoHandler}
