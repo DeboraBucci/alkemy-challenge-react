@@ -12,7 +12,7 @@ const Search = ({
 }) => {
   useEffect(() => {
     onSearchMeals(meals);
-  }, [meals, onSearchMeals]);
+  }, [meals]);
 
   const onSubmit = (text, preferences) => {
     setIsWait(true);
