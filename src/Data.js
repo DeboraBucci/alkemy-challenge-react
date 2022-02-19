@@ -53,7 +53,7 @@ const defaultObj = {
 
 const mealInfoHandler = (meal) => {
   return {
-    id: meal.id,
+    id: meal.id + Math.random(),
     title: meal.title,
     image: meal.image,
     price: meal.price,
