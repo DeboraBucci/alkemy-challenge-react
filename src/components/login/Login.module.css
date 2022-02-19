@@ -1,38 +1,25 @@
 .login {
-  height: 100vh;
-  width: 100vw;
+  color: white;
+
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url("/src/imgs/login-background.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 9rem 0;
-  overflow: hidden;
-}
 
-.btn {
-  background-color: rgb(177, 127, 1) !important;
-  border: none !important;
+  height: 100vh;
+  width: 100vw;
+  padding: 9rem 0;
+
+  overflow: hidden;
 }
 
 .control {
   border: none !important;
-}
-
-.btn:hover,
-.btn:focus {
-  background-color: rgb(129, 93, 0);
-}
-
-.control:focus,
-.control:active,
-.btn:focus,
-.btn:active {
-  box-shadow: 0 0 0 5px rgba(129, 93, 0, 0.5) !important;
 }
 
 .actions {
@@ -41,15 +28,29 @@
   gap: 1rem;
 }
 
-.actions p {
-  margin: 0 !important;
-  color: crimson;
-  font-size: 1.1rem;
+.spinner {
+  font-size: 10px;
+  height: 20px;
+  width: 20px;
 }
 
-.invalid {
-  background-color: rgb(255, 195, 195) !important;
-  box-shadow: 0 0 0 3px rgba(252, 144, 144, 0.5);
+/* BUTTONS & INPUTS
+--------------------------------------- */
+.btn {
+  background-color: rgb(var(--main)) !important;
+  border: none !important;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: rgb(var(--darkest-main)) !important;
+}
+
+.control:focus,
+.control:active,
+.btn:focus,
+.btn:active {
+  box-shadow: 0 0 0 5px rgba(var(--lightest-main), 0.3) !important;
 }
 
 button:disabled,
@@ -59,12 +60,22 @@ input:disabled {
   background-color: rgb(211, 211, 211) !important;
 }
 
-.spinner {
-  font-size: 10px;
-  height: 20px;
-  width: 20px;
+/* WRONG CREDENTIALS
+--------------------------------------- */
+.actions p {
+  color: rgb(var(--light-secondary));
+  margin: 0 !important;
+  font-size: 1.1rem;
 }
 
+.invalid,
+.invalid:focus {
+  background-color: rgb(var(--lightest-secondary)) !important;
+  box-shadow: 0 0 0 3px rgba(var(--secondary), 0.3) !important;
+}
+
+/* MEDIA QUERIES
+--------------------------------------- */
 @media (max-width: 800px) {
   .title {
     display: flex;
