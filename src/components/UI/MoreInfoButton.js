@@ -6,23 +6,12 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import classes from "./MoreInfoButton.module.css";
 
+import { mealInfoHandler } from "../../Data";
+
 const MoreInfoButton = ({ meal, setInfoHandler }) => {
   const moreInfoHandler = () => {
-    setInfoHandler({
-      id: meal.id,
-      title: meal.title,
-      image: meal.image,
-      price: meal.price,
-      time: meal.time,
-      healthScore: meal.healthScore,
-      calories: meal.calories,
-      diets: meal.diets,
-      servings: meal.servings,
-      caloricBreakdown: meal.caloricBreakdown,
-      ingredients: meal.ingredients,
-      summary: meal.summary,
-      nutrients: meal.nutrients,
-    });
+    const mealInfo = mealInfoHandler(meal);
+    setInfoHandler(mealInfo);
   };
 
   return (

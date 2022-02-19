@@ -8,19 +8,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 import CartContext from "../store/cart-context";
+import { mealInfoHandler } from "../../Data";
 
 const AddToCartButton = ({ meal, className = classes["btn-add-default"] }) => {
   const cartCtx = useContext(CartContext);
 
   const addToCartHandler = () => {
-    cartCtx.addItem({
-      id: meal.id + Math.random(),
-      title: meal.title,
-      image: meal.image,
-      price: meal.price,
-      time: meal.time,
-      healthScore: meal.healthScore,
-    });
+    const mealInfo = mealInfoHandler(meal);
+    cartCtx.addItem(mealInfo);
   };
 
   return (
