@@ -1,8 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext } from "react";
+import React from "react";
 import classes from "./MoreInfo.module.css";
 import {
-  faCartPlus,
   faXmark,
   faHeartbeat,
   faUtensils,
@@ -10,24 +9,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
-import CartContext from "../store/cart-context";
+
+import AddToCartButton from "../UI/AddToCartButton";
 
 const MoreInfo = ({ info, setInfoIsShown }) => {
-  const cartCtx = useContext(CartContext);
-
   const closeMoreInfoHandler = () => {
     setInfoIsShown(false);
-  };
-
-  const addToCartHandler = () => {
-    cartCtx.addItem({
-      id: info.id,
-      title: info.title,
-      image: info.image,
-      price: info.price,
-      time: info.time,
-      healthScore: info.healthScore,
-    });
   };
 
   const ingredients = info.ingredients.map((ingredient) => (
@@ -80,9 +67,7 @@ const MoreInfo = ({ info, setInfoIsShown }) => {
             <p>Nutrients: {nutrients}</p>
           </div>
 
-          <button onClick={addToCartHandler} className={classes["btn-add"]}>
-            Add to Cart <FontAwesomeIcon icon={faCartPlus} />
-          </button>
+          <AddToCartButton meal={info} className={classes["btn-add"]} />
           <button
             className={classes["btn-delete"]}
             onClick={closeMoreInfoHandler}
