@@ -9,6 +9,7 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 import CartContext from "../store/cart-context";
 import { mealInfoHandler } from "../../Data";
+import Swal from "sweetalert2";
 
 const AddToCartButton = ({
   meal,
@@ -18,6 +19,25 @@ const AddToCartButton = ({
   const cartCtx = useContext(CartContext);
 
   const addToCartHandler = () => {
+    if (meal.isVegan && cartCtx.veganMeals === 2) {
+      Swal.fire({
+        icon: "warning",
+        title: "Couldn't Select Meal ...",
+        text: "You can't choose any more vegan meals. Try some other diets, explore the deliciousness!",
+        footer: '<a href="">Why do I have this issue?</a>',
+      });
+      return;
+    }
+    if (!meal.isVegan && cartCtx.nonVeganMeals === 2) {
+      Swal.fire({
+        icon: "warning",
+        title: "Couldn't Select Meal ...",
+        text: "You can't choose any more non vegan meals. Time to pick some vegan ones too. Yummy!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
+      return;
+    }
+
     const mealInfo = mealInfoHandler(meal);
     cartCtx.addItem(mealInfo);
   };
