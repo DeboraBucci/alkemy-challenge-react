@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Search.module.css";
 import Axios from "axios";
 import SearchForm from "./SearchForm";
@@ -10,9 +10,21 @@ const Search = ({
   setIsMealsShown,
   setMeals,
 }) => {
+  const [slogan, setSlogan] = useState();
+
   useEffect(() => {
     onSearchMeals(meals);
   }, [meals]);
+
+  useEffect(() => {
+    const randomNum = Math.round(Math.random() * 3);
+
+    if (randomNum === 1) setSlogan("Your meal in one click!");
+
+    if (randomNum === 2) setSlogan("We cook, you enjoy!");
+
+    if (randomNum === 3) setSlogan("Your meal, one click away!");
+  }, []);
 
   const onSubmit = (text, preferences) => {
     setIsWait(true);
@@ -47,6 +59,7 @@ const Search = ({
           caloricBreakdown: meal.nutrition.caloricBreakdown,
           summary: meal.summary,
           nutrients: meal.nutrition.nutrients,
+          isVegan: meal.vegan,
         });
       });
 
@@ -57,9 +70,9 @@ const Search = ({
   return (
     <section className={classes.search}>
       <h1>Lily's Cuisine</h1>
-      <p>Your meal in one click</p>
-
+      <p className={classes.subtitle}>{slogan}</p>;
       <SearchForm onSubmit={onSubmit} />
+      <p>You have to choose two vegan and two non vegan meals for your menu.</p>
     </section>
   );
 };
