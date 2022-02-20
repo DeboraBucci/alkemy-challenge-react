@@ -23,8 +23,9 @@ const Menu = ({ setInfoHandler }) => {
     setMeals(defaultArr);
   }, [cartCtx]);
 
-  const removeItemHandler = (id) => {
-    cartCtx.removeItem(id);
+  const removeItemHandler = (dish) => {
+    const { id, isVegan } = dish;
+    cartCtx.removeItem(id, isVegan);
   };
 
   return (
