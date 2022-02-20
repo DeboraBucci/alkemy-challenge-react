@@ -20,6 +20,7 @@ const Cart = (props) => {
   const defaultArr = [defaultObj, defaultObj, defaultObj, defaultObj];
 
   useEffect(() => {
+    console.log(cartCtx);
     cartCtx.totalDishes.map((dish) => {
       defaultArr.pop();
       defaultArr.unshift(dish);
@@ -33,8 +34,9 @@ const Cart = (props) => {
 
   const emptyCart = cartCtx.totalDishes.length === 0;
 
-  const cartItemRemoveHandler = (id) => {
-    cartCtx.removeItem(id);
+  const cartItemRemoveHandler = (item) => {
+    const { id, isVegan } = item;
+    cartCtx.removeItem(id, isVegan);
   };
 
   const cartItems = (
@@ -47,7 +49,7 @@ const Cart = (props) => {
           price={dish.item.price}
           className={!dish.item.title && classes["empty-item"]}
           onRemove={
-            cartItemRemoveHandler.bind(null, dish.item.id) || Math.random()
+            cartItemRemoveHandler.bind(null, dish.item) || Math.random()
           }
         />
       ))}
@@ -87,6 +89,8 @@ const Cart = (props) => {
                 <FontAwesomeIcon icon={faDollarSign} />{" "}
                 {cartCtx.totalPrice.toFixed(2)}
               </p>
+              <p>{cartCtx.veganMeals}</p>
+              <p>{cartCtx.nonVeganMeals}</p>
             </div>
           )}
           <div className={classes.actions}>
