@@ -7,7 +7,7 @@ import SearchDropdown from "./SearchDropdown";
 
 import { dropdownOpt, dietOpt } from "../../Data";
 
-const SearchForm = ({ onSubmit }) => {
+const SearchForm = ({ onSubmit, waiting }) => {
   const [enteredInput, setEnteredInput] = useState("");
   const [validEnteredInput, setValidEnteredInput] = useState();
 
@@ -112,6 +112,7 @@ const SearchForm = ({ onSubmit }) => {
           className={classes.btn}
           variant="outline-secondary"
           id="button-addon2"
+          disabled={waiting}
         >
           Search
         </Button>

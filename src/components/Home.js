@@ -44,6 +44,7 @@ const Home = ({ onLogout }) => {
         setIsWait={setIsWait}
         setMeals={setMeals}
         meals={meals}
+        waiting={isWait}
       />
 
       <Meals
