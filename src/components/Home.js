@@ -47,16 +47,17 @@ const Home = ({ onLogout }) => {
         setMeals={setMeals}
         meals={meals}
       />
-      {isMealsShown && (
-        <Meals
-          meals={meals}
-          waiting={isWait}
-          extraInfo={extraInfo}
-          extraInfoIsShown={extraInfoIsShown}
-          setExtraInfoIsShown={setExtraInfoIsShown}
-          setInfoHandler={setInfoHandler}
-        />
-      )}
+
+      <Meals
+        isMealsShown={isMealsShown}
+        meals={meals}
+        waiting={isWait}
+        extraInfo={extraInfo}
+        extraInfoIsShown={extraInfoIsShown}
+        setExtraInfoIsShown={setExtraInfoIsShown}
+        setInfoHandler={setInfoHandler}
+      />
+
       <Menu setInfoHandler={setInfoHandler} />
       {cartIsOpened && <Cart onCloseCart={closeCartHandler} />}
       {extraInfoIsShown && (

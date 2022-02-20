@@ -5,7 +5,7 @@ import classes from "./Meals.module.css";
 
 import AllDisplayedMeals from "./AllDisplayedMeals";
 
-const Meals = ({ meals, waiting, setInfoHandler }) => {
+const Meals = ({ meals, waiting, setInfoHandler, isMealsShown }) => {
   const [mealsList, setmealsList] = useState([]);
 
   let chunk = 5;
@@ -42,7 +42,7 @@ const Meals = ({ meals, waiting, setInfoHandler }) => {
 
   // RETURN
   // -----------------------------------------------------------------------
-  return <section className={classes.meals}>{content}</section>;
+  return <section className={classes.meals}>{isMealsShown && content}</section>;
 };
 
 export default Meals;
