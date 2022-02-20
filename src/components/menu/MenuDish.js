@@ -44,7 +44,7 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
       {dish.item.title && (
         <>
           <RemoveFromCartButton
-            onClick={removeItemHandler.bind(null, dish.item.id)}
+            onClick={removeItemHandler.bind(null, dish.item)}
             className={classes["btn-remove"]}
           />
           <AddToCartButton
