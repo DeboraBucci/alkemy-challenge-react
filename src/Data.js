@@ -66,6 +66,7 @@ const mealInfoHandler = (meal) => {
     ingredients: meal.ingredients,
     summary: meal.summary,
     nutrients: meal.nutrients,
+    isVegan: meal.isVegan,
   };
 };
 
