@@ -17,10 +17,8 @@ const Home = ({ onLogout }) => {
   const [extraInfoIsShown, setExtraInfoIsShown] = useState(false);
 
   const searchMealsHandler = (meals) => {
-    setTimeout(() => {
-      setMeals(meals);
-      setIsWait(false);
-    }, 2000);
+    setMeals(meals);
+    setIsWait(false);
   };
 
   const openCartHandler = () => {
