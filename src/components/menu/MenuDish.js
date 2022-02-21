@@ -27,7 +27,14 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
         {dish.item.title && (
           <>
             <div>
+              <span
+                className={dish.item.isVegan ? classes.vegan : classes.nonvegan}
+              >
+                {dish.item.isVegan ? "vegan" : "non vegan"}
+              </span>
+
               <h3>{dish.item.title}</h3>
+
               <p>Price: ${dish.item.price}</p>
               <p>Servings: {dish.item.servings}</p>
             </div>
