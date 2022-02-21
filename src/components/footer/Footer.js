@@ -1,6 +1,9 @@
 import React from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import classes from "./Footer.module.css";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
@@ -17,13 +20,13 @@ const Footer = () => {
           </a>
         </p>
         <a target="_blank" href="https://github.com/DeboraBucci">
-          <i class="fab fa-github"></i>
+          <FontAwesomeIcon icon={faGithub} />
         </a>
         <a
           target="_blank"
           href="https://www.linkedin.com/in/d%C3%A9bora-bucci-13a07a212/"
         >
-          <i class="fab fa-linkedin"></i>
+          <FontAwesomeIcon icon={faLinkedin} />
         </a>
       </div>
       <p>
