@@ -1,0 +1,11 @@
+.btn-confirm {
+  background-color: rgb(var(--main)) !important;
+}
+
+.btn-confirm:focus {
+  box-shadow: 0 0 0 0.2rem rgba(var(--main), 0.3) !important;
+}
+
+.btn-cancel:focus {
+  box-shadow: 0 0 0 0.2rem rgba(var(--secondary), 0.3) !important;
+}

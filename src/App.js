@@ -10,6 +10,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./Bootstrap.css";
 
+import swalClasses from "./SweetAlert.module.css";
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formIsValid, setFormIsValid] = useState();
@@ -45,6 +47,9 @@ function App() {
             icon: "error",
             title: "Oops...",
             text: "Wrong credentials!",
+            customClass: {
+              confirmButton: `${swalClasses["btn-confirm"]}`,
+            },
           });
         });
     }, 1000);
