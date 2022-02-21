@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import classes from "./Cart.module.css";
+import React, { useContext } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXmark,
@@ -8,11 +8,13 @@ import {
   faHeartPulse,
 } from "@fortawesome/free-solid-svg-icons";
 import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
-import CartContext from "../store/cart-context";
-import CartItem from "./CartItem";
 
-import { defaultObj } from "../../Data";
+import CartContext from "../store/cart-context";
+
+import CartItem from "./CartItem";
 import OrderMenuButton from "../UI/OrderMenuButton";
+
+import classes from "./Cart.module.css";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
