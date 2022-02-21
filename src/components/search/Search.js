@@ -71,7 +71,7 @@ const Search = ({
   return (
     <section className={classes.search}>
       <h1>Lily's Cuisine</h1>
-      <p className={classes.subtitle}>{slogan}</p>;
+      <p className={classes.subtitle}>{slogan}</p>
       <SearchForm onSubmit={onSubmit} waiting={waiting} />
       <p>You have to choose two vegan and two non vegan meals for your menu.</p>
     </section>
