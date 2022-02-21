@@ -25,6 +25,7 @@ const Menu = ({ setInfoHandler, meals }) => {
           {meals.map((dish) => {
             return (
               <MenuDish
+                key={dish.item.id || Math.random()}
                 dish={dish}
                 setInfoHandler={setInfoHandler}
                 removeItemHandler={removeItemHandler}

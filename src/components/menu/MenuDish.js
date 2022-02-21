@@ -20,7 +20,7 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
   );
 
   return (
-    <li className={classes.meal} key={dish.item.id || Math.random()}>
+    <li className={classes.meal}>
       <div className={classes.content}>
         <div className={classes.img}>{img}</div>
 
