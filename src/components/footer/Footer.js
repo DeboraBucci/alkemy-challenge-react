@@ -1,9 +1,11 @@
 import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 import classes from "./Footer.module.css";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
+import Link from "../UI/Link";
 
 const Footer = () => {
   return (
@@ -11,33 +13,22 @@ const Footer = () => {
       <div className={classes["copyright-box"]}>
         <p>
           &copy;Copyright 2022 Lily's Cuisine | Created by{" "}
-          <a
-            className={classes.underline}
-            target="_blank"
-            href="https://deborabucci.com/"
-          >
+          <Link className={classes.underline} href="https://deborabucci.com/">
             Débora Bucci
-          </a>
+          </Link>
         </p>
-        <a target="_blank" href="https://github.com/DeboraBucci">
+        <Link href="https://github.com/DeboraBucci">
           <FontAwesomeIcon icon={faGithub} />
-        </a>
-        <a
-          target="_blank"
-          href="https://www.linkedin.com/in/d%C3%A9bora-bucci-13a07a212/"
-        >
+        </Link>
+        <Link href="https://www.linkedin.com/in/d%C3%A9bora-bucci-13a07a212/">
           <FontAwesomeIcon icon={faLinkedin} />
-        </a>
+        </Link>
       </div>
       <p>
         This project is based upon a challenge by{" "}
-        <a
-          className={classes.underline}
-          target="_blank"
-          href="https://www.alkemy.org/"
-        >
+        <Link className={classes.underline} href="https://www.alkemy.org/">
           Alkemy
-        </a>
+        </Link>
         .
       </p>
     </section>
