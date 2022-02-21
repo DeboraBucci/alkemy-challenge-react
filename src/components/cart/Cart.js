@@ -15,20 +15,7 @@ import { defaultObj } from "../../Data";
 import OrderMenuButton from "../UI/OrderMenuButton";
 
 const Cart = (props) => {
-  const [meals, setMeals] = useState([]);
   const cartCtx = useContext(CartContext);
-
-  const defaultArr = [defaultObj, defaultObj, defaultObj, defaultObj];
-
-  useEffect(() => {
-    console.log(cartCtx);
-    cartCtx.totalDishes.map((dish) => {
-      defaultArr.pop();
-      defaultArr.unshift(dish);
-    });
-
-    setMeals(defaultArr);
-  }, [cartCtx]);
 
   const hours = Math.floor(+cartCtx.totalTime / 60);
   const minutes = Math.floor(+cartCtx.totalTime % 60);
@@ -42,7 +29,7 @@ const Cart = (props) => {
 
   const cartItems = (
     <ul className={classes.list}>
-      {meals.map((dish) => (
+      {props.meals.map((dish) => (
         <CartItem
           key={dish.item.id || Math.random()}
           title={dish.item.title}

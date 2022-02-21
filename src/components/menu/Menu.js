@@ -1,27 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 
 import CartContext from "../store/cart-context";
-import { defaultObj } from "../../Data";
 
 import classes from "./Menu.module.css";
 
 import MenuDish from "./MenuDish";
 
-const Menu = ({ setInfoHandler }) => {
-  const [meals, setMeals] = useState([]);
-
+const Menu = ({ setInfoHandler, meals }) => {
   const cartCtx = useContext(CartContext);
-
-  const defaultArr = [defaultObj, defaultObj, defaultObj, defaultObj];
-
-  useEffect(() => {
-    cartCtx.totalDishes.forEach((dish) => {
-      defaultArr.pop();
-      defaultArr.unshift(dish);
-    });
-
-    setMeals(defaultArr);
-  }, [cartCtx]);
 
   const removeItemHandler = (dish) => {
     const { id, isVegan } = dish;

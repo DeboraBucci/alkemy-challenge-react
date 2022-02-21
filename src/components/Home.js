@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import BootstrapNavbar from "./navbar/BootstrapNavbar";
 import classes from "./Home.module.css";
 import Meals from "./meals/Meals";
@@ -8,6 +8,8 @@ import Cart from "./cart/Cart";
 import MoreInfo from "./meals/MoreInfo";
 import Menu from "./menu/Menu";
 import Footer from "./footer/Footer";
+import CartContext from "./store/cart-context";
+import { defaultObj } from "../Data";
 
 const Home = ({ onLogout }) => {
   const [meals, setMeals] = useState([]);
@@ -16,6 +18,26 @@ const Home = ({ onLogout }) => {
   const [cartIsOpened, setCartIsOpened] = useState(false);
   const [extraInfo, setExtraInfo] = useState({});
   const [extraInfoIsShown, setExtraInfoIsShown] = useState(false);
+
+  const [cartMeals, setCartMeals] = useState([]);
+
+  const cartCtx = useContext(CartContext);
+  const dishesAmount = cartCtx.totalDishes.length;
+
+  useEffect(() => {
+    const mealArr = [];
+
+    cartCtx.totalDishes.forEach((dish) => {
+      mealArr.push(dish);
+    });
+
+    const defaultObjArr = new Array(4 - dishesAmount);
+    defaultObjArr.fill(defaultObj);
+
+    const finalArr = mealArr.concat(defaultObjArr);
+
+    setCartMeals(finalArr);
+  }, [cartCtx]);
 
   const searchMealsHandler = (meals) => {
     setMeals(meals);
@@ -58,8 +80,10 @@ const Home = ({ onLogout }) => {
         setInfoHandler={setInfoHandler}
       />
 
-      <Menu setInfoHandler={setInfoHandler} />
-      {cartIsOpened && <Cart onCloseCart={closeCartHandler} />}
+      <Menu setInfoHandler={setInfoHandler} meals={cartMeals} />
+      {cartIsOpened && (
+        <Cart meals={cartMeals} onCloseCart={closeCartHandler} />
+      )}
       {extraInfoIsShown && (
         <MoreInfo info={extraInfo} setInfoIsShown={setExtraInfoIsShown} />
       )}
