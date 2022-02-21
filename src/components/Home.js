@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import BootstrapNavbar from "./navbar/BootstrapNavbar";
+
 import classes from "./Home.module.css";
+
+import BootstrapNavbar from "./navbar/BootstrapNavbar";
 import Meals from "./meals/Meals";
 import Search from "./search/Search";
 import Bar from "./bar/Bar";
@@ -8,13 +10,14 @@ import Cart from "./cart/Cart";
 import MoreInfo from "./meals/MoreInfo";
 import Menu from "./menu/Menu";
 import Footer from "./footer/Footer";
+
 import CartContext from "./store/cart-context";
 import { defaultObj } from "../Data";
 
 const Home = ({ onLogout }) => {
-  const [meals, setMeals] = useState([]);
+  const [searchedMeals, setSearchedMeals] = useState([]);
   const [isMealsShown, setIsMealsShown] = useState(null);
-  const [isWait, setIsWait] = useState(false);
+  const [isWaiting, setIsWaiting] = useState(false);
   const [cartIsOpened, setCartIsOpened] = useState(false);
   const [extraInfo, setExtraInfo] = useState({});
   const [extraInfoIsShown, setExtraInfoIsShown] = useState(false);
@@ -40,8 +43,8 @@ const Home = ({ onLogout }) => {
   }, [cartCtx]);
 
   const searchMealsHandler = (meals) => {
-    setMeals(meals);
-    setIsWait(false);
+    setSearchedMeals(meals);
+    setIsWaiting(false);
   };
 
   const openCartHandler = () => {
@@ -64,16 +67,16 @@ const Home = ({ onLogout }) => {
       <Search
         setIsMealsShown={setIsMealsShown}
         onSearchMeals={searchMealsHandler}
-        setIsWait={setIsWait}
-        setMeals={setMeals}
-        meals={meals}
-        waiting={isWait}
+        setIsWaiting={setIsWaiting}
+        setMeals={setSearchedMeals}
+        meals={searchedMeals}
+        waiting={isWaiting}
       />
 
       <Meals
         isMealsShown={isMealsShown}
-        meals={meals}
-        waiting={isWait}
+        meals={searchedMeals}
+        waiting={isWaiting}
         extraInfo={extraInfo}
         extraInfoIsShown={extraInfoIsShown}
         setExtraInfoIsShown={setExtraInfoIsShown}
