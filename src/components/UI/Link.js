@@ -1,12 +1,12 @@
 import React from "react";
 
-const Link = ({ link, className, children }) => {
+const Link = ({ href, className, children }) => {
   return (
     <a
       className={className}
       target="_blank"
       rel="noopener noreferrer"
-      href={`${link}`}
+      href={href}
     >
       {children}
     </a>
