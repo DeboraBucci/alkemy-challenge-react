@@ -10,9 +10,7 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import CartContext from "../store/cart-context";
 import { mealInfoHandler } from "../../Data";
 
-import Swal from "sweetalert2";
-
-import swalClasses from "../../SweetAlert.module.css";
+import SweetAlert from "./SweetAlert";
 
 const AddToCartButton = ({
   meal,
@@ -23,41 +21,30 @@ const AddToCartButton = ({
 
   const addToCartHandler = () => {
     if (cartCtx.totalDishes.length === 4) {
-      Swal.fire({
-        icon: "error",
+      SweetAlert({
         title: "Full Menu ...",
         text: "You can't have more than four meals in your menu.",
         footer: '<a href="">Why do I have this issue?</a>',
-        customClass: {
-          confirmButton: `${swalClasses["btn-confirm"]}`,
-        },
       });
-
       return;
     }
 
     if (meal.isVegan && cartCtx.veganMeals === 2) {
-      Swal.fire({
-        icon: "error",
+      SweetAlert({
         title: "Couldn't Select Meal ...",
         text: "You can't choose any more vegan meals. Try some other diets, explore the deliciousness!",
         footer: '<a href="">Why do I have this issue?</a>',
-        customClass: {
-          confirmButton: `${swalClasses["btn-confirm"]}`,
-        },
       });
+
       return;
     }
     if (!meal.isVegan && cartCtx.nonVeganMeals === 2) {
-      Swal.fire({
-        icon: "error",
+      SweetAlert({
         title: "Couldn't Select Meal ...",
         text: "You can't choose any more non vegan meals. Time to pick some vegan ones too. Yummy!",
-        footer: '<a href="#">Why do I have this issue?</a>',
-        customClass: {
-          confirmButton: `${swalClasses["btn-confirm"]}`,
-        },
+        footer: '<a href="">Why do I have this issue?</a>',
       });
+
       return;
     }
 
