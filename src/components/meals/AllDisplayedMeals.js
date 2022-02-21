@@ -12,7 +12,7 @@ const AllDisplayedMeals = ({ mealsList, setInfoHandler }) => {
   const content = mealsList.map((mealChunk) => {
     current++;
     return (
-      <div key={Math.random()}>
+      <div>
         {current === active && [
           <div className={classes["chunk-meals"]}>
             {mealChunk.map((meal) => (

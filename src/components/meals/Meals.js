@@ -34,6 +34,7 @@ const Meals = ({ meals, waiting, setInfoHandler, isMealsShown }) => {
   } else {
     content = (
       <AllDisplayedMeals
+        key={Math.random()}
         mealsList={mealsList}
         setInfoHandler={setInfoHandler}
       />
