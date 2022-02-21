@@ -101,6 +101,7 @@ const SearchForm = ({ onSubmit, waiting }) => {
     <Form className={classes.form} onSubmit={submitHandler}>
       <InputGroup className={`mb-3 ${classes["input-group"]}`}>
         <FormControl
+          required
           onChange={inputHandler}
           placeholder="search for meals ..."
           aria-label="search for meals ..."
