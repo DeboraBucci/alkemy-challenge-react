@@ -12,6 +12,7 @@ import CartContext from "../store/cart-context";
 import CartItem from "./CartItem";
 
 import { defaultObj } from "../../Data";
+import OrderMenuButton from "../UI/OrderMenuButton";
 
 const Cart = (props) => {
   const [meals, setMeals] = useState([]);
@@ -100,14 +101,13 @@ const Cart = (props) => {
             >
               Close
             </button>
-            <button
-              disabled={emptyCart}
+            <OrderMenuButton
               className={`${classes["btn-order"]} ${
                 emptyCart && classes.disabled
               }`}
             >
               Order <FontAwesomeIcon icon={faCircleCheck} />
-            </button>
+            </OrderMenuButton>
           </div>
           <button onClick={props.onCloseCart} className={classes["btn-x"]}>
             <FontAwesomeIcon icon={faXmark} />
