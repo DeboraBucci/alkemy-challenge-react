@@ -5,6 +5,7 @@ import CartContext from "../store/cart-context";
 import classes from "./Menu.module.css";
 
 import MenuDish from "./MenuDish";
+import OrderMenuButton from "../UI/OrderMenuButton";
 
 const Menu = ({ setInfoHandler, meals }) => {
   const cartCtx = useContext(CartContext);
@@ -36,9 +37,7 @@ const Menu = ({ setInfoHandler, meals }) => {
             cartCtx.totalDishes.length === 0 && classes.disabled
           }`}
         >
-          <button disabled={cartCtx.totalDishes.length === 0}>
-            Order Menu
-          </button>
+          <OrderMenuButton>Order Menu</OrderMenuButton>
         </div>
       </div>
     </section>
