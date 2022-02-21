@@ -6,7 +6,7 @@ import SearchForm from "./SearchForm";
 const Search = ({
   onSearchMeals,
   meals,
-  setIsWait,
+  setIsWaiting,
   waiting,
   setIsMealsShown,
   setMeals,
@@ -28,7 +28,7 @@ const Search = ({
   }, []);
 
   const onSubmit = (text, preferences) => {
-    setIsWait(true);
+    setIsWaiting(true);
     setIsMealsShown(true);
 
     const cuisine = `&cuisine=${preferences.selectedCuisine}`;
