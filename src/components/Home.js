@@ -7,6 +7,7 @@ import Bar from "./bar/Bar";
 import Cart from "./cart/Cart";
 import MoreInfo from "./meals/MoreInfo";
 import Menu from "./menu/Menu";
+import Footer from "./footer/Footer";
 
 const Home = ({ onLogout }) => {
   const [meals, setMeals] = useState([]);
@@ -63,6 +64,7 @@ const Home = ({ onLogout }) => {
         <MoreInfo info={extraInfo} setInfoIsShown={setExtraInfoIsShown} />
       )}
       <Bar />
+      <Footer />
     </main>
   );
 };
