@@ -19,8 +19,12 @@ import classes from "./Cart.module.css";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const hours = Math.floor(+cartCtx.totalTime / 60);
-  const minutes = Math.floor(+cartCtx.totalTime % 60);
+  const hours = Math.floor(
+    +cartCtx.totalTime / cartCtx.totalDishes.length / 60
+  );
+  const minutes = Math.floor(
+    (+cartCtx.totalTime / cartCtx.totalDishes.length) % 60
+  );
 
   const emptyCart = cartCtx.totalDishes.length === 0;
 

@@ -16,8 +16,12 @@ const Bar = () => {
 
   const cartCtx = useContext(CartContext);
 
-  const hours = Math.floor(+cartCtx.totalTime / 60);
-  const minutes = Math.floor(+cartCtx.totalTime % 60);
+  const hours = Math.floor(
+    +cartCtx.totalTime / cartCtx.totalDishes.length / 60
+  );
+  const minutes = Math.floor(
+    (+cartCtx.totalTime / cartCtx.totalDishes.length) % 60
+  );
 
   useEffect(() => {
     if (cartCtx.totalDishes.length === 0) {
