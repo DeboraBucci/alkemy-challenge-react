@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import axios from "axios";
 
@@ -57,23 +57,35 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  const content = isLoggedIn ? (
-    <Home onLogout={logoutHandler} />
-  ) : (
-    <LogIn
-      onLogin={loginHandler}
-      isValid={formIsValid}
-      setIsValid={setFormIsValid}
-      isWaiting={waiting}
-    />
-  );
+  const authUser = ({ check, component, to }) => {
+    return check ? component : <Redirect to={to} />;
+  };
 
   return (
     <BrowserRouter>
       <div className="app">
         <Switch>
-          <Route path="/">{content}</Route>
-          <Route path="/login">{content}</Route>
+          <Route exact path="/">
+            {authUser({
+              check: isLoggedIn,
+              component: <Home onLogout={logoutHandler} />,
+              to: "/login",
+            })}
+          </Route>
+          <Route path="/login">
+            {authUser({
+              check: !isLoggedIn,
+              component: (
+                <LogIn
+                  onLogin={loginHandler}
+                  isValid={formIsValid}
+                  setIsValid={setFormIsValid}
+                  isWaiting={waiting}
+                />
+              ),
+              to: "/",
+            })}
+          </Route>
         </Switch>
       </div>
     </BrowserRouter>
