@@ -16,7 +16,7 @@ const Menu = ({ setInfoHandler, meals }) => {
   };
 
   return (
-    <section className={classes.menu}>
+    <section id="menu" className={classes.menu}>
       <div className={classes.title}>
         <h2>MENU</h2>
       </div>

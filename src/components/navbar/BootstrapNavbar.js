@@ -24,9 +24,17 @@ const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
-          <Nav>
+          <Nav className={classes.nav}>
+            <Nav.Link href="#menu">Menu</Nav.Link>
             <Nav.Link href="#meals">Meals</Nav.Link>
-            <Nav.Link onClick={onOpenCart} eventKey={2} href="#cart">
+            <Nav.Link href="#search">Search</Nav.Link>
+
+            <Nav.Link
+              className={classes.cart}
+              onClick={onOpenCart}
+              eventKey={2}
+              href="#cart"
+            >
               {cartCtx.totalDishes.length} items{" "}
               <FontAwesomeIcon icon={faCartShopping} />
             </Nav.Link>

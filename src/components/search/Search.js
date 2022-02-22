@@ -69,7 +69,7 @@ const Search = ({
   };
 
   return (
-    <section className={classes.search}>
+    <section id="search" className={classes.search}>
       <h1>Lily's Cuisine</h1>
       <p className={classes.subtitle}>{slogan}</p>
       <SearchForm onSubmit={onSubmit} waiting={waiting} />

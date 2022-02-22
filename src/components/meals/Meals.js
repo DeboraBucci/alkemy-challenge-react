@@ -43,7 +43,11 @@ const Meals = ({ meals, waiting, setInfoHandler, isMealsShown }) => {
 
   // RETURN
   // -----------------------------------------------------------------------
-  return <section className={classes.meals}>{isMealsShown && content}</section>;
+  return (
+    <section id="meals" className={classes.meals}>
+      {isMealsShown && content}
+    </section>
+  );
 };
 
 export default Meals;
