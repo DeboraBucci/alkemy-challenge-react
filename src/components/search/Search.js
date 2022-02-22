@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./Search.module.css";
 import Axios from "axios";
 import SearchForm from "./SearchForm";
+import SweetAlert from "../UI/SweetAlert";
 
 const Search = ({
   onSearchMeals,
@@ -27,7 +28,7 @@ const Search = ({
     if (randomNum === 3) setSlogan("Your meal, one click away!");
   }, []);
 
-  const onSubmit = (text, preferences) => {
+  const onSubmit = async (text, preferences) => {
     setIsWaiting(true);
     setIsMealsShown(true);
 
@@ -39,11 +40,14 @@ const Search = ({
 
     const link = `https://api.spoonacular.com/recipes/complexSearch?query=${text}${cuisine}${diet}${excludedIngredients}&addRecipeInformation=true&addRecipeNutrition=true&number=100&apiKey=${apiKey}`;
 
-    Axios.get(link).then(function (response) {
-      const mealsArr = [];
-      const mealsData = response.data.results;
+    const mealsArr = [];
 
-      mealsData.forEach((meal) => {
+    try {
+      const response = await Axios.get(link);
+
+      const data = await response.data.results;
+
+      await data.forEach(async (meal) => {
         mealsArr.push({
           id: meal.id,
           title: meal.title,
@@ -64,8 +68,23 @@ const Search = ({
         });
       });
 
-      setMeals(mealsArr);
-    });
+      await setMeals(mealsArr);
+    } catch (err) {
+      setMeals([]);
+
+      if (err.message.includes("402")) {
+        SweetAlert({
+          title: "Error 402",
+          text: "The search limit have been reached for today, try again tomorrow. Sorry!",
+        });
+        return;
+      }
+
+      SweetAlert({
+        title: err.name,
+        text: err.message,
+      });
+    }
   };
 
   return (
