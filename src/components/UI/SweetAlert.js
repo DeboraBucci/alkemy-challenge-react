@@ -23,6 +23,6 @@ const SweetAlert = ({
       cancelButton: `${swalClasses["btn-cancel"]}`,
     },
     reverseButtons: reverseButtons,
-  })();
+  });
 
 export default SweetAlert;
