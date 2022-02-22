@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import axios from "axios";
 
@@ -54,18 +55,26 @@ function App() {
     setIsLoggedIn(false);
   };
 
+  const content = isLoggedIn ? (
+    <Home onLogout={logoutHandler} />
+  ) : (
+    <LogIn
+      onLogin={loginHandler}
+      isValid={formIsValid}
+      setIsValid={setFormIsValid}
+      isWaiting={waiting}
+    />
+  );
+
   return (
-    <div className="app">
-      {!isLoggedIn && (
-        <LogIn
-          onLogin={loginHandler}
-          isValid={formIsValid}
-          setIsValid={setFormIsValid}
-          isWaiting={waiting}
-        />
-      )}
-      {isLoggedIn && <Home onLogout={logoutHandler} />}
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <Switch>
+          <Route path="/">{content}</Route>
+          <Route path="/login">{content}</Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
