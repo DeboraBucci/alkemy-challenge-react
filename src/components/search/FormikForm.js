@@ -1,6 +1,8 @@
 import React from "react";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+
 import { cuisineOpt, dietOpt } from "../../Data";
 
 import classes from "./FormikForm.module.css";
@@ -36,22 +38,16 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
     onSubmitHandler(values.search, preferences);
   };
 
-  const validate = (values) => {
-    let errors = {};
-
-    if (!values.search) {
-      errors.search = "Required Field.";
-    } else if (values.search.length < 3) {
-      errors.search = "You need to type two or more characters.";
-    }
-
-    return errors;
-  };
+  const validationSchema = Yup.object({
+    search: Yup.string()
+      .min(3, "You need to type two or more characters.")
+      .required("Required field."),
+  });
 
   return (
     <Formik
       initialValues={initialValues}
-      validate={validate}
+      validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
       <Form className={classes.form}>
