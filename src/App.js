@@ -16,10 +16,9 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formIsValid, setFormIsValid] = useState();
   const [waiting, setWaiting] = useState(false);
-  const [token, setToken] = useState("");
 
   useEffect(() => {
-    if (localStorage.getItem("isLoggedIn") === token) {
+    if (localStorage.getItem("isLoggedIn")) {
       setIsLoggedIn(true);
     }
   }, []);
@@ -38,7 +37,6 @@ function App() {
         .then(function (response) {
           setIsLoggedIn(true);
           setFormIsValid(true);
-          setToken(response.data.token);
 
           localStorage.setItem("isLoggedIn", `${response.data.token}`);
         })
