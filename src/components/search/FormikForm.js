@@ -114,7 +114,7 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
             name="sort"
             id="sort"
           >
-            <option selected>Sort by...</option>
+            <option defaultValue>Sort by...</option>
             <option value="popularity">Popularity</option>
             <option value="healthiness">Healthiness</option>
             <option value="price">Price</option>
@@ -122,7 +122,7 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
           <button
             type="button"
             name="direction"
-            class="btn btn-outline-secondary"
+            className="btn btn-outline-secondary"
             onClick={directionHandler}
           >
             {direction === "desc" && <FontAwesomeIcon icon={faArrowDown} />}
