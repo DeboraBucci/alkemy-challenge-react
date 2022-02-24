@@ -7,6 +7,7 @@ import classes from "./FormikForm.module.css";
 
 import ErrorText from "./ErrorText";
 import DropdownComp from "./DropdownComp";
+import SwitchComp from "./SwitchComp";
 
 const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
   const initialValues = {
@@ -45,23 +46,6 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
     return errors;
   };
 
-  const switchHandler = (title, name) => {
-    return (
-      <div className="form-check form-switch">
-        <Field
-          className="form-check-input"
-          type="checkbox"
-          role="switch"
-          id={`no${name}`}
-          name={`no${name}`}
-        />
-        <label className="form-check-label" htmlFor={`no${name}`}>
-          {title}
-        </label>
-      </div>
-    );
-  };
-
   return (
     <Formik
       initialValues={initialValues}
@@ -98,8 +82,8 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
         </div>
 
         <div className={classes.checkboxes}>
-          {switchHandler("No Added Sugar", "Sugar")}
-          {switchHandler("No Eggs", "Eggs")}
+          <SwitchComp name="Sugar" title="No Added Sugar" />
+          <SwitchComp name="Eggs" title="No Eggs" />
         </div>
       </Form>
     </Formik>
