@@ -34,7 +34,8 @@ const MealItem = ({ meal, setInfoHandler }) => {
       icon: <FontAwesomeIcon className={classes.rate} icon={faStar} />,
       text: (
         <p>
-          <span className={classes.strong}>4.9</span> rating (482)
+          <span className={classes.strong}>{meal.rating}</span> rating (
+          {meal.raters})
         </p>
       ),
       key: "rating",
