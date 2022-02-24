@@ -39,14 +39,7 @@ const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
               <FontAwesomeIcon icon={faCartShopping} />
             </Nav.Link>
             <NavDropdown title="User" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">
-                <i className="far fa-user"></i> Profile
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                <i className="fas fa-cog"></i> Settings
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item onClick={onLogout} href="#action/3.3">
+              <NavDropdown.Item onClick={onLogout}>
                 <i className="fas fa-sign-out-alt"></i> Log Out
               </NavDropdown.Item>
             </NavDropdown>
