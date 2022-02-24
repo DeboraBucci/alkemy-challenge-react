@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -10,8 +10,17 @@ import classes from "./FormikForm.module.css";
 import ErrorText from "./ErrorText";
 import DropdownComp from "./DropdownComp";
 import SwitchComp from "./SwitchComp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowDown,
+  faArrowUp,
+  faChevronDown,
+  faChevronUp,
+} from "@fortawesome/free-solid-svg-icons";
 
 const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
+  const [direction, setDirection] = useState("asc");
+
   const initialValues = {
     search: "",
     cuisine: "",
@@ -19,6 +28,7 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
     noSugar: "",
     noEggs: "",
     sort: "",
+    direction: "",
   };
 
   const onSubmit = (values) => {
@@ -37,6 +47,7 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
       selectedCuisine: checker(values.cuisine),
       excludedIng: excludedIng,
       sort: finalSort,
+      direction: direction,
     };
 
     onSubmitHandler(values.search, preferences);
@@ -47,6 +58,13 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
       .min(3, "You need to type two or more characters.")
       .required("Required field."),
   });
+
+  const directionHandler = () => {
+    setDirection((prev) => {
+      if (prev === "asc") return "desc";
+      if (prev === "desc") return "asc";
+    });
+  };
 
   return (
     <Formik
@@ -101,6 +119,15 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
             <option value="healthiness">Healthiness</option>
             <option value="price">Price</option>
           </Field>
+          <button
+            type="button"
+            name="direction"
+            class="btn btn-outline-secondary"
+            onClick={directionHandler}
+          >
+            {direction === "desc" && <FontAwesomeIcon icon={faArrowDown} />}
+            {direction === "asc" && <FontAwesomeIcon icon={faArrowUp} />}
+          </button>
         </div>
       </Form>
     </Formik>
