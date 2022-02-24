@@ -1,6 +1,6 @@
 .cart {
   position: fixed;
-  z-index: 100;
+  z-index: 300;
   background-color: white;
   top: 20%;
   left: 50%;
