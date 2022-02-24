@@ -90,11 +90,12 @@
   gap: 5px;
   font-size: 0.7rem;
   color: white;
+  padding: 0 !important;
 }
 
 .diet-list li {
   padding: 2px 5px;
-  border-radius: 14px;
+  border-radius: 7px;
   background-color: green;
 }
 
