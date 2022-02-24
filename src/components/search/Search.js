@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Search.module.css";
 import Axios from "axios";
-import SearchForm from "./SearchForm";
 import SweetAlert from "../UI/SweetAlert";
+import FormikForm from "./FormikForm";
 
 const Search = ({
   onSearchMeals,
@@ -91,7 +91,7 @@ const Search = ({
     <section id="search" className={classes.search}>
       <h1>Lily's Cuisine</h1>
       <p className={classes.subtitle}>{slogan}</p>
-      <SearchForm onSubmit={onSubmit} waiting={waiting} />
+      <FormikForm onSubmit={onSubmit} waiting={waiting} />
       <p>You have to choose two vegan and two non vegan meals for your menu.</p>
     </section>
   );
