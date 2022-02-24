@@ -54,4 +54,14 @@
 
 .checkboxes input {
   margin: 0 !important;
+  cursor: pointer;
+}
+
+.checkboxes input[type="checkbox"]:checked {
+  background-color: rgb(var(--secondary));
+  border-color: rgb(var(--secondary));
+}
+
+.checkboxes input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 0.25rem rgba(var(--secondary), 0.5) !important;
 }
