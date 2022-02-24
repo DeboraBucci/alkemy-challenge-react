@@ -11,6 +11,7 @@ import {
 import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
 import AddToCartButton from "../UI/AddToCartButton";
+import Backdrop from "../UI/Backdrop";
 
 const MoreInfo = ({ info, setInfoIsShown }) => {
   const closeMoreInfoHandler = () => {
@@ -33,7 +34,7 @@ const MoreInfo = ({ info, setInfoIsShown }) => {
 
   return (
     <React.Fragment>
-      <div className={classes.backdrop}></div>
+      <Backdrop onClick={closeMoreInfoHandler} />
       <div className={classes.modal}>
         <div className={classes["img-box"]}>
           <img src={info.image} />
