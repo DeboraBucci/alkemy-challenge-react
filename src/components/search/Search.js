@@ -89,8 +89,10 @@ const Search = ({
 
   return (
     <section id="search" className={classes.search}>
-      <h1>Lily's Cuisine</h1>
-      <p className={classes.subtitle}>{slogan}</p>
+      <div className={classes.brand}>
+        <h1>Lily's Cuisine</h1>
+        <p>{slogan}</p>
+      </div>
       <FormikForm onSubmit={onSubmit} waiting={waiting} />
       <p>You have to choose two vegan and two non vegan meals for your menu.</p>
     </section>
