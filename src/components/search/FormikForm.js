@@ -6,6 +6,7 @@ import { cuisineOpt, dietOpt } from "../../Data";
 import classes from "./FormikForm.module.css";
 
 import ErrorText from "./ErrorText";
+import DropdownComp from "./DropdownComp";
 
 const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
   const initialValues = {
@@ -42,27 +43,6 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
     }
 
     return errors;
-  };
-
-  const dropdownHandler = (title, arr) => {
-    return (
-      <div className="input-group mb-3">
-        <label className="input-group-text" htmlFor={title}>
-          {title[0].toUpperCase() + title.slice(1)}
-        </label>
-        <Field as="select" className="form-select" name={title} id={title}>
-          {arr.map((opt, i) => (
-            <option
-              defaultValue={i === 0}
-              value={opt.toLowerCase()}
-              key={`${opt} cuisine`}
-            >
-              {opt}
-            </option>
-          ))}
-        </Field>
-      </div>
-    );
   };
 
   const switchHandler = (title, name) => {
@@ -113,8 +93,8 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
         </div>
 
         <div className={classes.dropdowns}>
-          {dropdownHandler("cuisine", cuisineOpt)}
-          {dropdownHandler("diet", dietOpt)}
+          <DropdownComp title="cuisine" arr={cuisineOpt} />
+          <DropdownComp title="diet" arr={dietOpt} />
         </div>
 
         <div className={classes.checkboxes}>
