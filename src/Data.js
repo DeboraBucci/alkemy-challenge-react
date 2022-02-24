@@ -1,5 +1,5 @@
-const dropdownOpt = [
-  "None",
+const cuisineOpt = [
+  "All...",
   "African",
   "American",
   "British",
@@ -29,7 +29,7 @@ const dropdownOpt = [
 ];
 
 const dietOpt = [
-  "All",
+  "All...",
   "Whole30",
   "Paleo",
   "Vegan",
@@ -70,4 +70,4 @@ const mealInfoHandler = (meal) => {
   };
 };
 
-export { dropdownOpt, dietOpt, defaultObj, mealInfoHandler };
+export { cuisineOpt, dietOpt, defaultObj, mealInfoHandler };
