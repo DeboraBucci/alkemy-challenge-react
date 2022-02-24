@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Bar = () => {
   const [isEmpty, setIsEmpty] = useState(true);
-  const [isBarOpened, setIsBarOpened] = useState(false);
+  const [isBarOpened, setIsBarOpened] = useState(true);
 
   const cartCtx = useContext(CartContext);
 
