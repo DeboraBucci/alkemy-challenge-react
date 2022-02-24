@@ -39,7 +39,9 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
   const validate = (values) => {
     let errors = {};
 
-    if (!values.search || values.search.length < 3) {
+    if (!values.search) {
+      errors.search = "Required Field.";
+    } else if (values.search.length < 3) {
       errors.search = "You need to type two or more characters.";
     }
 
