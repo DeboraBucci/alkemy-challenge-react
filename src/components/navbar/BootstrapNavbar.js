@@ -19,7 +19,11 @@ const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
     >
       <Container>
         <Navbar.Brand href="#home">
-          <img src={brand} style={{ height: 70 }} />
+          <img
+            src={brand}
+            style={{ height: 70, width: 214 }}
+            alt="Logo of Lily's Cuisine"
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
