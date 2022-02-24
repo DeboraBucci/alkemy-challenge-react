@@ -15,6 +15,7 @@ import CartItem from "./CartItem";
 import OrderMenuButton from "../UI/OrderMenuButton";
 
 import classes from "./Cart.module.css";
+import Backdrop from "../UI/Backdrop";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -52,7 +53,7 @@ const Cart = (props) => {
 
   return (
     <React.Fragment>
-      <div className={classes.backdrop}></div>
+      <Backdrop onClick={props.onCloseCart}></Backdrop>
       <div className={classes.cart}>
         <div className={classes["title-box"]}>
           <h3>My Cart</h3>
