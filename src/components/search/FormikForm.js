@@ -5,6 +5,8 @@ import { cuisineOpt, dietOpt } from "../../Data";
 
 import classes from "./FormikForm.module.css";
 
+import ErrorText from "./ErrorText";
+
 const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
   const initialValues = {
     search: "",
@@ -107,7 +109,7 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
               Search
             </button>
           </div>
-          <ErrorMessage name="search" />
+          <ErrorMessage name="search" component={ErrorText} />
         </div>
 
         <div className={classes.dropdowns}>
