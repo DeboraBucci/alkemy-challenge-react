@@ -48,10 +48,12 @@ const Search = ({
 
     try {
       const response = await Axios.get(link);
-
       const data = await response.data.results;
 
       await data.forEach(async (meal) => {
+        const rating = (3 + Math.random() * 2).toFixed(2);
+        const raters = Math.floor(Math.random() * 3000 + 2);
+
         mealsArr.push({
           id: meal.id,
           title: meal.title,
@@ -69,6 +71,8 @@ const Search = ({
           summary: meal.summary,
           nutrients: meal.nutrition.nutrients,
           isVegan: meal.vegan,
+          rating: rating,
+          raters: raters,
         });
       });
 
