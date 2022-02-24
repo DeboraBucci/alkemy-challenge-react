@@ -26,8 +26,7 @@ const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto"></Nav>
+        <Navbar.Collapse className={classes.links} id="responsive-navbar-nav">
           <Nav className={classes.nav}>
             <Nav.Link href="#menu">Menu</Nav.Link>
             <Nav.Link href="#meals">Meals</Nav.Link>
