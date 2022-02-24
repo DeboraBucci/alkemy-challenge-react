@@ -18,6 +18,7 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
     diet: "",
     noSugar: "",
     noEggs: "",
+    sort: "",
   };
 
   const onSubmit = (values) => {
@@ -29,10 +30,13 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
 
     const excludedIng = noSugar + comma + noEggs;
 
+    const finalSort = values.sort === "sort by..." ? "" : values.sort;
+
     const preferences = {
       selectedDiet: checker(values.diet),
       selectedCuisine: checker(values.cuisine),
       excludedIng: excludedIng,
+      sort: finalSort,
     };
 
     onSubmitHandler(values.search, preferences);
@@ -79,9 +83,24 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
           <DropdownComp title="diet" arr={dietOpt} />
         </div>
 
-        <div className={classes.checkboxes}>
-          <SwitchComp name="Sugar" title="No Added Sugar" />
-          <SwitchComp name="Eggs" title="No Eggs" />
+        <div className={classes.box}>
+          <div className={classes.checkboxes}>
+            <SwitchComp name="Sugar" title="No Added Sugar" />
+            <SwitchComp name="Eggs" title="No Eggs" />
+          </div>
+
+          <Field
+            as="select"
+            className="form-select"
+            aria-label="sort"
+            name="sort"
+            id="sort"
+          >
+            <option selected>Sort by...</option>
+            <option value="popularity">Popularity</option>
+            <option value="healthiness">Healthiness</option>
+            <option value="price">Price</option>
+          </Field>
         </div>
       </Form>
     </Formik>
