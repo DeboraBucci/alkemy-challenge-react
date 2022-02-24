@@ -35,10 +35,13 @@ const Search = ({
     const cuisine = `&cuisine=${preferences.selectedCuisine}`;
     const diet = `&diet=${preferences.selectedDiet}`;
     const excludedIngredients = `&excludeIngredients=${preferences.excludedIng}`;
+    const sort = `&sort=${preferences.sort}`;
 
     const apiKey = "d4d951265a704dc49ac9ee0d5a116060";
 
-    const link = `https://api.spoonacular.com/recipes/complexSearch?query=${text}${cuisine}${diet}${excludedIngredients}&addRecipeInformation=true&addRecipeNutrition=true&number=100&apiKey=${apiKey}`;
+    const link = `https://api.spoonacular.com/recipes/complexSearch?query=${
+      text + cuisine + diet + excludedIngredients + sort
+    }&addRecipeInformation=true&addRecipeNutrition=true&number=100&apiKey=${apiKey}`;
 
     const mealsArr = [];
 
