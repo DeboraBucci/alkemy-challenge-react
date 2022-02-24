@@ -59,6 +59,7 @@ const MealItem = ({ meal, setInfoHandler }) => {
       <Card.Img className={classes.img} variant="top" src={meal.image} />
       <Card.Body className={classes["card-body"]}>
         <Card.Title>{meal.title}</Card.Title>
+        <div className={classes.price}>$ {meal.price}</div>
 
         <ul className={classes["diet-list"]}>
           {meal.diets.map((diet) => (
