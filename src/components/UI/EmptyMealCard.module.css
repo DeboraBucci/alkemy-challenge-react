@@ -1,0 +1,30 @@
+.fallback {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white !important;
+
+  font-size: 5rem;
+
+  padding: 1rem;
+}
+
+.circle {
+  height: 120px;
+  width: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 3px solid goldenrod;
+  border-radius: 50%;
+}
+
+.special {
+  border-bottom: 3px solid goldenrod;
+}
