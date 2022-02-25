@@ -58,20 +58,21 @@ const Bar = () => {
         </button>
 
         <p>
-          <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalDishes.length}
+          <FontAwesomeIcon icon={faUtensils} /> Servings:{" "}
+          {cartCtx.totalServings}
         </p>
         <p>
-          <FontAwesomeIcon icon={faClock} /> {hours ? `${hours} h` : ""}{" "}
-          {minutes ? `${minutes} min` : ""}
+          <FontAwesomeIcon icon={faClock} /> Avg. Cooking Time:{" "}
+          {hours ? `${hours} h` : ""} {minutes ? `${minutes} min` : ""}
           {!hours && !minutes && "0 hs"}
         </p>
         <p>
-          <FontAwesomeIcon icon={faHeartPulse} />{" "}
+          <FontAwesomeIcon icon={faHeartPulse} /> Avg. Health Score:{" "}
           {!isEmpty
             ? Math.round(cartCtx.totalHealthScore / cartCtx.totalDishes.length)
             : "0"}
         </p>
-        <p>TOTAL : ${Math.round(cartCtx.totalPrice)}</p>
+        <p>TOTAL: ${Math.round(cartCtx.totalPrice)}</p>
 
         <OrderMenuButton />
       </div>
