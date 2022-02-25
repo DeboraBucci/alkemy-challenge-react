@@ -12,41 +12,40 @@ import MoreInfoButton from "../UI/MoreInfoButton";
 const MealItem = ({ meal, setInfoHandler }) => {
   const info = [
     {
-      icon: <FontAwesomeIcon className={classes.fire} icon={faFire} />,
-      text: (
-        <p>
-          <span className={classes.strong}>{meal.calories}</span> calories
-        </p>
-      ),
+      icon: faFire,
+      iconClass: classes.fire,
+      text: [
+        <span className={classes.strong}>{meal.calories}</span>,
+        " calories",
+      ],
       key: "calories",
     },
     {
-      icon: <FontAwesomeIcon className={classes.heart} icon={faHeartbeat} />,
-      text: (
-        <p>
-          Health Score{" "}
-          <span className={classes.strong}>{meal.healthScore}</span>
-        </p>
-      ),
+      icon: faHeartbeat,
+      iconClass: classes.heart,
+      text: [
+        "Health Score ",
+        <span className={classes.strong}>{meal.healthScore}</span>,
+      ],
       key: "health score",
     },
     {
-      icon: <FontAwesomeIcon className={classes.rate} icon={faStar} />,
-      text: (
-        <p>
-          <span className={classes.strong}>{meal.rating}</span> rating (
-          {meal.raters})
-        </p>
-      ),
+      icon: faStar,
+      iconClass: classes.rate,
+      text: [
+        <span className={classes.strong}>{meal.rating} </span>,
+        `rating (
+          ${meal.raters})`,
+      ],
       key: "rating",
     },
     {
-      icon: <FontAwesomeIcon className={classes.time} icon={faClock} />,
-      text: (
-        <p>
-          Cooking time <span className={classes.strong}>{meal.time} mins</span>
-        </p>
-      ),
+      icon: faClock,
+      iconClass: classes.time,
+      text: [
+        "Cooking time",
+        <span className={classes.strong}>{meal.time} mins</span>,
+      ],
       key: "time",
     },
   ];
@@ -67,8 +66,11 @@ const MealItem = ({ meal, setInfoHandler }) => {
         <ul className={classes.list}>
           {info.map((mealInfo) => (
             <li key={mealInfo.key}>
-              {mealInfo.icon}
-              {mealInfo.text}
+              <FontAwesomeIcon
+                className={mealInfo.iconClass}
+                icon={mealInfo.icon}
+              />
+              <p>{mealInfo.text}</p>
             </li>
           ))}
         </ul>
