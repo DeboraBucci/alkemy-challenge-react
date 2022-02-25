@@ -5,6 +5,7 @@ import classes from "./BootstrapNavbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faSignOut } from "@fortawesome/free-solid-svg-icons";
 import CartContext from "../store/cart-context";
+import UserName from "./UserName";
 
 const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
   const cartCtx = useContext(CartContext);
@@ -41,6 +42,8 @@ const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
               {cartCtx.totalDishes.length} items{" "}
               <FontAwesomeIcon icon={faCartShopping} />
             </Nav.Link>
+
+            <UserName />
 
             <Nav.Link className={classes.logout} onClick={onLogout}>
               Log Out <FontAwesomeIcon icon={faSignOut} />
