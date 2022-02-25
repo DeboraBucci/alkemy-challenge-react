@@ -17,15 +17,12 @@ import OrderMenuButton from "../UI/OrderMenuButton";
 import classes from "./Cart.module.css";
 import Backdrop from "../UI/Backdrop";
 
+const { timeCalculator } = require("../functions/timeCalculator");
+
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const hours = Math.floor(
-    +cartCtx.totalTime / cartCtx.totalDishes.length / 60
-  );
-  const minutes = Math.floor(
-    (+cartCtx.totalTime / cartCtx.totalDishes.length) % 60
-  );
+  const [hours, minutes] = timeCalculator(+cartCtx.totalTime);
 
   const emptyCart = cartCtx.totalDishes.length === 0;
 
@@ -65,8 +62,7 @@ const Cart = (props) => {
           {!emptyCart && (
             <div className={classes.info}>
               <p>
-                <FontAwesomeIcon icon={faUtensils} />{" "}
-                {cartCtx.totalDishes.length}
+                <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalServings}
               </p>
               <p>
                 <FontAwesomeIcon icon={faClock} />{" "}
