@@ -22,12 +22,10 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
   const content = mealExists && (
     <>
       <div>
-        <span className={dish.item.isVegan ? classes.vegan : classes.nonvegan}>
-          {dish.item.isVegan ? "vegan" : "non vegan"}
-        </span>
-
         <h3>{dish.item.title}</h3>
+      </div>
 
+      <div className={classes["extra-info"]}>
         <p>Price: ${dish.item.price}</p>
         <p>Servings: {dish.item.servings}</p>
       </div>
@@ -37,6 +35,14 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
         setInfoHandler={setInfoHandler}
         className={classes["btn-info"]}
       />
+    </>
+  );
+
+  const floatingContent = mealExists && (
+    <>
+      <span className={dish.item.isVegan ? classes.vegan : classes.nonvegan}>
+        {dish.item.isVegan ? "vegan" : "non vegan"}
+      </span>
 
       <RemoveFromCartButton
         onClick={removeItemHandler.bind(null, dish.item)}
@@ -57,6 +63,7 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
         <div className={classes.img}>{img}</div>
 
         {content}
+        {floatingContent}
       </div>
     </li>
   );
