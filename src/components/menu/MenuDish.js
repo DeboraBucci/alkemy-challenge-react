@@ -1,22 +1,54 @@
 import React from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+
 import classes from "./MenuDish.module.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faUtensils } from "@fortawesome/free-solid-svg-icons";
 import RemoveFromCartButton from "../UI/RemoveFromCartButton";
 import AddToCartButton from "../UI/AddToCartButton";
 import MoreInfoButton from "../UI/MoreInfoButton";
+import EmptyMealCard from "../UI/EmptyMealCard";
 
 const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
-  const img = dish.item.title ? (
+  const mealExists = dish.item.title;
+
+  const img = mealExists ? (
     <img src={dish.item.image} />
   ) : (
-    <div className={classes.fallback}>
-      <div className={classes.circle}>
-        <FontAwesomeIcon icon={faUtensils} />
+    <EmptyMealCard className={classes["empty-card"]} />
+  );
+
+  const content = mealExists && (
+    <>
+      <div>
+        <span className={dish.item.isVegan ? classes.vegan : classes.nonvegan}>
+          {dish.item.isVegan ? "vegan" : "non vegan"}
+        </span>
+
+        <h3>{dish.item.title}</h3>
+
+        <p>Price: ${dish.item.price}</p>
+        <p>Servings: {dish.item.servings}</p>
       </div>
-    </div>
+
+      <MoreInfoButton
+        meal={dish.item}
+        setInfoHandler={setInfoHandler}
+        className={classes["btn-info"]}
+      />
+
+      <RemoveFromCartButton
+        onClick={removeItemHandler.bind(null, dish.item)}
+        className={classes["btn-remove"]}
+      />
+      <AddToCartButton
+        className={classes["btn-add"]}
+        meal={dish.item}
+        icon={<FontAwesomeIcon icon={faPlus} />}
+        num={Math.random()}
+      />
+    </>
   );
 
   return (
@@ -24,44 +56,8 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
       <div className={classes.content}>
         <div className={classes.img}>{img}</div>
 
-        {dish.item.title && (
-          <>
-            <div>
-              <span
-                className={dish.item.isVegan ? classes.vegan : classes.nonvegan}
-              >
-                {dish.item.isVegan ? "vegan" : "non vegan"}
-              </span>
-
-              <h3>{dish.item.title}</h3>
-
-              <p>Price: ${dish.item.price}</p>
-              <p>Servings: {dish.item.servings}</p>
-            </div>
-
-            <MoreInfoButton
-              meal={dish.item}
-              setInfoHandler={setInfoHandler}
-              className={classes["btn-info"]}
-            />
-          </>
-        )}
+        {content}
       </div>
-
-      {dish.item.title && (
-        <>
-          <RemoveFromCartButton
-            onClick={removeItemHandler.bind(null, dish.item)}
-            className={classes["btn-remove"]}
-          />
-          <AddToCartButton
-            className={classes["btn-add"]}
-            meal={dish.item}
-            icon={<FontAwesomeIcon icon={faPlus} />}
-            num={Math.random()}
-          />
-        </>
-      )}
     </li>
   );
 };

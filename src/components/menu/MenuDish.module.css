@@ -96,23 +96,6 @@
   top: 25px !important;
 }
 
-.fallback {
-  height: 100%;
-  width: 100%;
-  font-size: 5rem;
-  color: white !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.empty-card {
   border-bottom: 3px solid goldenrod;
-}
-
-.circle {
-  border: 3px solid goldenrod;
-  height: 120px;
-  width: 120px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
