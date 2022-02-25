@@ -24,7 +24,8 @@
 }
 
 .change-name-input {
-  background-color: #4d4d4d;
+  background-color: #3f3f3f;
+  color: white;
   border-radius: 7px;
   padding: 0.25rem 0.5rem;
   width: 100px;
