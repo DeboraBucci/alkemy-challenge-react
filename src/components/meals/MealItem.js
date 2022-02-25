@@ -52,14 +52,10 @@ const MealItem = ({ meal, setInfoHandler }) => {
   ];
 
   return (
-    <Card
-      key={Math.random()}
-      className={classes.card}
-      style={{ width: "18rem" }}
-    >
+    <Card className={classes.card} style={{ width: "18rem" }}>
       <Card.Img className={classes.img} variant="top" src={meal.image} />
       <Card.Body className={classes["card-body"]}>
-        <Card.Title>{meal.title}</Card.Title>
+        <Card.Title className={classes.title}>{meal.title}</Card.Title>
         <div className={classes.price}>$ {meal.price}</div>
 
         <ul className={classes["diet-list"]}>
