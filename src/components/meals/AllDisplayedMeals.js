@@ -9,26 +9,28 @@ const AllDisplayedMeals = ({ mealsList, setInfoHandler }) => {
 
   const [active, setActive] = useState(1);
 
-  const content = mealsList.map((mealChunk) => {
+  const content = mealsList.map((mealChunk, i) => {
     current++;
     return (
-      <div>
-        {current === active && [
-          <div className={classes["chunk-meals"]}>
-            {mealChunk.map((meal, i) => (
-              <MealItem
-                setInfoHandler={setInfoHandler}
-                key={`meal ${i + 1}`}
-                meal={meal}
-              />
-            ))}
-          </div>,
-          <MealsPagination
-            setActive={setActive}
-            mealsList={mealsList}
-            active={active}
-          />,
-        ]}
+      <div key={`Meal page ${i + 1}`}>
+        {current === active && (
+          <>
+            <div className={classes["chunk-meals"]}>
+              {mealChunk.map((meal, i) => (
+                <MealItem
+                  setInfoHandler={setInfoHandler}
+                  key={`meal ${i + 1}`}
+                  meal={meal}
+                />
+              ))}
+            </div>
+            <MealsPagination
+              setActive={setActive}
+              mealsList={mealsList}
+              active={active}
+            />
+          </>
+        )}
       </div>
     );
   });
