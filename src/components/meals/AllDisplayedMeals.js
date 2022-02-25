@@ -15,10 +15,10 @@ const AllDisplayedMeals = ({ mealsList, setInfoHandler }) => {
       <div>
         {current === active && [
           <div className={classes["chunk-meals"]}>
-            {mealChunk.map((meal) => (
+            {mealChunk.map((meal, i) => (
               <MealItem
                 setInfoHandler={setInfoHandler}
-                key={Math.random()}
+                key={`meal ${i + 1}`}
                 meal={meal}
               />
             ))}
