@@ -7,8 +7,9 @@ import {
   faAngleDown,
   faAngleUp,
 } from "@fortawesome/free-solid-svg-icons";
-import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import OrderMenuButton from "../UI/OrderMenuButton";
 
 const Bar = () => {
   const [isEmpty, setIsEmpty] = useState(true);
@@ -72,12 +73,7 @@ const Bar = () => {
         </p>
         <p>TOTAL : ${Math.round(cartCtx.totalPrice)}</p>
 
-        <button
-          className={`${classes["btn-order"]} ${isEmpty && classes.disabled}`}
-          disabled={isEmpty}
-        >
-          Order <FontAwesomeIcon icon={faCircleCheck} />
-        </button>
+        <OrderMenuButton />
       </div>
     </React.Fragment>
   );
