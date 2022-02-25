@@ -33,11 +33,8 @@ const Menu = ({ setInfoHandler, meals }) => {
             );
           })}
         </ul>
-        <div
-          className={`${classes.actions} ${
-            cartCtx.totalDishes.length === 0 && classes.disabled
-          }`}
-        >
+
+        <div className={classes.actions}>
           <OrderMenuButton />
         </div>
       </div>

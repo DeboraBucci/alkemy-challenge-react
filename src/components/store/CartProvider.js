@@ -6,6 +6,7 @@ const defaultCart = {
   totalPrice: 0,
   totalTime: 0,
   totalHealthScore: 0,
+  totalServings: 0,
   veganMeals: 0,
   nonVeganMeals: 0,
 };
@@ -18,6 +19,7 @@ const cartReducer = (state, action) => {
         totalPrice: state.totalPrice,
         totalTime: state.totalTime,
         totalHealthScore: state.totalHealthScore,
+        totalServings: state.totalServings,
         veganMeals: state.veganMeals,
         nonVeganMeals: state.nonVeganMeals,
       };
@@ -27,6 +29,9 @@ const cartReducer = (state, action) => {
       const updatedTotalTime = state.totalTime + action.item.time;
       const updatedHealthscore =
         state.totalHealthScore + action.item.healthScore;
+      const updatedTotalServings = state.totalServings + action.item.servings;
+      console.log(state.totalServings);
+
       const updatedVeganMeals =
         state.veganMeals + (action.item.isVegan ? 1 : 0);
       const updatedNonVeganMeals =
@@ -37,6 +42,7 @@ const cartReducer = (state, action) => {
         totalPrice: updatedTotalPrice,
         totalTime: updatedTotalTime,
         totalHealthScore: updatedHealthscore,
+        totalServings: updatedTotalServings,
         veganMeals: updatedVeganMeals,
         nonVeganMeals: updatedNonVeganMeals,
       };
@@ -58,6 +64,9 @@ const cartReducer = (state, action) => {
     const updatedTotalTime = state.totalTime - deletedItem.time;
     const updatedTotalHealthScore =
       state.totalHealthScore - deletedItem.healthScore;
+    const updatedTotalServings =
+      state.totalServings - deletedItem.totalServings;
+
     const updatedVeganMeals = state.veganMeals - (action.isVegan ? 1 : 0);
     const updatedNonVeganMeals = state.nonVeganMeals - (action.isVegan ? 0 : 1);
 
@@ -68,6 +77,7 @@ const cartReducer = (state, action) => {
       totalHealthScore: updatedTotalHealthScore,
       veganMeals: updatedVeganMeals,
       nonVeganMeals: updatedNonVeganMeals,
+      totalServings: updatedTotalServings,
     };
   }
 
@@ -90,6 +100,7 @@ const CartProvider = (props) => {
     totalPrice: cartState.totalPrice,
     totalTime: cartState.totalTime,
     totalHealthScore: cartState.totalHealthScore,
+    totalServings: cartState.totalServings,
     veganMeals: cartState.veganMeals,
     nonVeganMeals: cartState.nonVeganMeals,
     addItem: addItemToCartHandler,

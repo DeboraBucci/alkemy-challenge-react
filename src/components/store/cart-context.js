@@ -7,6 +7,7 @@ const CartContext = React.createContext({
   totalHealthScore: 0,
   veganMeals: 0,
   nonVeganMeals: 0,
+  totalServings: 0,
   addItem: (item) => {},
   removeItem: (id, isVegan) => {},
 });
