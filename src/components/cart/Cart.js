@@ -93,13 +93,7 @@ const Cart = (props) => {
             >
               Close
             </button>
-            <OrderMenuButton
-              className={`${classes["btn-order"]} ${
-                emptyCart && classes.disabled
-              }`}
-            >
-              Order <FontAwesomeIcon icon={faCircleCheck} />
-            </OrderMenuButton>
+            <OrderMenuButton />
           </div>
           <button onClick={props.onCloseCart} className={classes["btn-x"]}>
             <FontAwesomeIcon icon={faXmark} />
