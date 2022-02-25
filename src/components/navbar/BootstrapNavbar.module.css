@@ -19,7 +19,9 @@
 }
 
 .cart {
-  background-color: rgb(var(--darkest-main));
+  background-color: transparent;
+  border: 2px solid rgb(var(--main));
+  color: rgb(var(--light-main)) !important;
 
   border-radius: 14px;
   padding: 0.5rem 1rem !important;
@@ -27,10 +29,18 @@
 
 .cart:hover {
   background-color: rgb(var(--main));
+  color: white !important;
 }
 
 @media (max-width: 1000px) {
   .navbar {
     height: auto;
   }
+}
+
+.logout {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }

@@ -31,7 +31,7 @@ const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
             <Nav.Link href="#meals">Meals</Nav.Link>
             <Nav.Link href="#search">Search</Nav.Link>
 
-            <Nav.Link
+            <button
               className={classes.cart}
               onClick={onOpenCart}
               eventKey={2}
@@ -39,7 +39,7 @@ const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
             >
               {cartCtx.totalDishes.length} items{" "}
               <FontAwesomeIcon icon={faCartShopping} />
-            </Nav.Link>
+            </button>
 
             <UserName />
 
