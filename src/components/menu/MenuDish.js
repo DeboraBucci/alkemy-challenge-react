@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faDollarSign,
+  faFire,
+  faHeartbeat,
+  faPlus,
+  faUtensils,
+} from "@fortawesome/free-solid-svg-icons";
+import { faStar, faClock } from "@fortawesome/free-regular-svg-icons";
 
 import classes from "./MenuDish.module.css";
 
@@ -11,7 +18,16 @@ import MoreInfoButton from "../UI/MoreInfoButton";
 import EmptyMealCard from "../UI/EmptyMealCard";
 
 const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
+  const [isContentShown, setIsContentShown] = useState(false);
   const mealExists = dish.item.title;
+
+  const enterRatingHandler = () => {
+    setIsContentShown(true);
+  };
+
+  const leaveRatingHandler = () => {
+    setIsContentShown(false);
+  };
 
   const img = mealExists ? (
     <img src={dish.item.image} />
@@ -21,13 +37,25 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
 
   const content = mealExists && (
     <>
-      <div>
+      <div className={classes.title}>
         <h3>{dish.item.title}</h3>
       </div>
 
       <div className={classes["extra-info"]}>
-        <p>Price: ${dish.item.price}</p>
-        <p>Servings: {dish.item.servings}</p>
+        <p>
+          <FontAwesomeIcon icon={faFire} /> {dish.item.calories}
+        </p>
+        <p>
+          <FontAwesomeIcon icon={faHeartbeat} /> {dish.item.healthScore} score
+        </p>
+
+        <p>
+          <FontAwesomeIcon icon={faClock} /> {dish.item.time} mins
+        </p>
+
+        <p>
+          <FontAwesomeIcon icon={faUtensils} /> {dish.item.servings} servings
+        </p>
       </div>
 
       <MoreInfoButton
@@ -38,9 +66,11 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
     </>
   );
 
+  const dietClass = dish.item.isVegan ? classes.vegan : classes.nonvegan;
+
   const floatingContent = mealExists && (
     <>
-      <span className={dish.item.isVegan ? classes.vegan : classes.nonvegan}>
+      <span className={`${classes["diet-tag"]} ${dietClass}`}>
         {dish.item.isVegan ? "vegan" : "non vegan"}
       </span>
 
@@ -54,6 +84,23 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
         icon={<FontAwesomeIcon icon={faPlus} />}
         num={Math.random()}
       />
+
+      <p
+        className={classes.rating}
+        onMouseEnter={enterRatingHandler}
+        onMouseLeave={leaveRatingHandler}
+      >
+        <FontAwesomeIcon icon={faStar} />{" "}
+        {isContentShown && (
+          <span>
+            {dish.item.rating} ({dish.item.raters})
+          </span>
+        )}
+      </p>
+
+      <p className={classes.price}>
+        <FontAwesomeIcon icon={faDollarSign} /> {dish.item.price}
+      </p>
     </>
   );
 

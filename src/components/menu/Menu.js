@@ -38,7 +38,7 @@ const Menu = ({ setInfoHandler, meals }) => {
             cartCtx.totalDishes.length === 0 && classes.disabled
           }`}
         >
-          <OrderMenuButton>Order Menu</OrderMenuButton>
+          <OrderMenuButton />
         </div>
       </div>
     </section>
