@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+
 import CartContext from "../store/cart-context";
 import SweetAlert from "./SweetAlert";
 
-const OrderMenuButton = ({ className, children }) => {
+import classes from "./OrderMenuButton.module.css";
+
+const OrderMenuButton = () => {
   const cartCtx = useContext(CartContext);
 
   const orderHandler = () => {
@@ -34,13 +39,11 @@ const OrderMenuButton = ({ className, children }) => {
     });
   };
 
+  const empty = cartCtx.totalDishes.length === 0;
+
   return (
-    <button
-      disabled={cartCtx.totalDishes.length === 0}
-      className={className}
-      onClick={orderHandler}
-    >
-      {children}
+    <button disabled={empty} className={classes.order} onClick={orderHandler}>
+      Order <FontAwesomeIcon icon={faCircleCheck} />
     </button>
   );
 };

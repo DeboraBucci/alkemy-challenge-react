@@ -1,0 +1,21 @@
+.order {
+  background-color: #2e692e;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-weight: 500;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 14px;
+}
+
+.order:hover {
+  background-color: #1f461f;
+}
+
+.order:disabled {
+  cursor: not-allowed;
+}
