@@ -41,7 +41,7 @@ const MealItem = ({ meal, setInfoHandler }) => {
                   {mealInfo.spanText}
                 </span>
                 {mealInfo.finalText}
-                {mealInfo.feature === "rating" && ` (${meal.rating})`}
+                {mealInfo.feature === "rating" && ` (${meal.raters})`}
               </p>
             </li>
           ))}
