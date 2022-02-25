@@ -23,6 +23,7 @@ const UserName = () => {
 
   const changeNameInput = (
     <input
+      autoFocus
       placeholder="your name"
       className={classes["change-name-input"]}
       onKeyPress={setNameHandler}
