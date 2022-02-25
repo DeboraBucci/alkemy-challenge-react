@@ -3,55 +3,15 @@ import React from "react";
 import { Card } from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFire, faHeartbeat } from "@fortawesome/free-solid-svg-icons";
-import { faStar, faClock } from "@fortawesome/free-regular-svg-icons";
 
-import classes from "./MealItem.module.css";
+import { info } from "../../Data";
 
 import AddToCartButton from "../UI/AddToCartButton";
 import MoreInfoButton from "../UI/MoreInfoButton";
 
-const MealItem = ({ meal, setInfoHandler }) => {
-  const info = [
-    {
-      icon: faFire,
-      iconClass: classes.fire,
-      text: [
-        <span className={classes.strong}>{meal.calories}</span>,
-        " calories",
-      ],
-      key: "calories",
-    },
-    {
-      icon: faHeartbeat,
-      iconClass: classes.heart,
-      text: [
-        "Health Score ",
-        <span className={classes.strong}>{meal.healthScore}</span>,
-      ],
-      key: "health score",
-    },
-    {
-      icon: faStar,
-      iconClass: classes.rate,
-      text: [
-        <span className={classes.strong}>{meal.rating} </span>,
-        `rating (
-          ${meal.raters})`,
-      ],
-      key: "rating",
-    },
-    {
-      icon: faClock,
-      iconClass: classes.time,
-      text: [
-        "Cooking time ",
-        <span className={classes.strong}>{meal.time} mins</span>,
-      ],
-      key: "time",
-    },
-  ];
+import classes from "./MealItem.module.css";
 
+const MealItem = ({ meal, setInfoHandler }) => {
   return (
     <Card className={classes.card} style={{ width: "18rem" }}>
       <Card.Img className={classes.img} variant="top" src={meal.image} />
@@ -69,12 +29,20 @@ const MealItem = ({ meal, setInfoHandler }) => {
 
         <ul className={classes.list}>
           {info.map((mealInfo) => (
-            <li key={mealInfo.key}>
+            <li key={mealInfo.feature}>
               <FontAwesomeIcon
-                className={mealInfo.iconClass}
+                className={classes[`${mealInfo.iconClass}`]}
                 icon={mealInfo.icon}
               />
-              <p>{mealInfo.text}</p>
+              <p>
+                {mealInfo.startingText}
+                <span className={classes.strong}>
+                  {meal[`${mealInfo.feature}`]}
+                  {mealInfo.spanText}
+                </span>
+                {mealInfo.finalText}
+                {mealInfo.feature === "rating" && ` (${meal.rating})`}
+              </p>
             </li>
           ))}
         </ul>

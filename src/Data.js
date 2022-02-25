@@ -1,3 +1,6 @@
+import { faFire, faHeartbeat } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faClock } from "@fortawesome/free-regular-svg-icons";
+
 const cuisineOpt = [
   "All...",
   "African",
@@ -70,4 +73,32 @@ const mealInfoHandler = (meal) => {
   };
 };
 
-export { cuisineOpt, dietOpt, defaultObj, mealInfoHandler };
+const info = [
+  {
+    icon: faFire,
+    iconClass: "fire",
+    finalText: " calories",
+    feature: "calories",
+  },
+  {
+    icon: faHeartbeat,
+    iconClass: "heart",
+    startingText: "Health Score ",
+    feature: "healthScore",
+  },
+  {
+    icon: faStar,
+    iconClass: "rate",
+    finalText: " rating",
+    feature: "rating",
+  },
+  {
+    icon: faClock,
+    iconClass: "time",
+    startingText: "Cooking time ",
+    spanText: ` mins`,
+    feature: "time",
+  },
+];
+
+export { cuisineOpt, dietOpt, defaultObj, mealInfoHandler, info };
