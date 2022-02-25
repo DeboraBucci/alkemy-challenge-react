@@ -84,8 +84,6 @@ const Cart = (props) => {
                 <FontAwesomeIcon icon={faDollarSign} />{" "}
                 {cartCtx.totalPrice.toFixed(2)}
               </p>
-              <p>{cartCtx.veganMeals}</p>
-              <p>{cartCtx.nonVeganMeals}</p>
             </div>
           )}
           <div className={classes.actions}>
