@@ -1,11 +1,13 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+
+import { Card } from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFire, faHeartbeat, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faFire, faHeartbeat } from "@fortawesome/free-solid-svg-icons";
 import { faStar, faClock } from "@fortawesome/free-regular-svg-icons";
 
 import classes from "./MealItem.module.css";
+
 import AddToCartButton from "../UI/AddToCartButton";
 import MoreInfoButton from "../UI/MoreInfoButton";
 
@@ -43,7 +45,7 @@ const MealItem = ({ meal, setInfoHandler }) => {
       icon: faClock,
       iconClass: classes.time,
       text: [
-        "Cooking time",
+        "Cooking time ",
         <span className={classes.strong}>{meal.time} mins</span>,
       ],
       key: "time",
@@ -53,8 +55,10 @@ const MealItem = ({ meal, setInfoHandler }) => {
   return (
     <Card className={classes.card} style={{ width: "18rem" }}>
       <Card.Img className={classes.img} variant="top" src={meal.image} />
+
       <Card.Body className={classes["card-body"]}>
         <Card.Title className={classes.title}>{meal.title}</Card.Title>
+
         <div className={classes.price}>$ {meal.price}</div>
 
         <ul className={classes["diet-list"]}>
