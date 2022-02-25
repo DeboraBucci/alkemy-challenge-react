@@ -61,31 +61,29 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="app">
-        <Switch>
-          <Route exact path="/">
-            {authUser({
-              check: isLoggedIn,
-              component: <Home onLogout={logoutHandler} />,
-              to: "/login",
-            })}
-          </Route>
-          <Route path="/login">
-            {authUser({
-              check: !isLoggedIn,
-              component: (
-                <LogIn
-                  onLogin={loginHandler}
-                  isValid={formIsValid}
-                  setIsValid={setFormIsValid}
-                  isWaiting={waiting}
-                />
-              ),
-              to: "/",
-            })}
-          </Route>
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/">
+          {authUser({
+            check: isLoggedIn,
+            component: <Home onLogout={logoutHandler} />,
+            to: "/login",
+          })}
+        </Route>
+        <Route path="/login">
+          {authUser({
+            check: !isLoggedIn,
+            component: (
+              <LogIn
+                onLogin={loginHandler}
+                isValid={formIsValid}
+                setIsValid={setFormIsValid}
+                isWaiting={waiting}
+              />
+            ),
+            to: "/",
+          })}
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 }
