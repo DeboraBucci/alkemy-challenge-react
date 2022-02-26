@@ -21,3 +21,13 @@
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
+
+@media (max-width: 1000px) {
+  .pag-item {
+    display: none;
+  }
+
+  .pag-item.active {
+    display: block !important;
+  }
+}

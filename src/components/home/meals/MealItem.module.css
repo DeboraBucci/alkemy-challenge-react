@@ -4,22 +4,26 @@
   background-color: transparent !important;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: all 0.4s;
+  width: 18rem;
 }
 
 .card-body {
   background-color: white;
+  height: 330px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 330px;
 }
 
 .card-body * {
   margin: 0 !important;
 }
 
-.img {
-  background-color: #232323 !important;
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 90%;
 }
 
 .icon {
@@ -119,4 +123,54 @@
 
 .title {
   font-size: 1rem;
+  margin-bottom: 0.5rem !important;
+}
+
+@media (max-width: 1600px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 850px) {
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .card {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 90%;
+  }
+
+  .img-box {
+    width: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img-box img {
+    height: 100%;
+    width: auto;
+  }
+
+  .price {
+    right: auto;
+    left: 10px;
+  }
+}
+
+@media (max-width: 650px) {
+  html {
+    font-size: 10px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .img-box {
+    width: 45% !important;
+  }
 }

@@ -1,4 +1,15 @@
 .chunk-meals {
+  margin: 0 !important;
+
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
+}
+
+@media (max-width: 850px) {
+  .chunk-meals {
+    flex-direction: column;
+  }
 }
