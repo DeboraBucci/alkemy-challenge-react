@@ -5,63 +5,71 @@ const { newCartGenerator } = require("../functions/newCartGenerator");
 
 const defaultCart = newCartGenerator([], 0, 0, 0, 0, 0, 0);
 
-const cartReducer = (state, action) => {
+const cartReducer = (
+  {
+    totalDishes,
+    totalPrice,
+    totalTime,
+    totalHealthScore,
+    totalServings,
+    veganMeals,
+    nonVeganMeals,
+  },
+  action
+) => {
+  // ADD
+  // -------------------------------------------------------------------
   if (action.type === "ADD") {
-    if (state.totalDishes.length > 3) {
-      return newCartGenerator(
-        state.totalDishes,
-        state.totalPrice,
-        state.totalTime,
-        state.totalHealthScore,
-        state.totalServings,
-        state.veganMeals,
-        state.nonVeganMeals
+    totalDishes.length >= 4 &&
+      newCartGenerator(
+        totalDishes,
+        totalPrice,
+        totalTime,
+        totalHealthScore,
+        totalServings,
+        veganMeals,
+        nonVeganMeals
       );
-    } else {
-      const updatedDishes = state.totalDishes.concat(action);
-      const updatedTotalPrice = state.totalPrice + action.item.price;
-      const updatedTotalTime = state.totalTime + action.item.time;
-      const updatedHealthscore =
-        state.totalHealthScore + action.item.healthScore;
-      const updatedTotalServings = state.totalServings + action.item.servings;
-      console.log(state.totalServings);
 
-      const updatedVeganMeals =
-        state.veganMeals + (action.item.isVegan ? 1 : 0);
-      const updatedNonVeganMeals =
-        state.nonVeganMeals + (action.item.isVegan ? 0 : 1);
+    const item = action.item;
+    const { price, time, healthScore, servings, isVegan } = item;
 
-      return newCartGenerator(
-        updatedDishes,
-        updatedTotalPrice,
-        updatedTotalTime,
-        updatedHealthscore,
-        updatedTotalServings,
-        updatedVeganMeals,
-        updatedNonVeganMeals
-      );
-    }
+    const updatedDishes = totalDishes.concat(action);
+    const updatedTotalPrice = totalPrice + price;
+    const updatedTotalTime = totalTime + time;
+    const updatedHealthscore = totalHealthScore + healthScore;
+    const updatedTotalServings = totalServings + servings;
+    const updatedVeganMeals = veganMeals + (isVegan ? 1 : 0);
+    const updatedNonVeganMeals = nonVeganMeals + (isVegan ? 0 : 1);
+
+    return newCartGenerator(
+      updatedDishes,
+      updatedTotalPrice,
+      updatedTotalTime,
+      updatedHealthscore,
+      updatedTotalServings,
+      updatedVeganMeals,
+      updatedNonVeganMeals
+    );
   }
 
+  // REMOVE
+  // -------------------------------------------------------------------
   if (action.type === "REMOVE") {
-    const updatedDishes = state.totalDishes.filter(
-      (item) => item.item.id !== action.id
+    // FIND DELETED ITEM
+    const updatedDishes = totalDishes.filter(
+      (dish) => dish.item.id !== action.id
     );
+    const index = totalDishes.findIndex((dish) => dish.item.id === action.id);
+    const deletedDish = totalDishes[index].item;
 
-    const index = state.totalDishes.findIndex(
-      (item) => item.item.id === action.id
-    );
-
-    const deletedItem = state.totalDishes[index].item;
-
-    const updatedTotalPrice = state.totalPrice - deletedItem.price;
-    const updatedTotalTime = state.totalTime - deletedItem.time;
-    const updatedHealthscore = state.totalHealthScore - deletedItem.healthScore;
-    const updatedTotalServings =
-      state.totalServings - deletedItem.totalServings;
-
-    const updatedVeganMeals = state.veganMeals - (action.isVegan ? 1 : 0);
-    const updatedNonVeganMeals = state.nonVeganMeals - (action.isVegan ? 0 : 1);
+    // UPDATE CART
+    const updatedTotalPrice = totalPrice - deletedDish.price;
+    const updatedTotalTime = totalTime - deletedDish.time;
+    const updatedHealthscore = totalHealthScore - deletedDish.healthScore;
+    const updatedTotalServings = totalServings - deletedDish.servings;
+    const updatedVeganMeals = veganMeals - (action.isVegan ? 1 : 0);
+    const updatedNonVeganMeals = nonVeganMeals - (action.isVegan ? 0 : 1);
 
     return newCartGenerator(
       updatedDishes,
