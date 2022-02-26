@@ -13,6 +13,7 @@ import Footer from "./footer/Footer";
 
 import CartContext from "../store/cart-context";
 import { defaultObj } from "../../Data";
+import CartOverlay from "./cart/CartOverlay";
 
 const Home = ({ onLogout }) => {
   const [searchedMeals, setSearchedMeals] = useState([]);
@@ -85,7 +86,7 @@ const Home = ({ onLogout }) => {
 
       <Menu setInfoHandler={setInfoHandler} meals={cartMeals} />
       {cartIsOpened && (
-        <Cart meals={cartMeals} onCloseCart={closeCartHandler} />
+        <CartOverlay meals={cartMeals} onCloseCart={closeCartHandler} />
       )}
       {extraInfoIsShown && (
         <MoreInfo info={extraInfo} setInfoIsShown={setExtraInfoIsShown} />

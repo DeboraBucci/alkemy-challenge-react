@@ -13,7 +13,6 @@ import CartContext from "../../store/cart-context";
 
 import CartItem from "./CartItem";
 import OrderMenuButton from "../../buttons/OrderMenuButton";
-import Backdrop from "../../UI/Backdrop";
 import ModalComp from "../../UI/ModalComp";
 
 import classes from "./Cart.module.css";
@@ -53,53 +52,47 @@ const Cart = (props) => {
   );
 
   return (
-    <React.Fragment>
-      <Backdrop onClick={props.onCloseCart} />
-      <ModalComp className={classes.cart}>
-        <div className={classes["title-box"]}>
-          <h3>My Cart</h3>
-        </div>
+    <ModalComp className={classes.cart}>
+      <div className={classes["title-box"]}>
+        <h3>My Cart</h3>
+      </div>
 
-        {cartItems}
+      {cartItems}
 
-        <div>
-          {!emptyCart && (
-            <div className={classes.info}>
-              <p>
-                <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalServings}
-              </p>
-              <p>
-                <FontAwesomeIcon icon={faClock} />{" "}
-                {timeTextGenerator(hours, minutes).join(" ")}
-              </p>
-              <p>
-                <FontAwesomeIcon icon={faHeartPulse} />{" "}
-                {!emptyCart &&
-                  Math.round(
-                    cartCtx.totalHealthScore / cartCtx.totalDishes.length
-                  )}
-              </p>
-              <p>
-                <FontAwesomeIcon icon={faDollarSign} />{" "}
-                {cartCtx.totalPrice.toFixed(2)}
-              </p>
-            </div>
-          )}
-          <div className={classes.actions}>
-            <button
-              onClick={props.onCloseCart}
-              className={classes["btn-close"]}
-            >
-              Close
-            </button>
-            <OrderMenuButton />
+      <div>
+        {!emptyCart && (
+          <div className={classes.info}>
+            <p>
+              <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalServings}
+            </p>
+            <p>
+              <FontAwesomeIcon icon={faClock} />{" "}
+              {timeTextGenerator(hours, minutes).join(" ")}
+            </p>
+            <p>
+              <FontAwesomeIcon icon={faHeartPulse} />{" "}
+              {!emptyCart &&
+                Math.round(
+                  cartCtx.totalHealthScore / cartCtx.totalDishes.length
+                )}
+            </p>
+            <p>
+              <FontAwesomeIcon icon={faDollarSign} />{" "}
+              {cartCtx.totalPrice.toFixed(2)}
+            </p>
           </div>
-          <button onClick={props.onCloseCart} className={classes["btn-x"]}>
-            <FontAwesomeIcon icon={faXmark} />
+        )}
+        <div className={classes.actions}>
+          <button onClick={props.onCloseCart} className={classes["btn-close"]}>
+            Close
           </button>
+          <OrderMenuButton />
         </div>
-      </ModalComp>
-    </React.Fragment>
+        <button onClick={props.onCloseCart} className={classes["btn-x"]}>
+          <FontAwesomeIcon icon={faXmark} />
+        </button>
+      </div>
+    </ModalComp>
   );
 };
 
