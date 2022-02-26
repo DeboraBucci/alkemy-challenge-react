@@ -3,17 +3,17 @@ import { Spinner } from "react-bootstrap";
 
 import classes from "./Meals.module.css";
 
-import AllDisplayedMeals from "./AllDisplayedMeals";
+import MealsPagination from "./MealsPagination";
+import MealChunk from "./MealChunk";
 
 const Meals = ({ meals, waiting, setInfoHandler, isMealsShown }) => {
   const [mealsList, setmealsList] = useState([]);
-
-  let chunk = 5;
+  const [active, setActive] = useState(1);
 
   useEffect(() => {
     const arr = [];
-    for (let i = 0; i < meals.length; i += chunk) {
-      arr.push(meals.slice(i, i + chunk));
+    for (let i = 0; i < meals.length; i += 5) {
+      arr.push(meals.slice(i, i + 5));
     }
 
     waiting ? setmealsList([]) : setmealsList(arr);
@@ -33,11 +33,24 @@ const Meals = ({ meals, waiting, setInfoHandler, isMealsShown }) => {
     content = <p className={classes["no-meals"]}>No meals found.</p>;
   } else {
     content = (
-      <AllDisplayedMeals
-        key={Math.random()}
-        mealsList={mealsList}
-        setInfoHandler={setInfoHandler}
-      />
+      <>
+        {mealsList.map((mealChunk, i) => {
+          return (
+            active === i + 1 && (
+              <MealChunk
+                key={`meal chunk number ${i + 1}`}
+                setInfoHandler={setInfoHandler}
+                mealChunk={mealChunk}
+              />
+            )
+          );
+        })}
+        <MealsPagination
+          setActive={setActive}
+          mealsList={mealsList}
+          active={active}
+        />
+      </>
     );
   }
 

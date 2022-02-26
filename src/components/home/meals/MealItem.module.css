@@ -2,7 +2,6 @@
   border: none !important;
   overflow: hidden !important;
   background-color: transparent !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: all 0.4s;
   width: 18rem;
 }
@@ -10,41 +9,41 @@
 .card-body {
   background-color: white;
   height: 330px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.card-body * {
-  margin: 0 !important;
-}
-
-.info {
+.text-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 90%;
 }
 
-.icon {
-  padding: 0 !important;
-  display: inline-block;
-  font-size: 0.9rem;
+.title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem !important;
+}
+
+.diet-list li {
+  padding: 2px 5px;
+  border-radius: 7px;
+  background-color: green;
 }
 
 .list {
-  width: 100%;
   list-style: none;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 0.5rem 1rem !important;
+
+  padding: 0rem 1rem !important;
 }
 
 .list li {
   display: flex;
   align-items: center;
   gap: 15px;
+
   border-bottom: 1px solid #dfdfdf;
   padding-bottom: 5px;
 }
@@ -58,13 +57,44 @@
   color: #5f5f5f;
 }
 
-.list li {
-  filter: grayscale(40%);
-}
-
 .strong {
   color: #232323;
   font-weight: bolder;
+}
+
+.diet-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: white;
+  padding: 0 !important;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  background-color: rgb(var(--secondary));
+  color: white;
+
+  font-size: 1.3rem;
+  padding: 0.25rem 0.5rem;
+
+  border-radius: 4px;
+}
+
+/* ICON COLORS 
+--------------------------------------------------*/
+.list svg {
+  filter: grayscale(40%);
 }
 
 .fire {
@@ -83,49 +113,8 @@
   color: purple;
 }
 
-.meals-box {
-  color: white !important;
-}
-
-.diet-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  font-size: 0.7rem;
-  color: white;
-  padding: 0 !important;
-}
-
-.diet-list li {
-  padding: 2px 5px;
-  border-radius: 7px;
-  background-color: green;
-}
-
-.actions {
-  display: flex;
-  justify-content: space-between;
-}
-
-.price {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-
-  background-color: rgb(var(--secondary));
-  color: white;
-
-  padding: 0.25rem 0.5rem;
-
-  border-radius: 4px;
-}
-
-.title {
-  font-size: 1rem;
-  margin-bottom: 0.5rem !important;
-}
-
+/* MEDIA QUERIES
+--------------------------------------------------*/
 @media (max-width: 1600px) {
   html {
     font-size: 13px;
@@ -143,8 +132,12 @@
     width: 90%;
   }
 
+  .card-body,
   .img-box {
     width: 50% !important;
+  }
+
+  .img-box {
     display: flex;
     align-items: center;
     justify-content: center;

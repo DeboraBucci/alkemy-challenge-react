@@ -21,7 +21,7 @@ const MealItem = ({ meal, setInfoHandler }) => {
       </div>
 
       <Card.Body className={classes["card-body"]}>
-        <div className={classes.info}>
+        <div className={classes["text-container"]}>
           <div>
             <Card.Title className={classes.title}>{meal.title}</Card.Title>
             <ul className={classes["diet-list"]}>

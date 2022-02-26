@@ -10,9 +10,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import classes from "./MealsPagination.module.css";
+import PaginationItem from "./PaginationItem";
 
 const MealsPagination = ({ setActive, mealsList, active }) => {
-  let items = [];
   const [showEllipsis, setShowEllipsis] = useState(window.innerWidth < 1000);
 
   useLayoutEffect(() => {
@@ -25,24 +25,6 @@ const MealsPagination = ({ setActive, mealsList, active }) => {
 
     return () => window.removeEventListener("resize", updateSize);
   }, []);
-
-  for (let number = 1; number <= mealsList.length; number++) {
-    const conditions =
-      number === active ||
-      number === active - 2 ||
-      number === active - 1 ||
-      number === active + 1 ||
-      number === active + 2;
-    items.push(
-      <Pagination.Item
-        className={`${classes["pag-item"]} ${conditions && classes.active}`}
-        key={number}
-        active={number === active}
-      >
-        {number}
-      </Pagination.Item>
-    );
-  }
 
   const paginationHandler = (e) => {
     if (e.target.text === undefined) {
@@ -68,6 +50,7 @@ const MealsPagination = ({ setActive, mealsList, active }) => {
   };
 
   const firstPaginationHandler = (e) => {
+    console.log(e);
     setActive(1);
   };
 
@@ -90,7 +73,7 @@ const MealsPagination = ({ setActive, mealsList, active }) => {
         <FontAwesomeIcon icon={faAngleLeft} />
       </button>
       {showEllipsis && <Pagination.Ellipsis />}
-      {items}
+      <PaginationItem active={active} mealsList={mealsList} />
       {showEllipsis && <Pagination.Ellipsis />}
       <button
         className={` ${classes["btn-page"]}`}
