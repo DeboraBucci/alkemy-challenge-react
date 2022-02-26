@@ -11,8 +11,9 @@
   align-items: center;
   gap: 1rem;
 
-  padding: 9rem 1rem;
   height: 600px;
+  margin-top: 60px;
+  padding: 9rem 1rem;
 }
 
 .brand {
