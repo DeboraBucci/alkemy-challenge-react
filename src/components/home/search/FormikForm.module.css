@@ -67,10 +67,27 @@
 }
 
 .box {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 5fr 4fr;
 }
 
-.box select {
-  width: 30%;
+.sort {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .form {
+    max-width: 90%;
+  }
+
+  .dropdowns {
+    flex-direction: column;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }

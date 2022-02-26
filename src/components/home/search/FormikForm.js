@@ -102,27 +102,29 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
             <SwitchComp name="Eggs" title="No Eggs" />
           </div>
 
-          <Field
-            as="select"
-            className="form-select"
-            aria-label="sort"
-            name="sort"
-            id="sort"
-          >
-            <option defaultValue>Sort by...</option>
-            <option value="popularity">Popularity</option>
-            <option value="healthiness">Healthiness</option>
-            <option value="price">Price</option>
-          </Field>
-          <button
-            type="button"
-            name="direction"
-            className="btn btn-outline-secondary"
-            onClick={directionHandler}
-          >
-            {direction === "desc" && <FontAwesomeIcon icon={faArrowDown} />}
-            {direction === "asc" && <FontAwesomeIcon icon={faArrowUp} />}
-          </button>
+          <div className={classes.sort}>
+            <Field
+              as="select"
+              className="form-select"
+              aria-label="sort"
+              name="sort"
+              id="sort"
+            >
+              <option defaultValue>Sort by...</option>
+              <option value="popularity">Popularity</option>
+              <option value="healthiness">Healthiness</option>
+              <option value="price">Price</option>
+            </Field>
+            <button
+              type="button"
+              name="direction"
+              className="btn btn-outline-secondary"
+              onClick={directionHandler}
+            >
+              {direction === "desc" && <FontAwesomeIcon icon={faArrowDown} />}
+              {direction === "asc" && <FontAwesomeIcon icon={faArrowUp} />}
+            </button>
+          </div>
         </div>
       </Form>
     </Formik>
