@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 import Backdrop from "../../UI/Backdrop";
 import MealInformation from "./MealInformation";
@@ -8,13 +9,22 @@ const InformationOverlay = ({ info, setInfoIsShown }) => {
     setInfoIsShown(false);
   };
 
+  const portal = document.getElementById("overlays");
+
   return (
     <React.Fragment>
-      <Backdrop onClick={closeMoreInfoHandler} />
-      <MealInformation
-        info={info}
-        closeMoreInfoHandler={closeMoreInfoHandler}
-      />
+      {ReactDOM.createPortal(
+        <Backdrop onClick={closeMoreInfoHandler} />,
+        portal
+      )}
+
+      {ReactDOM.createPortal(
+        <MealInformation
+          info={info}
+          closeMoreInfoHandler={closeMoreInfoHandler}
+        />,
+        portal
+      )}
     </React.Fragment>
   );
 };
