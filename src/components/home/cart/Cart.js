@@ -14,6 +14,7 @@ import CartContext from "../../store/cart-context";
 import CartItem from "./CartItem";
 import OrderMenuButton from "../../buttons/OrderMenuButton";
 import Backdrop from "../../UI/Backdrop";
+import ModalComp from "../../UI/ModalComp";
 
 import classes from "./Cart.module.css";
 
@@ -53,8 +54,8 @@ const Cart = (props) => {
 
   return (
     <React.Fragment>
-      <Backdrop onClick={props.onCloseCart}></Backdrop>
-      <div className={classes.cart}>
+      <Backdrop onClick={props.onCloseCart} />
+      <ModalComp className={classes.cart}>
         <div className={classes["title-box"]}>
           <h3>My Cart</h3>
         </div>
@@ -97,7 +98,7 @@ const Cart = (props) => {
             <FontAwesomeIcon icon={faXmark} />
           </button>
         </div>
-      </div>
+      </ModalComp>
     </React.Fragment>
   );
 };

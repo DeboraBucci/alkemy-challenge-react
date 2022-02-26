@@ -1,19 +1,4 @@
 .cart {
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 300;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  background-color: white;
-
-  border-radius: 20px;
-
   padding: 2rem;
 }
 
@@ -21,13 +6,15 @@
   color: #232323;
 }
 
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow: hidden;
+}
+
 .title-box {
   width: 100%;
   border-bottom: 3px solid rgb(var(--main));
-}
-
-.title-box h3 {
-  padding-left: 40px;
 }
 
 .info {
@@ -44,12 +31,6 @@
 
 .info p:last-child {
   border: none !important;
-}
-
-.list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  overflow: hidden;
 }
 
 /* BUTTONS
