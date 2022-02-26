@@ -1,7 +1,7 @@
 import React from "react";
 
 import Backdrop from "../../UI/Backdrop";
-import MoreInfo from "./MoreInfo";
+import MealInformation from "./MealInformation";
 
 const InformationOverlay = ({ info, setInfoIsShown }) => {
   const closeMoreInfoHandler = () => {
@@ -11,7 +11,10 @@ const InformationOverlay = ({ info, setInfoIsShown }) => {
   return (
     <React.Fragment>
       <Backdrop onClick={closeMoreInfoHandler} />
-      <MoreInfo info={info} closeMoreInfoHandler={closeMoreInfoHandler} />
+      <MealInformation
+        info={info}
+        closeMoreInfoHandler={closeMoreInfoHandler}
+      />
     </React.Fragment>
   );
 };

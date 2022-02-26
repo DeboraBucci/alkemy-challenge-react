@@ -11,10 +11,10 @@ import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
 import AddToCartButton from "../../buttons/AddToCartButton";
 
-import classes from "./MoreInfo.module.css";
+import classes from "./MealInformation.module.css";
 import ModalComp from "../../UI/ModalComp";
 
-const MoreInfo = ({ info, closeMoreInfoHandler }) => {
+const MealInformation = ({ info, closeMoreInfoHandler }) => {
   const ingredients = info.ingredients.map((ingredient) => (
     <li key={ingredient.id}>
       <FontAwesomeIcon className={classes.icon} icon={faCircleCheck} />{" "}
@@ -75,4 +75,4 @@ const MoreInfo = ({ info, closeMoreInfoHandler }) => {
   );
 };
 
-export default MoreInfo;
+export default MealInformation;
