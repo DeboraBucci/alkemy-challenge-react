@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Button, Form, Spinner } from "react-bootstrap";
 import classes from "./Login.module.css";
-import logo from "../../imgs/brand.webp";
+import logo from "../../assets/brand.webp";
 
-const LogIn = (props) => {
+const Login = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
 
@@ -82,4 +82,4 @@ const LogIn = (props) => {
   );
 };
 
-export default LogIn;
+export default Login;

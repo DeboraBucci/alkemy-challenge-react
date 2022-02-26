@@ -5,10 +5,10 @@ import { faCartShopping, faSignOut } from "@fortawesome/free-solid-svg-icons";
 
 import { Container, Nav, Navbar } from "react-bootstrap";
 
-import CartContext from "../../store/cart-context";
+import CartContext from "../../../store/cart-context";
 import UserName from "./UserName";
 
-import brand from "../../../imgs/brand.webp";
+import brand from "../../../assets/brand.webp";
 
 import classes from "./BootstrapNavbar.module.css";
 

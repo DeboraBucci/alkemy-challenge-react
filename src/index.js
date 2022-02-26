@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+
 import reportWebVitals from "./reportWebVitals";
-import CartProvider from "./components/store/CartProvider";
+
+import App from "./App";
+import CartProvider from "./store/CartProvider";
+
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>

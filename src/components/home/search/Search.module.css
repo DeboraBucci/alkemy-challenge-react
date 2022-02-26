@@ -1,7 +1,7 @@
 .search {
   background-color: #232323;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/src/imgs/search-background.webp");
+    url("/src/assets/search-background.webp");
   background-size: cover;
   background-position: center;
   color: white;

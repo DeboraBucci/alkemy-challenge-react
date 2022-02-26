@@ -11,7 +11,7 @@ import { faClock } from "@fortawesome/free-regular-svg-icons";
 
 import OrderMenuButton from "../../buttons/OrderMenuButton";
 
-import CartContext from "../../store/cart-context";
+import CartContext from "../../../store/cart-context";
 
 import { timeCalculator } from "../../functions/timeCalculator";
 import { timeTextGenerator } from "../../functions/timeTextGenerator";

@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
-import CartContext from "../store/cart-context";
+import CartContext from "../../store/cart-context";
 import { mealInfoHandler } from "../../Data";
 
 import SweetAlert from "../UI/SweetAlert";

@@ -4,7 +4,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import axios from "axios";
 
 import Home from "./components/home/Home";
-import LogIn from "./components/login/LogIn";
+import Login from "./components/login/Login";
 
 import SweetAlert from "./components/UI/SweetAlert";
 
@@ -72,7 +72,7 @@ function App() {
           {authUser({
             check: !isLoggedIn,
             component: (
-              <LogIn
+              <Login
                 onLogin={loginHandler}
                 isValid={formIsValid}
                 setIsValid={setFormIsValid}

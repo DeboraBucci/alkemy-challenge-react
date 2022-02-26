@@ -4,7 +4,7 @@ import classes from "./Home.module.css";
 
 import { defaultObj } from "../../Data";
 
-import CartContext from "../store/cart-context";
+import CartContext from "../../store/cart-context";
 
 import InformationOverlay from "./meal-information/InformationOverlay";
 import CartOverlay from "./cart/CartOverlay";

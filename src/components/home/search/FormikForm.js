@@ -11,12 +11,7 @@ import ErrorText from "./ErrorText";
 import DropdownComp from "./DropdownComp";
 import SwitchComp from "./SwitchComp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowDown,
-  faArrowUp,
-  faChevronDown,
-  faChevronUp,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
   const [direction, setDirection] = useState("asc");

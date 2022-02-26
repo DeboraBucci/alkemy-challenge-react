@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 
-import CartContext from "../../store/cart-context";
+import CartContext from "../../../store/cart-context";
 
 import CartItem from "./CartItem";
 import OrderMenuButton from "../../buttons/OrderMenuButton";
