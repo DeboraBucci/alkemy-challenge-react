@@ -1,28 +1,22 @@
 import { useReducer } from "react";
 import CartContext from "./cart-context";
 
-const defaultCart = {
-  totalDishes: [],
-  totalPrice: 0,
-  totalTime: 0,
-  totalHealthScore: 0,
-  totalServings: 0,
-  veganMeals: 0,
-  nonVeganMeals: 0,
-};
+const { newCartGenerator } = require("../functions/newCartGenerator");
+
+const defaultCart = newCartGenerator([], 0, 0, 0, 0, 0, 0);
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
     if (state.totalDishes.length > 3) {
-      return {
-        totalDishes: state.totalDishes,
-        totalPrice: state.totalPrice,
-        totalTime: state.totalTime,
-        totalHealthScore: state.totalHealthScore,
-        totalServings: state.totalServings,
-        veganMeals: state.veganMeals,
-        nonVeganMeals: state.nonVeganMeals,
-      };
+      return newCartGenerator(
+        state.totalDishes,
+        state.totalPrice,
+        state.totalTime,
+        state.totalHealthScore,
+        state.totalServings,
+        state.veganMeals,
+        state.nonVeganMeals
+      );
     } else {
       const updatedDishes = state.totalDishes.concat(action);
       const updatedTotalPrice = state.totalPrice + action.item.price;
@@ -37,20 +31,20 @@ const cartReducer = (state, action) => {
       const updatedNonVeganMeals =
         state.nonVeganMeals + (action.item.isVegan ? 0 : 1);
 
-      return {
-        totalDishes: updatedDishes,
-        totalPrice: updatedTotalPrice,
-        totalTime: updatedTotalTime,
-        totalHealthScore: updatedHealthscore,
-        totalServings: updatedTotalServings,
-        veganMeals: updatedVeganMeals,
-        nonVeganMeals: updatedNonVeganMeals,
-      };
+      return newCartGenerator(
+        updatedDishes,
+        updatedTotalPrice,
+        updatedTotalTime,
+        updatedHealthscore,
+        updatedTotalServings,
+        updatedVeganMeals,
+        updatedNonVeganMeals
+      );
     }
   }
 
   if (action.type === "REMOVE") {
-    const updatedItems = state.totalDishes.filter(
+    const updatedDishes = state.totalDishes.filter(
       (item) => item.item.id !== action.id
     );
 
@@ -62,23 +56,22 @@ const cartReducer = (state, action) => {
 
     const updatedTotalPrice = state.totalPrice - deletedItem.price;
     const updatedTotalTime = state.totalTime - deletedItem.time;
-    const updatedTotalHealthScore =
-      state.totalHealthScore - deletedItem.healthScore;
+    const updatedHealthscore = state.totalHealthScore - deletedItem.healthScore;
     const updatedTotalServings =
       state.totalServings - deletedItem.totalServings;
 
     const updatedVeganMeals = state.veganMeals - (action.isVegan ? 1 : 0);
     const updatedNonVeganMeals = state.nonVeganMeals - (action.isVegan ? 0 : 1);
 
-    return {
-      totalDishes: updatedItems,
-      totalPrice: updatedTotalPrice,
-      totalTime: updatedTotalTime,
-      totalHealthScore: updatedTotalHealthScore,
-      veganMeals: updatedVeganMeals,
-      nonVeganMeals: updatedNonVeganMeals,
-      totalServings: updatedTotalServings,
-    };
+    return newCartGenerator(
+      updatedDishes,
+      updatedTotalPrice,
+      updatedTotalTime,
+      updatedHealthscore,
+      updatedTotalServings,
+      updatedVeganMeals,
+      updatedNonVeganMeals
+    );
   }
 
   return defaultCart;
