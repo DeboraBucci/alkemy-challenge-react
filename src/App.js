@@ -6,11 +6,10 @@ import axios from "axios";
 import Home from "./components/home/Home";
 import LogIn from "./components/login/LogIn";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import "./Bootstrap.css";
-
 import SweetAlert from "./components/UI/SweetAlert";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Bootstrap.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
