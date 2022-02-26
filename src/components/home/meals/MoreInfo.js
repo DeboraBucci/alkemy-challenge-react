@@ -13,6 +13,7 @@ import AddToCartButton from "../../buttons/AddToCartButton";
 import Backdrop from "../../UI/Backdrop";
 
 import classes from "./MoreInfo.module.css";
+import ModalComp from "../../UI/ModalComp";
 
 const MoreInfo = ({ info, setInfoIsShown }) => {
   const closeMoreInfoHandler = () => {
@@ -36,7 +37,7 @@ const MoreInfo = ({ info, setInfoIsShown }) => {
   return (
     <React.Fragment>
       <Backdrop onClick={closeMoreInfoHandler} />
-      <div className={classes.modal}>
+      <ModalComp className={classes.modal}>
         <div className={classes["img-box"]}>
           <img src={info.image} />
         </div>
@@ -77,7 +78,7 @@ const MoreInfo = ({ info, setInfoIsShown }) => {
             <FontAwesomeIcon icon={faXmark} />
           </button>
         </div>
-      </div>
+      </ModalComp>
     </React.Fragment>
   );
 };
