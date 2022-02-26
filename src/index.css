@@ -1,3 +1,27 @@
+:root {
+  --main: 178, 128, 1;
+
+  --dark-main: 142, 102, 1;
+  --darkest-main: 124, 89, 1;
+
+  --light-main: 193, 153, 52;
+  --lightest-main: 208, 178, 103;
+
+  --secondary: 220, 20, 60;
+
+  --dark-secondary: 176, 16, 48;
+  --darkest-secondary: 154, 14, 42;
+
+  --light-secondary: 224, 44, 80;
+  --lightest-secondary: 245, 185, 197;
+}
+
+* {
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -8,7 +32,18 @@ body {
   background-color: #232323 !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #232323;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #585858;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
