@@ -1,6 +1,8 @@
 .chunk-meals {
   margin: 0 !important;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
 }
