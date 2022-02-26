@@ -29,14 +29,8 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
     setIsContentShown(false);
   };
 
-  const img = mealExists ? (
-    <img src={dish.item.image} />
-  ) : (
-    <EmptyMealCard className={classes["empty-card"]} />
-  );
-
   const content = mealExists && (
-    <>
+    <div className={classes.text}>
       <div className={classes.title}>
         <h3>{dish.item.title}</h3>
       </div>
@@ -63,7 +57,7 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
         setInfoHandler={setInfoHandler}
         className={classes["btn-info"]}
       />
-    </>
+    </div>
   );
 
   const dietClass = dish.item.isVegan ? classes.vegan : classes.nonvegan;
@@ -107,8 +101,12 @@ const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
   return (
     <li className={classes.meal}>
       <div className={classes.content}>
-        <div className={classes.img}>{img}</div>
-
+        {mealExists && (
+          <div className={classes.img}>
+            <img src={dish.item.image} />
+          </div>
+        )}
+        {!mealExists && <EmptyMealCard className={classes["empty-card"]} />}
         {content}
         {floatingContent}
       </div>

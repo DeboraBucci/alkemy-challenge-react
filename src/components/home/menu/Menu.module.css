@@ -30,9 +30,7 @@
   height: 600px;
   padding: 3rem 1rem;
 
-  overflow: hidden;
-
-  border-radius: 14px;
+  border-radius: 4px;
 
   display: flex;
   flex-direction: column;
@@ -49,6 +47,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 2rem;
 
   width: 100%;
@@ -58,4 +57,33 @@
 .actions button {
   padding: 0.75rem 1.5rem;
   font-size: 1.3rem;
+}
+
+@media (max-width: 1250px) {
+  .box {
+    width: 100vw;
+    height: fit-content;
+    border-radius: 0;
+    gap: 2rem;
+  }
+
+  .title {
+    width: 100vw;
+  }
+
+  .title h2 {
+    padding-left: 2rem;
+  }
+
+  .box ul {
+    padding: 0 2rem !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .box ul {
+    grid-template-columns: 1fr;
+  }
 }

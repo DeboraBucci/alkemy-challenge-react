@@ -1,23 +1,42 @@
 .meal {
   position: relative;
 
-  width: 22%;
-  height: 100%;
+  width: 250px;
+  height: 400px;
+
+  background-color: rgb(41, 41, 41);
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 7px;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1rem;
 
   text-align: center;
-
-  background-color: rgb(41, 41, 41);
-
   border-radius: 7px;
   overflow: hidden;
-
   height: 100%;
+}
+
+.img {
+  height: 45%;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .content h3 {
@@ -45,24 +64,14 @@
   background-color: rgb(129, 36, 36);
 }
 
-.img {
-  height: 45%;
-
-  overflow: hidden;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .btn-add {
   position: absolute;
 
   top: 70px;
   left: -10px;
 
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 
@@ -99,7 +108,7 @@
   width: 40px;
   height: 30px;
 
-  left: -10px !important;
+  left: -10px;
   top: 25px !important;
 }
 
@@ -158,4 +167,65 @@
 
 .title {
   border-bottom: 2px solid rgb(var(--main));
+}
+
+.empty-card {
+  height: 65%;
+}
+
+@media (max-width: 1250px) {
+  .meal {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .content {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .text {
+    padding-top: 5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .img {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .img img {
+    height: 100%;
+  }
+
+  .btn-add,
+  .btn-remove,
+  .rating {
+    left: 0px;
+  }
+
+  .rating {
+    right: auto;
+    top: 110px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .price {
+    font-size: 1.5rem;
+    bottom: 10px;
+    top: auto;
+  }
+
+  .extra-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 }
