@@ -1,11 +1,16 @@
 import React, { useContext } from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
-import brand from "../../imgs/brand.webp";
-import classes from "./BootstrapNavbar.module.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faSignOut } from "@fortawesome/free-solid-svg-icons";
-import CartContext from "../store/cart-context";
+
+import { Container, Nav, Navbar } from "react-bootstrap";
+
+import CartContext from "../../store/cart-context";
 import UserName from "./UserName";
+
+import brand from "../../../imgs/brand.webp";
+
+import classes from "./BootstrapNavbar.module.css";
 
 const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
   const cartCtx = useContext(CartContext);

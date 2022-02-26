@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import classes from "./Bar.module.css";
-import CartContext from "../store/cart-context";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUtensils,
   faHeartPulse,
@@ -8,10 +8,15 @@ import {
   faAngleUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import OrderMenuButton from "../UI/OrderMenuButton";
-import { timeCalculator } from "../functions/timeCalculator";
-import { timeTextGenerator } from "../functions/timeTextGenerator";
+
+import OrderMenuButton from "../../buttons/OrderMenuButton";
+
+import CartContext from "../../store/cart-context";
+
+import { timeCalculator } from "../../functions/timeCalculator";
+import { timeTextGenerator } from "../../functions/timeTextGenerator";
+
+import classes from "./Bar.module.css";
 
 const Bar = () => {
   const [isEmpty, setIsEmpty] = useState(true);

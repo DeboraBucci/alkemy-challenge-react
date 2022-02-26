@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Search.module.css";
 import Axios from "axios";
-import SweetAlert from "../UI/SweetAlert";
+import SweetAlert from "../../UI/SweetAlert";
 import FormikForm from "./FormikForm";
 
 const Search = ({

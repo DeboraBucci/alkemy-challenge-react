@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 import CartContext from "../store/cart-context";
-import SweetAlert from "./SweetAlert";
+import SweetAlert from "../UI/SweetAlert";
 
 import classes from "./OrderMenuButton.module.css";
 

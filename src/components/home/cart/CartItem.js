@@ -2,8 +2,8 @@ import React from "react";
 
 import classes from "./CartItem.module.css";
 
-import RemoveFromCartButton from "../UI/RemoveFromCartButton";
-import EmptyMealCard from "../UI/EmptyMealCard";
+import RemoveFromCartButton from "../../buttons/RemoveFromCartButton";
+import EmptyMealCard from "../../UI/EmptyMealCard";
 
 const CartItem = (props) => {
   const content = props.image ? (

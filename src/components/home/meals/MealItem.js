@@ -4,10 +4,10 @@ import { Card } from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { info } from "../../Data";
+import { info } from "../../../Data";
 
-import AddToCartButton from "../UI/AddToCartButton";
-import MoreInfoButton from "../UI/MoreInfoButton";
+import AddToCartButton from "../../buttons/AddToCartButton";
+import MoreInfoButton from "../../buttons/MoreInfoButton";
 
 import classes from "./MealItem.module.css";
 

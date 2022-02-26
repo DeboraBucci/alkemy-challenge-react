@@ -11,8 +11,8 @@ import MoreInfo from "./meals/MoreInfo";
 import Menu from "./menu/Menu";
 import Footer from "./footer/Footer";
 
-import CartContext from "./store/cart-context";
-import { defaultObj } from "../Data";
+import CartContext from "../store/cart-context";
+import { defaultObj } from "../../Data";
 
 const Home = ({ onLogout }) => {
   const [searchedMeals, setSearchedMeals] = useState([]);

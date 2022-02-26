@@ -7,18 +7,18 @@ import {
   faDollarSign,
   faHeartPulse,
 } from "@fortawesome/free-solid-svg-icons";
-import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
 
-import CartContext from "../store/cart-context";
+import CartContext from "../../store/cart-context";
 
 import CartItem from "./CartItem";
-import OrderMenuButton from "../UI/OrderMenuButton";
+import OrderMenuButton from "../../buttons/OrderMenuButton";
+import Backdrop from "../../UI/Backdrop";
 
 import classes from "./Cart.module.css";
-import Backdrop from "../UI/Backdrop";
-import { timeTextGenerator } from "../functions/timeTextGenerator";
 
-const { timeCalculator } = require("../functions/timeCalculator");
+import { timeTextGenerator } from "../../functions/timeTextGenerator";
+const { timeCalculator } = require("../../functions/timeCalculator");
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);

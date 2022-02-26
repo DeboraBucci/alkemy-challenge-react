@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 
-import CartContext from "../store/cart-context";
+import CartContext from "../../store/cart-context";
 
 import classes from "./Menu.module.css";
 
 import MenuDish from "./MenuDish";
-import OrderMenuButton from "../UI/OrderMenuButton";
+import OrderMenuButton from "../../buttons/OrderMenuButton";
 
 const Menu = ({ setInfoHandler, meals }) => {
   const cartCtx = useContext(CartContext);

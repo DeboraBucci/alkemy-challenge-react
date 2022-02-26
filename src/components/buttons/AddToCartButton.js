@@ -10,7 +10,7 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import CartContext from "../store/cart-context";
 import { mealInfoHandler } from "../../Data";
 
-import SweetAlert from "./SweetAlert";
+import SweetAlert from "../UI/SweetAlert";
 
 const AddToCartButton = ({
   meal,

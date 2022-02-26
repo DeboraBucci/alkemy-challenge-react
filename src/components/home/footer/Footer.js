@@ -5,7 +5,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 import classes from "./Footer.module.css";
 
-import Link from "../UI/Link";
+import Link from "../../UI/Link";
 
 const Footer = () => {
   return (

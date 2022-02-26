@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import { cuisineOpt, dietOpt } from "../../Data";
+import { cuisineOpt, dietOpt } from "../../../Data";
 
 import classes from "./FormikForm.module.css";
 

@@ -1,17 +1,18 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import classes from "./MoreInfo.module.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXmark,
   faHeartbeat,
   faUtensils,
   faReceipt,
 } from "@fortawesome/free-solid-svg-icons";
-
 import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
-import AddToCartButton from "../UI/AddToCartButton";
-import Backdrop from "../UI/Backdrop";
+import AddToCartButton from "../../buttons/AddToCartButton";
+import Backdrop from "../../UI/Backdrop";
+
+import classes from "./MoreInfo.module.css";
 
 const MoreInfo = ({ info, setInfoIsShown }) => {
   const closeMoreInfoHandler = () => {

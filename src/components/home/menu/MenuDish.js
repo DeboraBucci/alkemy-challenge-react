@@ -12,10 +12,10 @@ import { faStar, faClock } from "@fortawesome/free-regular-svg-icons";
 
 import classes from "./MenuDish.module.css";
 
-import RemoveFromCartButton from "../UI/RemoveFromCartButton";
-import AddToCartButton from "../UI/AddToCartButton";
-import MoreInfoButton from "../UI/MoreInfoButton";
-import EmptyMealCard from "../UI/EmptyMealCard";
+import RemoveFromCartButton from "../../buttons/RemoveFromCartButton";
+import AddToCartButton from "../../buttons/AddToCartButton";
+import MoreInfoButton from "../../buttons/MoreInfoButton";
+import EmptyMealCard from "../../UI/EmptyMealCard";
 
 const MenuDish = ({ dish, setInfoHandler, removeItemHandler }) => {
   const [isContentShown, setIsContentShown] = useState(false);

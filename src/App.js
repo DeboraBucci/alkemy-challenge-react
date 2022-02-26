@@ -3,7 +3,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import axios from "axios";
 
-import Home from "./components/Home";
+import Home from "./components/home/Home";
 import LogIn from "./components/login/LogIn";
 
 import "bootstrap/dist/css/bootstrap.min.css";
