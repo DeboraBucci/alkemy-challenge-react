@@ -16,16 +16,16 @@ import OrderMenuButton from "../UI/OrderMenuButton";
 
 import classes from "./Cart.module.css";
 import Backdrop from "../UI/Backdrop";
+import { timeTextGenerator } from "../functions/timeTextGenerator";
 
-const {
-  timeCalculator,
-  timeTextGenerator,
-} = require("../functions/timeCalculator");
+const { timeCalculator } = require("../functions/timeCalculator");
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const [hours, minutes] = timeCalculator(+cartCtx.totalTime);
+  const [hours, minutes] = timeCalculator(
+    +cartCtx.totalTime / cartCtx.totalDishes.length
+  );
 
   const emptyCart = cartCtx.totalDishes.length === 0;
 
