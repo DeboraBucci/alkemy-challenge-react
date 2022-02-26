@@ -115,12 +115,6 @@
 
 /* MEDIA QUERIES
 --------------------------------------------------*/
-@media (max-width: 1600px) {
-  html {
-    font-size: 13px;
-  }
-}
-
 @media (max-width: 850px) {
   .title {
     font-size: 1.7rem;
@@ -155,10 +149,6 @@
 }
 
 @media (max-width: 650px) {
-  html {
-    font-size: 10px;
-  }
-
   .card {
     width: 100%;
   }
