@@ -17,7 +17,10 @@ import OrderMenuButton from "../UI/OrderMenuButton";
 import classes from "./Cart.module.css";
 import Backdrop from "../UI/Backdrop";
 
-const { timeCalculator } = require("../functions/timeCalculator");
+const {
+  timeCalculator,
+  timeTextGenerator,
+} = require("../functions/timeCalculator");
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -66,8 +69,7 @@ const Cart = (props) => {
               </p>
               <p>
                 <FontAwesomeIcon icon={faClock} />{" "}
-                {hours !== 0 ? `${hours} h` : ""}{" "}
-                {minutes !== 0 ? `${minutes} min` : ""}
+                {timeTextGenerator(hours, minutes).join(" ")}
               </p>
               <p>
                 <FontAwesomeIcon icon={faHeartPulse} />{" "}
