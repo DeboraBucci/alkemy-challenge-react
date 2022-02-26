@@ -6,7 +6,7 @@ import Backdrop from "../../UI/Backdrop";
 import Cart from "./Cart";
 
 const CartOverlay = (props) => {
-  const portal = document.getElementById("cart");
+  const portal = document.getElementById("overlays");
 
   return (
     <React.Fragment>
