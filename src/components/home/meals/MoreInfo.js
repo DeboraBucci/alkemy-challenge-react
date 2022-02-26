@@ -10,16 +10,11 @@ import {
 import { faClock, faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
 import AddToCartButton from "../../buttons/AddToCartButton";
-import Backdrop from "../../UI/Backdrop";
 
 import classes from "./MoreInfo.module.css";
 import ModalComp from "../../UI/ModalComp";
 
-const MoreInfo = ({ info, setInfoIsShown }) => {
-  const closeMoreInfoHandler = () => {
-    setInfoIsShown(false);
-  };
-
+const MoreInfo = ({ info, closeMoreInfoHandler }) => {
   const ingredients = info.ingredients.map((ingredient) => (
     <li key={ingredient.id}>
       <FontAwesomeIcon className={classes.icon} icon={faCircleCheck} />{" "}
@@ -35,51 +30,48 @@ const MoreInfo = ({ info, setInfoIsShown }) => {
   ));
 
   return (
-    <React.Fragment>
-      <Backdrop onClick={closeMoreInfoHandler} />
-      <ModalComp className={classes.modal}>
-        <div className={classes["img-box"]}>
-          <img src={info.image} />
+    <ModalComp className={classes.modal}>
+      <div className={classes["img-box"]}>
+        <img src={info.image} />
+      </div>
+      <div className={classes.content}>
+        <div className={classes.title}>
+          <h3>{info.title}</h3>
         </div>
-        <div className={classes.content}>
-          <div className={classes.title}>
-            <h3>{info.title}</h3>
-          </div>
 
-          <ul className={classes["some-info"]}>
-            <li>
-              <FontAwesomeIcon icon={faReceipt} /> ${info.price}
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faUtensils} /> {info.servings} servings
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faClock} /> {info.time} min
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faHeartbeat} /> {info.healthScore} points
-            </li>
-          </ul>
+        <ul className={classes["some-info"]}>
+          <li>
+            <FontAwesomeIcon icon={faReceipt} /> ${info.price}
+          </li>
+          <li>
+            <FontAwesomeIcon icon={faUtensils} /> {info.servings} servings
+          </li>
+          <li>
+            <FontAwesomeIcon icon={faClock} /> {info.time} min
+          </li>
+          <li>
+            <FontAwesomeIcon icon={faHeartbeat} /> {info.healthScore} points
+          </li>
+        </ul>
 
-          <ul className={classes.ingredients}>
-            <h4>Ingredients</h4>
-            {ingredients}
-          </ul>
+        <ul className={classes.ingredients}>
+          <h4>Ingredients</h4>
+          {ingredients}
+        </ul>
 
-          <div className={classes.nutrients}>
-            <p>Nutrients: {nutrients}</p>
-          </div>
-
-          <AddToCartButton meal={info} className={classes["btn-add"]} />
-          <button
-            className={classes["btn-delete"]}
-            onClick={closeMoreInfoHandler}
-          >
-            <FontAwesomeIcon icon={faXmark} />
-          </button>
+        <div className={classes.nutrients}>
+          <p>Nutrients: {nutrients}</p>
         </div>
-      </ModalComp>
-    </React.Fragment>
+
+        <AddToCartButton meal={info} className={classes["btn-add"]} />
+        <button
+          className={classes["btn-delete"]}
+          onClick={closeMoreInfoHandler}
+        >
+          <FontAwesomeIcon icon={faXmark} />
+        </button>
+      </div>
+    </ModalComp>
   );
 };
 
