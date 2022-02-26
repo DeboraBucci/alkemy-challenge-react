@@ -10,6 +10,8 @@ import {
 import { faClock } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import OrderMenuButton from "../UI/OrderMenuButton";
+import { timeCalculator } from "../functions/timeCalculator";
+import { timeTextGenerator } from "../functions/timeTextGenerator";
 
 const Bar = () => {
   const [isEmpty, setIsEmpty] = useState(true);
@@ -17,12 +19,12 @@ const Bar = () => {
 
   const cartCtx = useContext(CartContext);
 
-  const hours = Math.floor(
-    +cartCtx.totalTime / cartCtx.totalDishes.length / 60
-  );
-  const minutes = Math.floor(
-    (+cartCtx.totalTime / cartCtx.totalDishes.length) % 60
-  );
+  const cookingTimeMinutes =
+    cartCtx.totalTime / cartCtx.totalDishes.length || 0;
+
+  const [hours, minutes] = timeCalculator(cookingTimeMinutes);
+
+  const avgCookingTimeStr = timeTextGenerator(hours, minutes).join(" ");
 
   useEffect(() => {
     if (cartCtx.totalDishes.length === 0) {
@@ -63,8 +65,7 @@ const Bar = () => {
         </p>
         <p>
           <FontAwesomeIcon icon={faClock} /> Avg. Cooking Time:{" "}
-          {hours ? `${hours} h` : ""} {minutes ? `${minutes} min` : ""}
-          {!hours && !minutes && "0 hs"}
+          {avgCookingTimeStr}
         </p>
         <p>
           <FontAwesomeIcon icon={faHeartPulse} /> Avg. Health Score:{" "}
