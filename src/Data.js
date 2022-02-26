@@ -70,6 +70,8 @@ const mealInfoHandler = (meal) => {
     summary: meal.summary,
     nutrients: meal.nutrients,
     isVegan: meal.isVegan,
+    rating: meal.rating,
+    raters: meal.raters,
   };
 };
 
