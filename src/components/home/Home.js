@@ -2,19 +2,19 @@ import React, { useContext, useEffect, useState } from "react";
 
 import classes from "./Home.module.css";
 
-import BootstrapNavbar from "./navbar/BootstrapNavbar";
-import Meals from "./meals/Meals";
-import Search from "./search/Search";
-import Bar from "./bar/Bar";
-import Cart from "./cart/Cart";
-import MoreInfo from "./meals/MoreInfo";
-import Menu from "./menu/Menu";
-import Footer from "./footer/Footer";
+import { defaultObj } from "../../Data";
 
 import CartContext from "../store/cart-context";
-import { defaultObj } from "../../Data";
+
+import InformationOverlay from "./meal-information/InformationOverlay";
 import CartOverlay from "./cart/CartOverlay";
-import InformationOverlay from "./meals/InformationOverlay";
+import Bar from "./bar/Bar";
+
+import BootstrapNavbar from "./navbar/BootstrapNavbar";
+import Search from "./search/Search";
+import Meals from "./meals/Meals";
+import Menu from "./menu/Menu";
+import Footer from "./footer/Footer";
 
 const Home = ({ onLogout }) => {
   const [searchedMeals, setSearchedMeals] = useState([]);
@@ -65,7 +65,6 @@ const Home = ({ onLogout }) => {
   return (
     <main className={classes.home}>
       <BootstrapNavbar onLogout={onLogout} onOpenCart={openCartHandler} />
-      <div className={classes["navbar-space"]}></div>
       <Search
         setIsMealsShown={setIsMealsShown}
         onSearchMeals={searchMealsHandler}
