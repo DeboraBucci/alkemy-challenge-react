@@ -15,20 +15,3 @@
   margin-top: 60px;
   padding: 9rem 1rem;
 }
-
-.brand {
-  text-align: center;
-}
-
-.brand h1,
-.brand p {
-  margin: 0 !important;
-}
-
-.brand h1 {
-  font-size: 3rem;
-}
-
-.brand p {
-  font-size: 1.3rem;
-}

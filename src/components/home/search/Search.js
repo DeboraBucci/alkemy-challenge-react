@@ -3,6 +3,7 @@ import classes from "./Search.module.css";
 import Axios from "axios";
 import SweetAlert from "../../UI/SweetAlert";
 import FormikForm from "./FormikForm";
+import SearchHeader from "./SearchHeader";
 
 const Search = ({
   onSearchMeals,
@@ -12,21 +13,9 @@ const Search = ({
   setIsMealsShown,
   setMeals,
 }) => {
-  const [slogan, setSlogan] = useState();
-
   useEffect(() => {
     onSearchMeals(meals);
   }, [meals]);
-
-  useEffect(() => {
-    const randomNum = Math.round(Math.random() * 2 + 1);
-
-    if (randomNum === 1) setSlogan("Your meal in one click!");
-
-    if (randomNum === 2) setSlogan("We cook, you enjoy!");
-
-    if (randomNum === 3) setSlogan("Your meal, one click away!");
-  }, []);
 
   const onSubmit = async (text, preferences) => {
     setIsWaiting(true);
@@ -97,10 +86,7 @@ const Search = ({
 
   return (
     <section id="search" className={classes.search}>
-      <div className={classes.brand}>
-        <h1>Lily's Cuisine</h1>
-        <p>{slogan}</p>
-      </div>
+      <SearchHeader />
       <FormikForm onSubmit={onSubmit} waiting={waiting} />
       <p>You have to choose two vegan and two non vegan meals for your menu.</p>
     </section>
