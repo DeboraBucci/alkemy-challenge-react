@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
-import axios from "axios";
-
 import Home from "./components/home/Home";
 import Login from "./components/login/Login";
-
-import SweetAlert from "./components/UI/SweetAlert";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Bootstrap.css";
 import "./App.css";
+import {
+  removeTokenFromLocalStorage,
+  setTokenInLocalStorage,
+  validateLogin,
+} from "./components/functions/loginManagement";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -26,32 +27,22 @@ function App() {
   const loginHandler = (email, password) => {
     setWaiting(true);
 
-    setTimeout(() => {
+    setTimeout(async () => {
+      const response = await validateLogin(email, password);
+
+      if (response) {
+        setIsLoggedIn(true);
+        setTokenInLocalStorage(response.data.token);
+      }
+
+      if (!response) setFormIsValid(false);
+
       setWaiting(false);
-
-      axios
-        .post("http://challenge-react.alkemy.org", {
-          email: email,
-          password: password,
-        })
-        .then(function (response) {
-          setIsLoggedIn(true);
-          setFormIsValid(true);
-
-          localStorage.setItem("isLoggedIn", `${response.data.token}`);
-        })
-        .catch(function (error) {
-          console.error(error);
-          setFormIsValid(false);
-          SweetAlert({
-            text: "Wrong credentials!",
-          });
-        });
     }, 1000);
   };
 
   const logoutHandler = () => {
-    localStorage.removeItem("isLoggedIn");
+    removeTokenFromLocalStorage("isLoggedIn");
     setIsLoggedIn(false);
   };
 
