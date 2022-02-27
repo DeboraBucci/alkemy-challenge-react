@@ -11,7 +11,7 @@ const mealSearchLinkModifier = (text, preferences) => {
   const sort = `&sort=${preferences.sort}`;
   const direction = `&sortDirection=${preferences.direction}`;
 
-  const apiKey = "d4d951265a704dc49ac9ee0d5a116060";
+  const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
 
   const link = `https://api.spoonacular.com/recipes/complexSearch?query=${
     text + cuisine + diet + excludedIngredients + sort + direction
