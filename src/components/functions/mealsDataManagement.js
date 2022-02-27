@@ -2,6 +2,24 @@ import axios from "axios";
 import SweetAlert from "../UI/SweetAlert";
 const { randomNumGenerator } = require("./randomNumGenerator");
 
+// SET LINK
+// -----------------------------------------------------------------------------
+const mealSearchLinkModifier = (text, preferences) => {
+  const cuisine = `&cuisine=${preferences.selectedCuisine}`;
+  const diet = `&diet=${preferences.selectedDiet}`;
+  const excludedIngredients = `&excludeIngredients=${preferences.excludedIng}`;
+  const sort = `&sort=${preferences.sort}`;
+  const direction = `&sortDirection=${preferences.direction}`;
+
+  const apiKey = "d4d951265a704dc49ac9ee0d5a116060";
+
+  const link = `https://api.spoonacular.com/recipes/complexSearch?query=${
+    text + cuisine + diet + excludedIngredients + sort + direction
+  }&addRecipeInformation=true&addRecipeNutrition=true&number=100&apiKey=${apiKey}`;
+
+  return link;
+};
+
 // GET MEALS DATA
 // -----------------------------------------------------------------------------
 const getMealsData = async (link) => {
@@ -69,4 +87,4 @@ const setMealsData = async (data) => {
   return mealsArr;
 };
 
-export { getMealsData, setMealsData };
+export { mealSearchLinkModifier, getMealsData, setMealsData };

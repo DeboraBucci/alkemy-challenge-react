@@ -3,8 +3,8 @@ import React from "react";
 import FormikForm from "./FormikForm";
 import SearchHeader from "./SearchHeader";
 
-import { mealSearchLinkModifier } from "../../../Data";
 import {
+  mealSearchLinkModifier,
   getMealsData,
   setMealsData,
 } from "../../functions/mealsDataManagement";
