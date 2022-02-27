@@ -27,6 +27,7 @@
 .info p {
   border-right: 2px solid rgb(var(--main));
   padding-right: 2rem;
+  color: #616161;
 }
 
 .info p:last-child {
