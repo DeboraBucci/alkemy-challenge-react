@@ -146,11 +146,21 @@
     right: auto;
     left: 10px;
   }
+
+  .text-container {
+    max-height: 75%;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 @media (max-width: 650px) {
   .card {
     width: 100%;
+    border-radius: 0 !important;
   }
 
   .img-box {
