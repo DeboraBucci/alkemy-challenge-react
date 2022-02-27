@@ -5,6 +5,7 @@ import SweetAlert from "../../UI/SweetAlert";
 import FormikForm from "./FormikForm";
 import SearchHeader from "./SearchHeader";
 import { mealSearchLinkModifier } from "../../../Data";
+import getMealsData from "../../functions/getMealsData";
 
 const { randomNumGenerator } = require("../../functions/randomNumGenerator");
 
@@ -29,8 +30,7 @@ const Search = ({
     const mealsArr = [];
 
     try {
-      const response = await Axios.get(link);
-      const data = await response.data.results;
+      const data = await getMealsData(link);
 
       await data.forEach(async (meal) => {
         const rating = randomNumGenerator(3, 5).toFixed(2);
@@ -63,14 +63,6 @@ const Search = ({
       await setMeals(mealsArr);
     } catch (err) {
       setMeals([]);
-
-      if (err.message.includes("402")) {
-        SweetAlert({
-          title: "Error 402",
-          text: "The search limit have been reached for today, try again tomorrow. Sorry!",
-        });
-        return;
-      }
 
       SweetAlert({
         title: err.name,
