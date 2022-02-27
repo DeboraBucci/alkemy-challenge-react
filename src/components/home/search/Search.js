@@ -19,7 +19,7 @@ const Search = ({
   }, [meals]);
 
   useEffect(() => {
-    const randomNum = Math.round(Math.random() * 3);
+    const randomNum = Math.round(Math.random() * 2 + 1);
 
     if (randomNum === 1) setSlogan("Your meal in one click!");
 
