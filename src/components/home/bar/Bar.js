@@ -57,30 +57,37 @@ const Bar = () => {
         <FontAwesomeIcon icon={faAngleUp} />
       </button>
       <div className={`${classes.bar} ${!isBarOpened && classes.closed}`}>
+        <div className={classes.text}>
+          <p>
+            <FontAwesomeIcon icon={faUtensils} />
+            <span> Servings: </span>
+            {cartCtx.totalServings}
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faClock} />
+            <span> Avg. Cooking Time: </span>
+            {avgCookingTimeStr}
+          </p>
+          <p>
+            <FontAwesomeIcon icon={faHeartPulse} />
+            <span> Avg. Health Score: </span>
+            {!isEmpty
+              ? Math.round(
+                  cartCtx.totalHealthScore / cartCtx.totalDishes.length
+                )
+              : "0"}
+          </p>
+          <p className={classes.total}>
+            TOTAL $ {Math.round(cartCtx.totalPrice)}
+          </p>
+        </div>
+        <OrderMenuButton />
         <button onClick={closeBarHandler}>
           <FontAwesomeIcon
             className={classes["btn-close"]}
             icon={faAngleDown}
           />
         </button>
-
-        <p>
-          <FontAwesomeIcon icon={faUtensils} /> Servings:{" "}
-          {cartCtx.totalServings}
-        </p>
-        <p>
-          <FontAwesomeIcon icon={faClock} /> Avg. Cooking Time:{" "}
-          {avgCookingTimeStr}
-        </p>
-        <p>
-          <FontAwesomeIcon icon={faHeartPulse} /> Avg. Health Score:{" "}
-          {!isEmpty
-            ? Math.round(cartCtx.totalHealthScore / cartCtx.totalDishes.length)
-            : "0"}
-        </p>
-        <p>TOTAL: ${Math.round(cartCtx.totalPrice)}</p>
-
-        <OrderMenuButton />
       </div>
     </React.Fragment>
   );

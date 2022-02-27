@@ -21,19 +21,45 @@
   border-top-left-radius: 14px;
 }
 
-.bar p {
+.bar * {
+  color: white;
+}
+
+.text {
+  width: 75%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0.8rem;
+}
+
+.text p {
   margin: 0 !important;
   font-size: 0.9rem;
 
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.3rem;
 }
 
-.bar * {
-  color: white;
+.text p span {
+  display: inline-block;
+  opacity: 0.5;
+  min-width: 30px;
 }
 
+.total {
+  display: flex;
+  justify-content: center;
+
+  width: 8rem;
+  padding: 0.25rem;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  transform: skewX(-5deg);
+  background-color: rgb(var(--darkest-secondary));
+}
 /* BUTTONS & INPUTS
 --------------------------------------- */
 .btn-open {
@@ -102,6 +128,11 @@
     left: 0;
     right: 0;
     transform: translate(0, 0);
+    align-items: flex-end;
     border-radius: 0;
+  }
+
+  .text {
+    flex-direction: column;
   }
 }
