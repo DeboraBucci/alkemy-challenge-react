@@ -1,4 +1,4 @@
-const { timeCalculator } = require("./timeCalculator");
+import { timeCalculator } from "./timeCalculator";
 
 test("should return array with hours and minutes", () => {
   const time = timeCalculator(90);

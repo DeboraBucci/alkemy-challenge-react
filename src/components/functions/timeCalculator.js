@@ -1,4 +1,4 @@
-exports.timeCalculator = (mins) => {
+const timeCalculator = (mins) => {
   if (mins === 0) return [0, 0];
 
   const hours = Math.floor(mins / 60);
@@ -6,3 +6,5 @@ exports.timeCalculator = (mins) => {
 
   return [hours, minutes];
 };
+
+export { timeCalculator };

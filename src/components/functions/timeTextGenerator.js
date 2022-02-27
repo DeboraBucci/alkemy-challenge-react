@@ -1,4 +1,4 @@
-exports.timeTextGenerator = (hs, mins) => {
+const timeTextGenerator = (hs, mins) => {
   if (hs === 0 && mins === 0) return ["", "0 min"];
 
   const hours = hs !== 0 ? `${hs} h` : "";
@@ -6,3 +6,5 @@ exports.timeTextGenerator = (hs, mins) => {
 
   return [hours, minutes];
 };
+
+export { timeTextGenerator };

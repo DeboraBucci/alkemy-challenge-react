@@ -1,4 +1,4 @@
-exports.newCartGenerator = (
+const newCartGenerator = (
   dishes,
   price,
   time,
@@ -17,3 +17,5 @@ exports.newCartGenerator = (
     nonVeganMeals: nonVeganMeals,
   };
 };
+
+export default newCartGenerator;
