@@ -15,7 +15,7 @@ const UserName = () => {
     const enteredText = e.target.value;
 
     if (e.code === "Enter" || e._reactName === "onBlur") {
-      !(enteredText === "") && setName(enteredText);
+      !(enteredText === "" || enteredText.length >= 14) && setName(enteredText);
 
       setIsNameChanging(false);
     }
