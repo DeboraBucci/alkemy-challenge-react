@@ -18,4 +18,4 @@ const newCartGenerator = (
   };
 };
 
-export default newCartGenerator;
+export { newCartGenerator };
