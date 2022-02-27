@@ -7,7 +7,7 @@ import {
   mealSearchLinkModifier,
   getMealsData,
   setMealsArray,
-} from "../../functions/mealsDataManagement";
+} from "../../../functions/mealsDataManagement";
 
 import classes from "./Search.module.css";
 

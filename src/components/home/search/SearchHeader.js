@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./SearchHeader.module.css";
 
-const { randomNumGenerator } = require("../../functions/randomNumGenerator");
+import { randomNumGenerator } from "../../../functions/randomNumGenerator";
 
 const SearchHeader = () => {
   const [slogan, setSlogan] = useState();

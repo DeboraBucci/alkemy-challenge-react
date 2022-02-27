@@ -1,9 +1,7 @@
 import { useReducer } from "react";
 import CartContext from "./cart-context";
 
-const {
-  newCartGenerator,
-} = require("../components/functions/newCartGenerator");
+import { newCartGenerator } from "../functions/newCartGenerator";
 
 const defaultCart = newCartGenerator([], 0, 0, 0, 0, 0, 0);
 

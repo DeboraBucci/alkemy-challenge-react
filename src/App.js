@@ -11,8 +11,8 @@ import {
   removeTokenFromLocalStorage,
   setTokenInLocalStorage,
   validateLogin,
-} from "./components/functions/loginManagement";
-import { recolacteUserAuth } from "./components/functions/relocateUserAuth";
+} from "./functions/loginManagement";
+import { recolacteUserAuth } from "./functions/relocateUserAuth";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

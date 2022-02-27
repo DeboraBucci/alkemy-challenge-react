@@ -13,8 +13,8 @@ import OrderMenuButton from "../../buttons/OrderMenuButton";
 
 import CartContext from "../../../store/cart-context";
 
-import { timeCalculator } from "../../functions/timeCalculator";
-import { timeTextGenerator } from "../../functions/timeTextGenerator";
+import { timeCalculator } from "../../../functions/timeCalculator";
+import { timeTextGenerator } from "../../../functions/timeTextGenerator";
 
 import classes from "./Bar.module.css";
 

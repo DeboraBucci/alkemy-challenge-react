@@ -17,8 +17,8 @@ import ModalComp from "../../UI/ModalComp";
 
 import classes from "./Cart.module.css";
 
-import { timeTextGenerator } from "../../functions/timeTextGenerator";
-const { timeCalculator } = require("../../functions/timeCalculator");
+import { timeTextGenerator } from "../../../functions/timeTextGenerator";
+import { timeCalculator } from "../../../functions/timeCalculator";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
