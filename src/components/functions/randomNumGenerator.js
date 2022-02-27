@@ -1,3 +1,3 @@
 exports.randomNumGenerator = (min, max) => {
-  return Math.round(Math.random() * (max - 1) + min);
+  return Math.random() * (max - 1) + min;
 };
