@@ -1,0 +1,15 @@
+.brand {
+  text-align: center;
+}
+
+.brand * {
+  margin: 0 !important;
+}
+
+.brand h1 {
+  font-size: 3rem;
+}
+
+.brand p {
+  font-size: 1.3rem;
+}
