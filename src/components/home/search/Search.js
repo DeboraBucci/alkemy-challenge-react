@@ -45,13 +45,15 @@ const Search = ({
         const rating = randomNumGenerator(3, 5).toFixed(2);
         const raters = Math.floor(randomNumGenerator(2, 3000));
 
+        const calories = `${Math.round(meal.nutrition.nutrients[0].amount)} ${
+          meal.nutrition.nutrients[0].unit
+        }`;
+
         mealsArr.push({
           id: meal.id,
           title: meal.title,
           image: meal.image,
-          calories: `${Math.round(meal.nutrition.nutrients[0].amount)} ${
-            meal.nutrition.nutrients[0].unit
-          }`,
+          calories: calories,
           healthScore: meal.healthScore,
           diets: meal.diets,
           price: meal.pricePerServing,
