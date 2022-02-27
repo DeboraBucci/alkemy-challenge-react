@@ -89,5 +89,6 @@
   .box {
     display: flex;
     flex-direction: column-reverse;
+    gap: 1rem;
   }
 }

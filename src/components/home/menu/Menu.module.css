@@ -16,7 +16,7 @@
 }
 
 .title {
-  border-bottom: 3px solid rgb(177, 127, 1);
+  border-bottom: 3px solid rgb(var(--main));
 }
 
 .title,
