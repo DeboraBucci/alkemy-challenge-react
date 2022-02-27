@@ -103,4 +103,27 @@ const info = [
   },
 ];
 
-export { cuisineOpt, dietOpt, defaultObj, mealInfoHandler, info };
+const mealSearchLinkModifier = (text, preferences) => {
+  const cuisine = `&cuisine=${preferences.selectedCuisine}`;
+  const diet = `&diet=${preferences.selectedDiet}`;
+  const excludedIngredients = `&excludeIngredients=${preferences.excludedIng}`;
+  const sort = `&sort=${preferences.sort}`;
+  const direction = `&sortDirection=${preferences.direction}`;
+
+  const apiKey = "d4d951265a704dc49ac9ee0d5a116060";
+
+  const link = `https://api.spoonacular.com/recipes/complexSearch?query=${
+    text + cuisine + diet + excludedIngredients + sort + direction
+  }&addRecipeInformation=true&addRecipeNutrition=true&number=100&apiKey=${apiKey}`;
+
+  return link;
+};
+
+export {
+  cuisineOpt,
+  dietOpt,
+  defaultObj,
+  mealInfoHandler,
+  info,
+  mealSearchLinkModifier,
+};
