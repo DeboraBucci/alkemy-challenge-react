@@ -25,7 +25,7 @@ const Footer = () => {
         </Link>
       </div>
       <p>
-        This project is based upon a challenge by{" "}
+        This project is based on a challenge by{" "}
         <Link className={classes.underline} href="https://www.alkemy.org/">
           Alkemy
         </Link>
