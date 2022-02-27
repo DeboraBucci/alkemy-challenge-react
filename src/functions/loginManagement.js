@@ -1,5 +1,5 @@
 import axios from "axios";
-import SweetAlert from "../UI/SweetAlert";
+import SweetAlert from "../components/UI/SweetAlert";
 
 const validateLogin = async (email, password) => {
   try {
