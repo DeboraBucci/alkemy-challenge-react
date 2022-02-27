@@ -35,7 +35,7 @@ const MealItem = ({ meal, setInfoHandler }) => {
             {info.map((mealInfo) => (
               <li key={mealInfo.feature}>
                 <FontAwesomeIcon
-                  className={classes[`${mealInfo.iconClass}`]}
+                  className={`${mealInfo.iconClass}`}
                   icon={mealInfo.icon}
                 />
                 <p>

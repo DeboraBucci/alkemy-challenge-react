@@ -91,28 +91,6 @@
   border-radius: 4px;
 }
 
-/* ICON COLORS 
---------------------------------------------------*/
-.list svg {
-  filter: grayscale(40%);
-}
-
-.fire {
-  color: orange;
-}
-
-.heart {
-  color: crimson;
-}
-
-.rate {
-  color: goldenrod;
-}
-
-.time {
-  color: purple;
-}
-
 /* MEDIA QUERIES
 --------------------------------------------------*/
 @media (max-width: 850px) {

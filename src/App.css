@@ -1,0 +1,19 @@
+svg {
+  filter: grayscale(40%);
+}
+
+.fire {
+  color: orange;
+}
+
+.heart {
+  color: crimson;
+}
+
+.rate {
+  color: goldenrod;
+}
+
+.time {
+  color: purple;
+}

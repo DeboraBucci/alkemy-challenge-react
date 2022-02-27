@@ -10,6 +10,7 @@ import SweetAlert from "./components/UI/SweetAlert";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Bootstrap.css";
+import "./App.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
