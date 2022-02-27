@@ -10,6 +10,7 @@ const CartContext = React.createContext({
   totalServings: 0,
   addItem: (item) => {},
   removeItem: (id, isVegan) => {},
+  removeAllMeals: () => {},
 });
 
 export default CartContext;

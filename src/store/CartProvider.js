@@ -84,6 +84,12 @@ const cartReducer = (
     );
   }
 
+  // EMTPY THE CART
+  // -------------------------------------------------------------------
+  if (action.type === "REMOVE_ALL_MEALS") {
+    return defaultCart;
+  }
+
   return defaultCart;
 };
 
@@ -98,6 +104,10 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: "REMOVE", id: id, isVegan: isVegan });
   };
 
+  const removeAllMealsFromCartHandler = () => {
+    dispatchCartAction({ type: "REMOVE_MEALS" });
+  };
+
   const cartContext = {
     totalDishes: cartState.totalDishes,
     totalPrice: cartState.totalPrice,
@@ -108,6 +118,7 @@ const CartProvider = (props) => {
     nonVeganMeals: cartState.nonVeganMeals,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    removeAllMeals: removeAllMealsFromCartHandler,
   };
 
   return (
