@@ -12,6 +12,7 @@ import {
   setTokenInLocalStorage,
   validateLogin,
 } from "./components/functions/loginManagement";
+import { recolacteUserAuth } from "./components/functions/relocateUserAuth";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -46,22 +47,18 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  const authUser = ({ check, component, to }) => {
-    return check ? component : <Redirect to={to} />;
-  };
-
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          {authUser({
+          {recolacteUserAuth({
             check: isLoggedIn,
             component: <Home onLogout={logoutHandler} />,
-            to: "/login",
+            to: <Redirect to={"/login"} />,
           })}
         </Route>
         <Route path="/login">
-          {authUser({
+          {recolacteUserAuth({
             check: !isLoggedIn,
             component: (
               <Login
@@ -71,7 +68,7 @@ function App() {
                 isWaiting={waiting}
               />
             ),
-            to: "/",
+            to: <Redirect to={"/"} />,
           })}
         </Route>
       </Switch>
