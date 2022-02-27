@@ -47,42 +47,35 @@ const getMealsData = async (link) => {
 
 // SET MEALS
 // -----------------------------------------------------------------------------
-const setMealsData = async (data) => {
+const setMealsData = async (data = []) => {
   const mealsArr = [];
 
-  try {
-    data.forEach((meal) => {
-      const rating = randomNumGenerator(3, 5).toFixed(2);
-      const raters = Math.floor(randomNumGenerator(2, 3000));
-      const calories = `${Math.round(meal.nutrition.nutrients[0].amount)} ${
-        meal.nutrition.nutrients[0].unit
-      }`;
+  data.forEach((meal) => {
+    const rating = randomNumGenerator(3, 5).toFixed(2);
+    const raters = Math.floor(randomNumGenerator(2, 3000));
+    const calories = `${Math.round(meal.nutrition.nutrients[0].amount)} ${
+      meal.nutrition.nutrients[0].unit
+    }`;
 
-      mealsArr.push({
-        id: meal.id,
-        title: meal.title,
-        image: meal.image,
-        calories: calories,
-        healthScore: meal.healthScore,
-        diets: meal.diets,
-        price: meal.pricePerServing,
-        time: meal.readyInMinutes,
-        servings: meal.servings,
-        ingredients: meal.nutrition.ingredients,
-        caloricBreakdown: meal.nutrition.caloricBreakdown,
-        summary: meal.summary,
-        nutrients: meal.nutrition.nutrients,
-        isVegan: meal.vegan,
-        rating: rating,
-        raters: raters,
-      });
+    mealsArr.push({
+      id: meal.id,
+      title: meal.title,
+      image: meal.image,
+      calories: calories,
+      healthScore: meal.healthScore,
+      diets: meal.diets,
+      price: meal.pricePerServing,
+      time: meal.readyInMinutes,
+      servings: meal.servings,
+      ingredients: meal.nutrition.ingredients,
+      caloricBreakdown: meal.nutrition.caloricBreakdown,
+      summary: meal.summary,
+      nutrients: meal.nutrition.nutrients,
+      isVegan: meal.vegan,
+      rating: rating,
+      raters: raters,
     });
-  } catch (err) {
-    SweetAlert({
-      title: err.name,
-      text: err.message,
-    });
-  }
+  });
 
   return mealsArr;
 };
