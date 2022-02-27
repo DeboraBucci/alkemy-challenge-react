@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import classes from "./Search.module.css";
 import Axios from "axios";
 import SweetAlert from "../../UI/SweetAlert";
 import FormikForm from "./FormikForm";
 import SearchHeader from "./SearchHeader";
+
+const { randomNumGenerator } = require("../../functions/randomNumGenerator");
 
 const Search = ({
   onSearchMeals,
@@ -40,8 +42,8 @@ const Search = ({
       const data = await response.data.results;
 
       await data.forEach(async (meal) => {
-        const rating = (3 + Math.random() * 2).toFixed(2);
-        const raters = Math.floor(Math.random() * 3000 + 2);
+        const rating = randomNumGenerator(3, 5).toFixed(2);
+        const raters = Math.floor(randomNumGenerator(2, 3000));
 
         mealsArr.push({
           id: meal.id,
