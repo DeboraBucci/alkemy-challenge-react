@@ -6,7 +6,7 @@ import SearchHeader from "./SearchHeader";
 import {
   mealSearchLinkModifier,
   getMealsData,
-  setMealsData,
+  setMealsArray,
 } from "../../functions/mealsDataManagement";
 
 import classes from "./Search.module.css";
@@ -18,7 +18,7 @@ const Search = ({ onSearchMeals, setIsWaiting, waiting, setIsMealsShown }) => {
 
     const link = mealSearchLinkModifier(text, preferences);
     const data = await getMealsData(link);
-    const meals = await setMealsData(data);
+    const meals = await setMealsArray(data);
 
     await onSearchMeals(meals);
   };

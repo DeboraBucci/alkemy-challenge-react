@@ -47,7 +47,7 @@ const getMealsData = async (link) => {
 
 // SET MEALS
 // -----------------------------------------------------------------------------
-const setMealsData = async (data = []) => {
+const setMealsArray = async (data = []) => {
   const mealsArr = [];
 
   data.forEach((meal) => {
@@ -80,4 +80,4 @@ const setMealsData = async (data = []) => {
   return mealsArr;
 };
 
-export { mealSearchLinkModifier, getMealsData, setMealsData };
+export { mealSearchLinkModifier, getMealsData, setMealsArray };
