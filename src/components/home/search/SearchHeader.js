@@ -7,7 +7,7 @@ const SearchHeader = () => {
   const [slogan, setSlogan] = useState();
 
   useEffect(() => {
-    const randomNum = randomNumGenerator(1, 3);
+    const randomNum = Math.round(randomNumGenerator(1, 3));
     randomNum === 1 && setSlogan("Your meal in one click!");
     randomNum === 2 && setSlogan("We cook, you enjoy!");
     randomNum === 3 && setSlogan("Your meal, one click away!");
