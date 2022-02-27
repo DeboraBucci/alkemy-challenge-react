@@ -35,6 +35,7 @@ const OrderMenuButton = () => {
           title: "Menu Set",
           text: "Bon appetit!",
         });
+        cartCtx.removeAllMeals();
       }
     });
   };
