@@ -15,7 +15,12 @@ const CartItem = (props) => {
         <h3>{props.title}</h3>
         {props.price && <p className={classes.price}>Price: $ {props.price}</p>}
       </div>
-      {props.title && <RemoveFromCartButton onClick={props.onRemove} />}
+      {props.title && (
+        <RemoveFromCartButton
+          className={classes.delete}
+          onClick={props.onRemove}
+        />
+      )}
     </>
   ) : (
     <EmptyMealCard />

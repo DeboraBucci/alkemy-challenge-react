@@ -39,3 +39,7 @@
 .text * {
   color: white;
 }
+
+.delete {
+  border-bottom-right-radius: 25%;
+}
