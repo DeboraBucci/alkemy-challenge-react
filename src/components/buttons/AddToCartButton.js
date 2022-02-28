@@ -46,9 +46,13 @@ const AddToCartButton = ({ meal, className, icon = "default" }) => {
   };
 
   const content =
-    icon === "default"
-      ? ["Add to Cart", <FontAwesomeIcon icon={faCartPlus} />]
-      : icon;
+    icon === "default" ? (
+      <>
+        Add to Cart <FontAwesomeIcon icon={faCartPlus} />
+      </>
+    ) : (
+      icon
+    );
 
   return (
     <Button
