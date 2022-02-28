@@ -18,11 +18,14 @@ const Footer = () => {
           </Link>
         </p>
 
-        <Link href="https://github.com/DeboraBucci">
+        <Link href="https://github.com/DeboraBucci" name="GitHub">
           <FontAwesomeIcon icon={faGithub} />
         </Link>
 
-        <Link href="https://www.linkedin.com/in/d%C3%A9bora-bucci-13a07a212/">
+        <Link
+          href="https://www.linkedin.com/in/d%C3%A9bora-bucci-13a07a212/"
+          name="LinkedIn"
+        >
           <FontAwesomeIcon icon={faLinkedin} />
         </Link>
       </div>

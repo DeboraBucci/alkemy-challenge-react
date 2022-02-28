@@ -10,6 +10,7 @@ const RemoveFromCartButton = ({ onClick, className }) => {
     <button
       onClick={onClick}
       className={`${classes["btn-delete"]} ${className}`}
+      aria-label="remove from cart"
     >
       <FontAwesomeIcon icon={faTrashCan} />
     </button>

@@ -24,7 +24,7 @@ const Search = ({ onSearchMeals, setIsWaiting, waiting, setIsMealsShown }) => {
   };
 
   return (
-    <section id="search" className={classes.search}>
+    <section id="search-section" className={classes.search}>
       <SearchHeader />
       <FormikForm onSubmit={onSubmit} waiting={waiting} />
 

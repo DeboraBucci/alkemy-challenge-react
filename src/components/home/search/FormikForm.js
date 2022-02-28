@@ -69,9 +69,7 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
     >
       <Form className={classes.form}>
         <div className={classes.search}>
-          <label htmlFor="text" id="search">
-            Search
-          </label>
+          <label htmlFor="search">Search</label>
           <div className="input-group mb-3">
             <Field
               type="text"
@@ -81,6 +79,7 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
               placeholder="search for meals..."
             />
             <button
+              aria-label="search"
               className="btn btn-outline-secondary"
               type="submit"
               disabled={waiting}
@@ -116,6 +115,7 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
               <option value="price">Price</option>
             </Field>
             <button
+              aria-label="sorting direction"
               type="button"
               name="direction"
               className="btn btn-outline-secondary"

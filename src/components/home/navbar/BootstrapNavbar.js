@@ -33,12 +33,16 @@ const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
         <Navbar.Collapse className={classes.links} id="responsive-navbar-nav">
           <Nav className={classes.nav}>
             <div className={classes["links-container"]}>
-              <Nav.Link href="#menu">Menu</Nav.Link>
-              <Nav.Link href="#meals">Meals</Nav.Link>
-              <Nav.Link href="#search">Search</Nav.Link>
+              <Nav.Link href="#menu-section">Menu</Nav.Link>
+              <Nav.Link href="#meals-section">Meals</Nav.Link>
+              <Nav.Link href="#search-section">Search</Nav.Link>
             </div>
 
-            <button className={classes.cart} onClick={onOpenCart}>
+            <button
+              aria-label="open cart"
+              className={classes.cart}
+              onClick={onOpenCart}
+            >
               {cartCtx.totalDishes.length} items{" "}
               <FontAwesomeIcon icon={faCartShopping} />
             </button>

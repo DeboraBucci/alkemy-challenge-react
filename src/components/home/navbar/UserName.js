@@ -32,7 +32,7 @@ const UserName = () => {
   );
 
   const changeNameButton = (
-    <button onClick={changeNameHandler}>
+    <button aria-label="edit name" onClick={changeNameHandler}>
       <FontAwesomeIcon icon={faPenToSquare} />
     </button>
   );

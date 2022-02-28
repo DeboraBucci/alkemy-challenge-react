@@ -51,6 +51,7 @@ const Bar = () => {
   return (
     <React.Fragment>
       <button
+        aria-label="show bar"
         className={`${classes["btn-open"]} ${isBarOpened && classes.hide}`}
         onClick={openBarHandler}
       >
@@ -82,7 +83,7 @@ const Bar = () => {
           </p>
         </div>
         <OrderMenuButton />
-        <button onClick={closeBarHandler}>
+        <button onClick={closeBarHandler} aria-label="hide bar">
           <FontAwesomeIcon
             className={classes["btn-close"]}
             icon={faAngleDown}

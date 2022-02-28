@@ -16,7 +16,7 @@ const Menu = ({ setInfoHandler, meals }) => {
   };
 
   return (
-    <section id="menu" className={`fx-cntr ${classes.menu}`}>
+    <section id="menu-section" className={`fx-cntr ${classes.menu}`}>
       <div className={classes.title}>
         <h2>MENU</h2>
       </div>

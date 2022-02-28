@@ -57,7 +57,7 @@ const Meals = ({ meals, waiting, setInfoHandler, isMealsShown }) => {
   // RETURN
   // -----------------------------------------------------------------------
   return (
-    <section id="meals" className={classes.meals}>
+    <section id="meals-section" className={classes.meals}>
       {isMealsShown && content}
     </section>
   );

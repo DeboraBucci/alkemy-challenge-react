@@ -19,6 +19,7 @@ const MoreInfoButton = ({ meal, setInfoHandler, className }) => {
       onClick={moreInfoHandler}
       className={`${classes["btn-info"]} ${className}`}
       variant="primary"
+      aria-label="more information"
     >
       More Info <FontAwesomeIcon icon={faCircleInfo} />
     </Button>

@@ -46,6 +46,7 @@ const OrderMenuButton = ({ className }) => {
       disabled={empty}
       className={`${classes.order} ${className}`}
       onClick={orderHandler}
+      aria-label="order menu"
     >
       Order <FontAwesomeIcon icon={faCircleCheck} />
     </button>

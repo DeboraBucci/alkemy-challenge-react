@@ -73,6 +73,7 @@ const AddToCartButton = ({ meal, className, icon = "default" }) => {
       onClick={addToCartHandler}
       className={`${classes["btn-add-default"]} ${className}`}
       variant="primary"
+      aria-label="add to cart"
     >
       {content}
     </Button>
