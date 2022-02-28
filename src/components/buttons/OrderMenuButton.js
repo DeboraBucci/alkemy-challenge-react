@@ -16,7 +16,6 @@ const OrderMenuButton = ({ className }) => {
       SweetAlert({
         title: "Not Enough Meals...",
         text: "Please select four meals to be able to set the menu.",
-        footer: '<a href="">Why do I have this issue?</a>',
       });
       return;
     }
