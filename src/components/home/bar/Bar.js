@@ -24,15 +24,14 @@ const Bar = () => {
 
   const cartCtx = useContext(CartContext);
 
-  const cookingTimeMinutes =
-    cartCtx.totalTime / cartCtx.totalDishes.length || 0;
+  const dishesAmount = cartCtx.totalDishes.length;
+  const cookingTimeMinutes = cartCtx.totalTime / dishesAmount || 0;
 
   const [hours, minutes] = timeCalculator(cookingTimeMinutes);
-
   const avgCookingTimeStr = timeTextGenerator(hours, minutes).join(" ");
 
   useEffect(() => {
-    if (cartCtx.totalDishes.length === 0) {
+    if (dishesAmount === 0) {
       setIsEmpty(true);
       return;
     }
@@ -40,56 +39,59 @@ const Bar = () => {
     setIsEmpty(false);
   }, [cartCtx]);
 
-  const openBarHandler = () => {
-    setIsBarOpened(true);
+  const barHandler = () => {
+    setIsBarOpened((prev) => (prev === false ? true : false));
   };
 
-  const closeBarHandler = () => {
-    setIsBarOpened(false);
-  };
+  const openBarBtn = (
+    <button
+      aria-label="show bar"
+      className={`${classes["btn-open"]} ${isBarOpened && classes.hide}`}
+      onClick={barHandler}
+    >
+      <FontAwesomeIcon icon={faAngleUp} />
+    </button>
+  );
+
+  const closeBarBtn = (
+    <button onClick={barHandler} aria-label="hide bar">
+      <FontAwesomeIcon className={classes["btn-close"]} icon={faAngleDown} />
+    </button>
+  );
+
+  const text = (
+    <div className={`fx-cntr ${classes.text}`}>
+      <p>
+        <FontAwesomeIcon icon={faUtensils} />
+        <span> Servings: </span>
+        {cartCtx.totalServings}
+      </p>
+      <p>
+        <FontAwesomeIcon icon={faClock} />
+        <span> Avg. Cooking Time: </span>
+        {avgCookingTimeStr}
+      </p>
+      <p>
+        <FontAwesomeIcon icon={faHeartPulse} />
+        <span> Avg. Health Score: </span>
+        {!isEmpty
+          ? Math.round(cartCtx.totalHealthScore / cartCtx.totalDishes.length)
+          : "0"}
+      </p>
+      <p className={`fx-cntr ${classes.total}`}>
+        TOTAL $ {Math.round(cartCtx.totalPrice)}
+      </p>
+    </div>
+  );
 
   return (
     <React.Fragment>
-      <button
-        aria-label="show bar"
-        className={`${classes["btn-open"]} ${isBarOpened && classes.hide}`}
-        onClick={openBarHandler}
-      >
-        <FontAwesomeIcon icon={faAngleUp} />
-      </button>
       <div className={`fx-cntr ${classes.bar} ${!isBarOpened && classes.hide}`}>
-        <div className={`fx-cntr ${classes.text}`}>
-          <p>
-            <FontAwesomeIcon icon={faUtensils} />
-            <span> Servings: </span>
-            {cartCtx.totalServings}
-          </p>
-          <p>
-            <FontAwesomeIcon icon={faClock} />
-            <span> Avg. Cooking Time: </span>
-            {avgCookingTimeStr}
-          </p>
-          <p>
-            <FontAwesomeIcon icon={faHeartPulse} />
-            <span> Avg. Health Score: </span>
-            {!isEmpty
-              ? Math.round(
-                  cartCtx.totalHealthScore / cartCtx.totalDishes.length
-                )
-              : "0"}
-          </p>
-          <p className={`fx-cntr ${classes.total}`}>
-            TOTAL $ {Math.round(cartCtx.totalPrice)}
-          </p>
-        </div>
+        {text}
         <OrderMenuButton />
-        <button onClick={closeBarHandler} aria-label="hide bar">
-          <FontAwesomeIcon
-            className={classes["btn-close"]}
-            icon={faAngleDown}
-          />
-        </button>
+        {closeBarBtn}
       </div>
+      {openBarBtn}
     </React.Fragment>
   );
 };
