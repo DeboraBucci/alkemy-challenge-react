@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 
 import Backdrop from "../../UI/Backdrop";
@@ -8,6 +8,18 @@ const InformationOverlay = ({ info, setInfoIsShown }) => {
   const closeMoreInfoHandler = () => {
     setInfoIsShown(false);
   };
+
+  const handleKeyDown = (e) => {
+    e.code === "Escape" && closeMoreInfoHandler();
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   const portal = document.getElementById("overlays");
 
