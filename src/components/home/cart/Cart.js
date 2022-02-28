@@ -86,7 +86,7 @@ const Cart = (props) => {
           <button onClick={props.onCloseCart} className={classes["btn-close"]}>
             Close
           </button>
-          <OrderMenuButton />
+          <OrderMenuButton name={props.userName} />
         </div>
         <button onClick={props.onCloseCart} className={classes["btn-x"]}>
           <FontAwesomeIcon icon={faXmark} />

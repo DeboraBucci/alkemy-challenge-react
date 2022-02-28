@@ -12,7 +12,11 @@ const CartOverlay = (props) => {
     <React.Fragment>
       {ReactDOM.createPortal(<Backdrop onClick={props.onCloseCart} />, portal)}
       {ReactDOM.createPortal(
-        <Cart meals={props.meals} onCloseCart={props.onCloseCart} />,
+        <Cart
+          meals={props.meals}
+          onCloseCart={props.onCloseCart}
+          userName={props.userName}
+        />,
         portal
       )}
     </React.Fragment>

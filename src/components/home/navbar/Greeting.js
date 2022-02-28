@@ -1,11 +1,15 @@
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Greeting.module.css";
 
-const Greeting = () => {
+const Greeting = (props) => {
   const [isNameChanging, setIsNameChanging] = useState(false);
   const [name, setName] = useState("user");
+
+  useEffect(() => {
+    props.storeName(name);
+  }, [name]);
 
   const changeNameHandler = () => {
     setIsNameChanging(true);

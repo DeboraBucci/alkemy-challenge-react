@@ -12,7 +12,7 @@ import brand from "../../../assets/brand.webp";
 
 import classes from "./NavbarComp.module.css";
 
-const NavbarComp = ({ onLogout, onOpenCart }) => {
+const NavbarComp = ({ onLogout, onOpenCart, storeName }) => {
   const cartCtx = useContext(CartContext);
 
   return (
@@ -48,7 +48,7 @@ const NavbarComp = ({ onLogout, onOpenCart }) => {
             </button>
 
             <div className={classes["links-container"]}>
-              <Greeting />
+              <Greeting storeName={storeName} />
 
               <Nav.Link className={classes.logout} onClick={onLogout}>
                 Log Out <FontAwesomeIcon icon={faSignOut} />

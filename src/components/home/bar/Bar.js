@@ -18,7 +18,7 @@ import { timeTextGenerator } from "../../../functions/timeTextGenerator";
 
 import classes from "./Bar.module.css";
 
-const Bar = () => {
+const Bar = (props) => {
   const [isEmpty, setIsEmpty] = useState(true);
   const [isBarOpened, setIsBarOpened] = useState(true);
 
@@ -88,7 +88,7 @@ const Bar = () => {
     <React.Fragment>
       <div className={`fx-cntr ${classes.bar} ${!isBarOpened && classes.hide}`}>
         {text}
-        <OrderMenuButton />
+        <OrderMenuButton name={props.userName} />
         {closeBarBtn}
       </div>
       {openBarBtn}

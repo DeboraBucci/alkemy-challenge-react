@@ -7,7 +7,7 @@ import classes from "./Menu.module.css";
 import MenuDish from "./MenuDish";
 import OrderMenuButton from "../../buttons/OrderMenuButton";
 
-const Menu = ({ setInfoHandler, meals }) => {
+const Menu = ({ setInfoHandler, meals, userName }) => {
   const cartCtx = useContext(CartContext);
 
   const removeItemHandler = (dish) => {
@@ -34,7 +34,7 @@ const Menu = ({ setInfoHandler, meals }) => {
           })}
         </ul>
 
-        <OrderMenuButton className={classes.order} />
+        <OrderMenuButton className={classes.order} name={userName} />
       </div>
     </section>
   );

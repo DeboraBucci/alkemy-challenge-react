@@ -8,7 +8,7 @@ import SweetAlert from "../UI/SweetAlert";
 
 import classes from "./OrderMenuButton.module.css";
 
-const OrderMenuButton = ({ className }) => {
+const OrderMenuButton = ({ className, name }) => {
   const cartCtx = useContext(CartContext);
 
   const orderHandler = () => {
@@ -32,7 +32,7 @@ const OrderMenuButton = ({ className }) => {
         SweetAlert({
           icon: "success",
           title: "Menu Set",
-          text: "Bon appetit!",
+          text: `Bon appétit${name !== "user" ? `, ` + name : ""}!`,
         });
         cartCtx.removeAllMeals();
       }

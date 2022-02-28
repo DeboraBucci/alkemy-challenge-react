@@ -23,6 +23,7 @@ const Home = ({ onLogout }) => {
   const [cartIsOpened, setCartIsOpened] = useState(false);
   const [extraInfo, setExtraInfo] = useState({});
   const [extraInfoIsShown, setExtraInfoIsShown] = useState(false);
+  const [userName, setUserName] = useState("user");
 
   const [cartMeals, setCartMeals] = useState([]);
 
@@ -62,9 +63,18 @@ const Home = ({ onLogout }) => {
     setExtraInfoIsShown(true);
   };
 
+  const storeNameHandler = (name) => {
+    setUserName(name);
+  };
+
   return (
     <main className={classes.home}>
-      <NavbarComp onLogout={onLogout} onOpenCart={openCartHandler} />
+      <NavbarComp
+        onLogout={onLogout}
+        onOpenCart={openCartHandler}
+        storeName={storeNameHandler}
+      />
+
       <Search
         setIsMealsShown={setIsMealsShown}
         onSearchMeals={searchMealsHandler}
@@ -84,17 +94,29 @@ const Home = ({ onLogout }) => {
         setInfoHandler={setInfoHandler}
       />
 
-      <Menu setInfoHandler={setInfoHandler} meals={cartMeals} />
+      <Menu
+        setInfoHandler={setInfoHandler}
+        meals={cartMeals}
+        userName={userName}
+      />
+
       {cartIsOpened && (
-        <CartOverlay meals={cartMeals} onCloseCart={closeCartHandler} />
+        <CartOverlay
+          meals={cartMeals}
+          onCloseCart={closeCartHandler}
+          userName={userName}
+        />
       )}
+
       {extraInfoIsShown && (
         <InformationOverlay
           info={extraInfo}
           setInfoIsShown={setExtraInfoIsShown}
         />
       )}
-      <Bar />
+
+      <Bar userName={userName} />
+
       <Footer />
     </main>
   );
