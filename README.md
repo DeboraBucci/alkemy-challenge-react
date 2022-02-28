@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+#### `English Version`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Lily's Cuisine
 
-## Available Scripts
+This project was created for an Alkemy's assignment.
 
-In the project directory, you can run:
+## Guide
 
-### `npm start`
+To fully access the project's content, follow this guide:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Log In
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Email: `challenge@alkemy.org`
 
-### `npm test`
+Password: `react`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Other emails or passwords won't be successful when trying to login.
 
-### `npm run build`
+### Try Changing the Name
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+When you first enter the Home component, you can change your name by clicking on the edit icon next to the greeting in the navigation bar (upper right corner).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Note: the name must be between 1 and 13 characters long.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Menu Rules
 
-### `npm run eject`
+I - You can only add two vegan and two non vegan meals to the menu.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+II - You can only order the menu when having exactly four meals.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Note: When trying otherwise, an alert will be displayed, warning the user.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project Details
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This project was created using React, ReactDOM, react-router-dom, Formik, Axios, SweetAlert2, Bootstrap, React-Bootstrap, Jest, and more!
 
-## Learn More
+## My Personal Journey
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The project helped me understand many things, and learn some I didn't know existed.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### `Formik`
 
-### Code Splitting
+Initially, the form was made in a traditional way, using plain HTML elements, but it was later replaced using Formik.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Even though it was hard to learn a new library for manipulating forms, the result was a lot cleaner and easier to handle.
 
-### Analyzing the Bundle Size
+#### `SweetAlert2`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This too, was a new technology for me, but a most welcome one. It was very helpful, easy to handle, and pretty.
 
-### Making a Progressive Web App
+#### `Axios & react-router-dom`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The Axios calls and the react-router-dom components (such as BrowserRouter, Redirect, Route, Switch) were also very helpful.
 
-### Advanced Configuration
+I'm looking forward to learn more about them in the future.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Summary
 
-### Deployment
+It was a very demanding project, and very fun to code.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+I really liked the instructions, they were clear enough to understand, but not too specific so it left room for creativity.
 
-### `npm run build` fails to minify
+Would totally love to code something similar in the future, though this one left me exhausted, after a long month of hard work, I'll definitely take some days off!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you so much, Alkemy's team!
+
+Hope you like it,
+
+Débora Bucci.
+
+---
+
+#### `Versión en Español`
+
+# Lily's Cuisine
+
+Este proyecto fue creado en base a una tarea de Alkemy.
+
+## Guía
+
+Para poder acceder a todo el contenido del proyecto, sigue la siguiente guía:
+
+### Autenticación
+
+Email: `challenge@alkemy.org`
+
+Contraseña: `react`
+
+Estas son las únicas credenciales válidas para ingresar.
+
+### Intenta Cambiar el Nombre
+
+Cuando ingresás por primera vez al componente Home, podés cambiar tu nombre al clickear en el ícono de edición al lado del mensaje de saludo en la barra de navegación (esquina superior derecha).
+
+Nota: el nombre debe tener entre 1 y 13 caracteres de largo.
+
+### Reglas del Menú
+
+I - Podés agregar solamente dos comidas veganas y dos no veganas al menú.
+
+II - Solo podrás ordenar una vez que tengas cuatro comidas seleccionadas en el menú.
+
+Nota: Si intentás realizar una acción restringida, se mostrará una alerta indicando que la misma no es posible.
+
+## Detalles del Proyecto
+
+Este proyecto fue creado usando React, ReactDOM, react-router-dom, Formik, Axios, SweetAlert2, Bootstrap, React-Bootstrap, Jest, y más!
+
+## Mi Viaje Personal
+
+El proyecto en sí me ayudó a entender varias cosas, y a aprender muchas otras que no sabía siquiera que existían.
+
+#### `Formik`
+
+Inicialmente, el formulario fue hecho de forma tradicional con elementos de HTML, pero más adelante, fue reemplazado usando Formik.
+
+A pesar de las dificultades que representó el aprender una nueva librería para el manejo de formularios, el resultado final fue mucho más limpio y fácil de manejar.
+
+#### `SweetAlert2`
+
+Esta tecnología, al igual que Formik, fue nueva para mí, pero fue de gran ayuda, fácil de manejar, y muy linda.
+
+#### `Axios & react-router-dom`
+
+Las llamadas con Axios y los componentes de react-router-dom (como BrowserRouter, Redirect, Route, Switch) fueron de mucha ayuda, definitivamente volveré a usar estas tecnologías, y espero con ansias aprender más acerca de ellas.
+
+## Resumen
+
+Fue un proyecto muy demandante, y muy divertido de desarrollar.
+
+Me gustaron mucho las instrucciones, eran lo suficientemente claras para entender, pero no muy específicas, por lo que dejaron espacio para que la creatividad entre en juego.
+
+Amaría totalmente programar algo similar en el futuro, aunque este proyecto me ha dejado exhausta, después de un largo mes de trabajo arduo, definitivamente me tomaré unos días para descansar!
+
+Muchas gracias, equipo de Alkemy!
+
+Espero les guste,
+
+Débora Bucci.
