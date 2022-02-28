@@ -39,7 +39,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a1a1a1;
+  background: rgba(161, 161, 161, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(161, 161, 161);
 }
 
 @media (max-width: 1550px) {
