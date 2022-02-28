@@ -1,5 +1,6 @@
-svg {
-  filter: grayscale(40%);
+.app {
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .fire {
@@ -16,4 +17,38 @@ svg {
 
 .time {
   color: purple;
+}
+
+.fx-cntr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ELEMENTS  
+------------------------------------------------------------------------------ */
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+svg {
+  filter: grayscale(40%);
 }
