@@ -10,7 +10,7 @@ import InformationOverlay from "./meal-information/InformationOverlay";
 import CartOverlay from "./cart/CartOverlay";
 import Bar from "./bar/Bar";
 
-import BootstrapNavbar from "./navbar/BootstrapNavbar";
+import NavbarComp from "./navbar/NavbarComp";
 import Search from "./search/Search";
 import Meals from "./meals/Meals";
 import Menu from "./menu/Menu";
@@ -64,7 +64,7 @@ const Home = ({ onLogout }) => {
 
   return (
     <main className={classes.home}>
-      <BootstrapNavbar onLogout={onLogout} onOpenCart={openCartHandler} />
+      <NavbarComp onLogout={onLogout} onOpenCart={openCartHandler} />
       <Search
         setIsMealsShown={setIsMealsShown}
         onSearchMeals={searchMealsHandler}

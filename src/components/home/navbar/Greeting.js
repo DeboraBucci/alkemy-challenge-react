@@ -1,9 +1,9 @@
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import classes from "./UserName.module.css";
+import classes from "./Greeting.module.css";
 
-const UserName = () => {
+const Greeting = () => {
   const [isNameChanging, setIsNameChanging] = useState(false);
   const [name, setName] = useState("user");
 
@@ -48,4 +48,4 @@ const UserName = () => {
   );
 };
 
-export default UserName;
+export default Greeting;

@@ -6,13 +6,13 @@ import { faCartShopping, faSignOut } from "@fortawesome/free-solid-svg-icons";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 import CartContext from "../../../store/cart-context";
-import UserName from "./UserName";
+import Greeting from "./Greeting";
 
 import brand from "../../../assets/brand.webp";
 
-import classes from "./BootstrapNavbar.module.css";
+import classes from "./NavbarComp.module.css";
 
-const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
+const NavbarComp = ({ onLogout, onOpenCart }) => {
   const cartCtx = useContext(CartContext);
 
   return (
@@ -48,7 +48,7 @@ const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
             </button>
 
             <div className={classes["links-container"]}>
-              <UserName />
+              <Greeting />
 
               <Nav.Link className={classes.logout} onClick={onLogout}>
                 Log Out <FontAwesomeIcon icon={faSignOut} />
@@ -61,4 +61,4 @@ const BootstrapNavbar = ({ onLogout, onOpenCart }) => {
   );
 };
 
-export default BootstrapNavbar;
+export default NavbarComp;

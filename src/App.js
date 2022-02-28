@@ -5,7 +5,7 @@ import Home from "./components/home/Home";
 import Login from "./components/login/Login";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Bootstrap.css";
+import "./CustomBootstrap.css";
 import "./App.css";
 import {
   removeTokenFromLocalStorage,
