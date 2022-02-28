@@ -10,7 +10,6 @@ const mealSearchLinkModifier = (text, preferences) => {
   const excludedIngredients = `&excludeIngredients=${preferences.excludedIng}`;
   const sort = `&sort=${preferences.sort}`;
   const direction = `&sortDirection=${preferences.direction}`;
-
   const apiKey = process.env.REACT_APP_SPOONACULAR_API_KEY;
 
   const link = `https://api.spoonacular.com/recipes/complexSearch?query=${
@@ -25,7 +24,6 @@ const mealSearchLinkModifier = (text, preferences) => {
 const getMealsData = async (link) => {
   try {
     const response = await axios.get(link);
-
     const data = await response.data.results;
 
     return data;
@@ -47,7 +45,7 @@ const getMealsData = async (link) => {
 
 // SET MEALS
 // -----------------------------------------------------------------------------
-const setMealsArray = async (data = []) => {
+const setMealsArray = async (data = [], preferences) => {
   const mealsArr = [];
 
   data.forEach((meal) => {
@@ -57,6 +55,18 @@ const setMealsArray = async (data = []) => {
       meal.nutrition.nutrients[0].unit
     }`;
 
+    // MOMENTARY FILTER FOR THE CUISINES BECAUSE THE API IS NOT FILTERING THEM PROPERLY
+
+    const desiredCuisine = preferences.selectedCuisine
+      ? preferences.selectedCuisine[0].toUpperCase() +
+        preferences.selectedCuisine.slice(1)
+      : "";
+    const check =
+      desiredCuisine !== "" ? meal.cuisines.indexOf(desiredCuisine) > -1 : true;
+
+    if (!check) return;
+    // --------------------------------------------------------------------------
+
     mealsArr.push({
       id: meal.id,
       title: meal.title,
@@ -64,6 +74,7 @@ const setMealsArray = async (data = []) => {
       calories: calories,
       healthScore: meal.healthScore,
       diets: meal.diets,
+      cuisines: meal.cuisines,
       price: meal.pricePerServing,
       time: meal.readyInMinutes,
       servings: meal.servings,

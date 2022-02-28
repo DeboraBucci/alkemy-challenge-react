@@ -32,19 +32,26 @@
   height: 90%;
 }
 
-.diet-list {
+.tags-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   font-size: 0.8rem;
 }
 
-.diet-list li {
+.tags-list li {
   padding: 2px 5px;
   border-radius: 7px;
 
-  background-color: green;
   color: white;
+}
+
+.diet {
+  background-color: #378137;
+}
+
+.cuisine {
+  background-color: #774777;
 }
 
 .list {

@@ -24,10 +24,19 @@ const MealItem = ({ meal, setInfoHandler }) => {
         <div className={classes["text-container"]}>
           <div>
             <Card.Title>{meal.title}</Card.Title>
-            <ul className={classes["diet-list"]}>
+            <ul className={classes["tags-list"]}>
               {meal.diets.map((diet) => (
-                <li key={diet}>{diet}</li>
+                <li className={classes.diet} key={diet}>
+                  {diet}
+                </li>
               ))}
+              {meal.cuisines.map((cuisine) => {
+                return (
+                  <li className={classes.cuisine} key={cuisine}>
+                    {cuisine}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

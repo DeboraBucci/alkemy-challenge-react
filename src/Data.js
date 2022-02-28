@@ -64,6 +64,7 @@ const mealInfoHandler = (meal) => {
     healthScore: meal.healthScore,
     calories: meal.calories,
     diets: meal.diets,
+    cuisines: meal.cuisines,
     servings: meal.servings,
     caloricBreakdown: meal.caloricBreakdown,
     ingredients: meal.ingredients,

@@ -29,13 +29,12 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
 
   const onSubmit = (values) => {
     const checker = (opt) => (opt === "all..." ? "" : opt);
-
     const noSugar = values.noSugar ? "sugar" : "";
     const noEggs = values.noEggs ? "eggs" : "";
     const comma = noSugar && noEggs ? "," : "";
     const excludedIng = noSugar + comma + noEggs;
 
-    const finalSort = values.sort === "sort by..." ? "" : values.sort;
+    const finalSort = values.sort === "Sort by..." ? "" : values.sort;
 
     const preferences = {
       selectedDiet: checker(values.diet),
