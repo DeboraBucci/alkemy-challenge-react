@@ -15,27 +15,6 @@ import SweetAlert from "../UI/SweetAlert";
 const AddToCartButton = ({ meal, className, icon = "default" }) => {
   const cartCtx = useContext(CartContext);
 
-  const alertMessages = [
-    {
-      fullMenu: {
-        title: "Full Menu ...",
-        text: "You can't have more than four meals in your menu.",
-      },
-    },
-    {
-      fullVegan: {
-        title: "Couldn't Select Meal ...",
-        text: "You can't choose any more vegan meals. Try some other diets, explore the deliciousness!",
-      },
-    },
-    {
-      fullNonVegan: {
-        title: "Couldn't Select Meal ...",
-        text: "You can't choose any more non vegan meals. Time to pick some vegan ones too. Yummy!",
-      },
-    },
-  ];
-
   const addToCartHandler = () => {
     if (cartCtx.totalDishes.length === 4) {
       SweetAlert({
@@ -46,7 +25,10 @@ const AddToCartButton = ({ meal, className, icon = "default" }) => {
     }
 
     if (meal.isVegan && cartCtx.veganMeals === 2) {
-      SweetAlert(alertMessages.fullMenu);
+      SweetAlert({
+        title: "Couldn't Select Meal ...",
+        text: "You can't choose any more vegan meals. Try some other diets, explore the deliciousness!",
+      });
 
       return;
     }
