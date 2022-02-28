@@ -4,6 +4,10 @@
 
 This project was created for an Alkemy's assignment.
 
+#### `Note About .env File`
+
+This file was uploaded to the repository to showcase its function in the project, but it should actually be added to the `.gitignore` file so it remains hidden.
+
 ## Guide
 
 To fully access the project's content, follow this guide:
@@ -75,6 +79,10 @@ Débora Bucci.
 # Lily's Cuisine
 
 Este proyecto fue creado en base a una tarea de Alkemy.
+
+#### `Nota Sobre el Archivo .env`
+
+Este archivo fue subido al repositorio para poder demostrar su papel en el proyecto, pero en realidad debería ser añadido al archivo `.gitignore` para que se mantenga oculto.
 
 ## Guía
 
