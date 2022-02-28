@@ -41,7 +41,7 @@ const Greeting = () => {
 
   return (
     <div className={classes.greeting}>
-      <p>Hello, {dynamicParagraphContent}!</p>
+      <p>Welcome, {dynamicParagraphContent}!</p>
 
       {!isNameChanging && changeNameButton}
     </div>
