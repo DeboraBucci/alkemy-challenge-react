@@ -49,7 +49,7 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
 
   const validationSchema = Yup.object({
     search: Yup.string()
-      .min(3, "You need to type two or more characters.")
+      .min(3, "You need to type three or more characters.")
       .required("Required field."),
   });
 
