@@ -8,7 +8,7 @@ import SweetAlert from "../UI/SweetAlert";
 
 import classes from "./OrderMenuButton.module.css";
 
-const OrderMenuButton = () => {
+const OrderMenuButton = ({ className }) => {
   const cartCtx = useContext(CartContext);
 
   const orderHandler = () => {
@@ -43,7 +43,11 @@ const OrderMenuButton = () => {
   const empty = cartCtx.totalDishes.length === 0;
 
   return (
-    <button disabled={empty} className={classes.order} onClick={orderHandler}>
+    <button
+      disabled={empty}
+      className={`${classes.order} ${className}`}
+      onClick={orderHandler}
+    >
       Order <FontAwesomeIcon icon={faCircleCheck} />
     </button>
   );

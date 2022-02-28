@@ -16,14 +16,14 @@ const MealItem = ({ meal, setInfoHandler }) => {
     <Card className={classes.card}>
       <div className={classes.price}>$ {meal.price}</div>
 
-      <div className={classes["img-box"]}>
+      <div className={`fx-cntr ${classes["img-box"]}`}>
         <Card.Img variant="top" src={meal.image} />
       </div>
 
       <Card.Body className={classes["card-body"]}>
         <div className={classes["text-container"]}>
           <div>
-            <Card.Title className={classes.title}>{meal.title}</Card.Title>
+            <Card.Title>{meal.title}</Card.Title>
             <ul className={classes["diet-list"]}>
               {meal.diets.map((diet) => (
                 <li key={diet}>{diet}</li>

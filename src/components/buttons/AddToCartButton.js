@@ -12,12 +12,29 @@ import { mealInfoHandler } from "../../Data";
 
 import SweetAlert from "../UI/SweetAlert";
 
-const AddToCartButton = ({
-  meal,
-  className = classes["btn-add-default"],
-  icon = "default",
-}) => {
+const AddToCartButton = ({ meal, className, icon = "default" }) => {
   const cartCtx = useContext(CartContext);
+
+  const alertMessages = [
+    {
+      fullMenu: {
+        title: "Full Menu ...",
+        text: "You can't have more than four meals in your menu.",
+      },
+    },
+    {
+      fullVegan: {
+        title: "Couldn't Select Meal ...",
+        text: "You can't choose any more vegan meals. Try some other diets, explore the deliciousness!",
+      },
+    },
+    {
+      fullNonVegan: {
+        title: "Couldn't Select Meal ...",
+        text: "You can't choose any more non vegan meals. Time to pick some vegan ones too. Yummy!",
+      },
+    },
+  ];
 
   const addToCartHandler = () => {
     if (cartCtx.totalDishes.length === 4) {
@@ -29,10 +46,7 @@ const AddToCartButton = ({
     }
 
     if (meal.isVegan && cartCtx.veganMeals === 2) {
-      SweetAlert({
-        title: "Couldn't Select Meal ...",
-        text: "You can't choose any more vegan meals. Try some other diets, explore the deliciousness!",
-      });
+      SweetAlert(alertMessages.fullMenu);
 
       return;
     }
@@ -49,14 +63,18 @@ const AddToCartButton = ({
     cartCtx.addItem(mealInfo);
   };
 
+  const content =
+    icon === "default"
+      ? ["Add to Cart", <FontAwesomeIcon icon={faCartPlus} />]
+      : icon;
+
   return (
     <Button
       onClick={addToCartHandler}
-      className={`${classes.btn} ${className}`}
+      className={`${classes["btn-add-default"]} ${className}`}
       variant="primary"
     >
-      {icon === "default" && "Add to Cart "}
-      {icon === "default" ? <FontAwesomeIcon icon={faCartPlus} /> : icon}
+      {content}
     </Button>
   );
 };

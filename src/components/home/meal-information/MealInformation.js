@@ -31,9 +31,10 @@ const MealInformation = ({ info, closeMoreInfoHandler }) => {
 
   return (
     <ModalComp className={classes.modal}>
-      <div className={classes["img-box"]}>
+      <div className={`fx-cntr ${classes["img-box"]}`}>
         <img src={info.image} />
       </div>
+
       <div className={classes.content}>
         <div className={classes.title}>
           <h3>{info.title}</h3>
@@ -64,10 +65,7 @@ const MealInformation = ({ info, closeMoreInfoHandler }) => {
         </div>
 
         <AddToCartButton meal={info} className={classes["btn-add"]} />
-        <button
-          className={classes["btn-delete"]}
-          onClick={closeMoreInfoHandler}
-        >
+        <button className={classes["btn-close"]} onClick={closeMoreInfoHandler}>
           <FontAwesomeIcon icon={faXmark} />
         </button>
       </div>

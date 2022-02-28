@@ -18,26 +18,22 @@
 
 .img-box {
   height: 55%;
-
   overflow: hidden;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cart-item h3 {
-  font-size: 0.8rem;
-  padding-bottom: 10px;
-  border-bottom: 3px solid goldenrod;
 }
 
 .text {
-  text-align: center;
-  height: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
+
+  text-align: center;
+  height: 45%;
+}
+
+.text h3 {
+  font-size: 1rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid goldenrod;
 }
 
 .text * {

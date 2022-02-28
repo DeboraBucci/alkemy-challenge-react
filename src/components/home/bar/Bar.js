@@ -56,8 +56,8 @@ const Bar = () => {
       >
         <FontAwesomeIcon icon={faAngleUp} />
       </button>
-      <div className={`${classes.bar} ${!isBarOpened && classes.closed}`}>
-        <div className={classes.text}>
+      <div className={`fx-cntr ${classes.bar} ${!isBarOpened && classes.hide}`}>
+        <div className={`fx-cntr ${classes.text}`}>
           <p>
             <FontAwesomeIcon icon={faUtensils} />
             <span> Servings: </span>
@@ -77,7 +77,7 @@ const Bar = () => {
                 )
               : "0"}
           </p>
-          <p className={classes.total}>
+          <p className={`fx-cntr ${classes.total}`}>
             TOTAL $ {Math.round(cartCtx.totalPrice)}
           </p>
         </div>

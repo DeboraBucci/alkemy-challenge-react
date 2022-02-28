@@ -2,10 +2,6 @@
   color: #232323 !important;
   background-color: #d8d8d8 !important;
   border-color: #d8d8d8 !important;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .btn-info:hover,

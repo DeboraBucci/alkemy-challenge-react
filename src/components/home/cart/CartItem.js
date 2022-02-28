@@ -8,7 +8,7 @@ import EmptyMealCard from "../../UI/EmptyMealCard";
 const CartItem = (props) => {
   const content = props.image ? (
     <>
-      <div className={classes["img-box"]}>
+      <div className={`fx-cntr ${classes["img-box"]}`}>
         <img width={200} alt={props.title} src={props.image} />
       </div>
       <div className={classes.text}>

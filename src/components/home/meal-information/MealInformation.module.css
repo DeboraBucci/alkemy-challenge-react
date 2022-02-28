@@ -4,25 +4,10 @@
   display: flex;
 }
 
-.modal * {
-  margin: 0 !important;
-}
-
-.modal ul {
-  list-style: none;
-}
-
-.modal h4 {
-  font-size: 1rem;
-}
-
 .img-box {
   height: 100%;
   width: 30%;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .img-box:before {
@@ -38,13 +23,21 @@
 }
 
 .content {
+  color: #232323;
+
   width: 70%;
   display: grid;
   grid-template-columns: 1fr;
 }
 
-.title {
+.title,
+.ingredients,
+.ingredients h4,
+.nutrients {
   grid-column: 1/3;
+}
+
+.title {
   background-color: #232323;
   color: white;
   padding: 1rem 4rem;
@@ -53,48 +46,37 @@
   align-items: center;
 }
 
-.content p {
-  grid-column: 1/3;
-  color: #232323;
-}
+.some-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 
-.btn-add {
-  grid-column: 1/3;
-  background-color: rgb(177, 127, 1) !important;
-  border-color: rgb(177, 127, 1) !important;
-  color: white;
-  border-radius: 0 !important;
   padding: 1rem;
+  color: rgb(61, 61, 61);
 }
 
-.btn-delete {
-  position: absolute;
-  background-color: transparent;
-  border: none;
-  color: rgb(177, 127, 1);
-  font-size: 2rem;
-  right: 20px;
-  top: 15px;
+.some-info svg {
+  color: rgb(var(--main));
 }
 
 .ingredients {
-  padding: 0 1rem !important;
-  grid-column: 1/3;
+  padding: 0;
+  margin: 0 auto;
+  width: 95%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1frs);
   overflow: auto;
 }
 
 .ingredients h4 {
-  padding: 3px;
-  grid-column: 1/3;
+  padding: 0.25rem;
   text-align: center;
   background-color: #232323;
   color: white;
 }
 
 .ingredients li {
-  padding: 10px;
+  padding: 0.65rem;
   border-bottom: 1px solid #e1e1e1;
 }
 
@@ -105,36 +87,31 @@
   border: none !important;
 }
 
-.nutrients p {
-  margin: 0 !important;
-}
-
-.nutrients {
-  line-height: 10px;
-  padding: 5px 1rem;
-  grid-column: 1/3;
-  display: flex;
-  flex-direction: row;
-  font-size: 0.6rem;
-}
-
-.nutrients p,
-.nutrients span {
-  color: #6e6e6e;
-}
-
 .icon {
   color: green;
 }
 
-.some-info {
+.nutrients {
   display: flex;
-  padding: 1rem;
-  align-items: center;
-  justify-content: space-evenly;
-  color: rgb(61, 61, 61);
+  flex-direction: row;
+
+  line-height: 10px;
+  padding: 0.25rem 1rem;
+  font-size: 0.6rem;
+
+  color: #6e6e6e;
 }
 
-.some-info svg {
-  color: rgb(177, 127, 1);
+.btn-add {
+  border-radius: 0;
+}
+
+.btn-close {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  color: rgb(var(--secondary));
+  font-size: 2rem;
+  right: 20px;
+  top: 15px;
 }

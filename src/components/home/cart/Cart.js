@@ -61,7 +61,7 @@ const Cart = (props) => {
 
       <div>
         {!emptyCart && (
-          <div className={classes.info}>
+          <div className={`fx-cntr ${classes.info}`}>
             <p>
               <FontAwesomeIcon icon={faUtensils} /> {cartCtx.totalServings}
             </p>
@@ -82,7 +82,7 @@ const Cart = (props) => {
             </p>
           </div>
         )}
-        <div className={classes.actions}>
+        <div className={`fx-cntr ${classes.actions}`}>
           <button onClick={props.onCloseCart} className={classes["btn-close"]}>
             Close
           </button>

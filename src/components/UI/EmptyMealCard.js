@@ -5,8 +5,8 @@ import classes from "./EmptyMealCard.module.css";
 
 const EmptyMealCard = ({ className }) => {
   return (
-    <div className={`${classes.fallback} ${className}`}>
-      <div className={classes.circle}>
+    <div className={`fx-cntr ${classes.fallback} ${className}`}>
+      <div className={`fx-cntr ${classes.circle}`}>
         <FontAwesomeIcon icon={faUtensils} />
       </div>
     </div>

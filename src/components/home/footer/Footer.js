@@ -9,7 +9,7 @@ import Link from "../../UI/Link";
 
 const Footer = () => {
   return (
-    <section className={classes.footer}>
+    <section className={`fx-cntr ${classes.footer}`}>
       <div className={classes["copyright-box"]}>
         <p>
           &copy;Copyright 2022 Lily's Cuisine | Created by{" "}
@@ -17,13 +17,16 @@ const Footer = () => {
             Débora Bucci
           </Link>
         </p>
+
         <Link href="https://github.com/DeboraBucci">
           <FontAwesomeIcon icon={faGithub} />
         </Link>
+
         <Link href="https://www.linkedin.com/in/d%C3%A9bora-bucci-13a07a212/">
           <FontAwesomeIcon icon={faLinkedin} />
         </Link>
       </div>
+
       <p>
         This project is based on a challenge by{" "}
         <Link className={classes.underline} href="https://www.alkemy.org/">

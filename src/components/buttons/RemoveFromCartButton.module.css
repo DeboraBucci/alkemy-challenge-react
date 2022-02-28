@@ -1,17 +1,17 @@
 .btn-delete {
-  background-color: crimson;
+  background-color: rgb(var(--secondary));
   color: white;
+
   position: absolute;
   top: 0;
   left: 0;
-  border: none;
+
   height: 35px;
   width: 35px;
-  border-bottom-right-radius: 25%;
 }
 
 .btn-delete:hover {
-  background-color: rgb(153, 16, 43);
+  background-color: rgb(var(--darkest-secondary));
 }
 
 .btn-delete:focus {

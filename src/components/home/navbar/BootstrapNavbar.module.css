@@ -20,8 +20,10 @@
 
 .cart {
   background-color: transparent;
-  border: 2px solid rgb(var(--main));
+  border: 1px solid rgb(var(--main));
   color: rgb(var(--light-main)) !important;
+
+  gap: 0.5rem;
 
   border-radius: 14px;
   padding: 0.5rem 1rem !important;
@@ -32,15 +34,30 @@
   color: white !important;
 }
 
-@media (max-width: 1000px) {
-  .navbar {
-    height: auto;
-  }
-}
-
 .logout {
   display: flex !important;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+}
+
+.links-container {
+  display: flex;
+}
+
+@media (max-width: 1000px) {
+  .navbar {
+    height: auto;
+  }
+
+  .navbar img {
+    width: 150px !important;
+    height: auto !important;
+  }
+
+  .links div div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }

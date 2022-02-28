@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
+
 import { cuisineOpt, dietOpt } from "../../../Data";
 
 import classes from "./FormikForm.module.css";
@@ -10,8 +13,6 @@ import classes from "./FormikForm.module.css";
 import ErrorText from "./ErrorText";
 import DropdownComp from "./DropdownComp";
 import SwitchComp from "./SwitchComp";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
   const [direction, setDirection] = useState("asc");
@@ -32,7 +33,6 @@ const FormikForm = ({ onSubmit: onSubmitHandler, waiting }) => {
     const noSugar = values.noSugar ? "sugar" : "";
     const noEggs = values.noEggs ? "eggs" : "";
     const comma = noSugar && noEggs ? "," : "";
-
     const excludedIng = noSugar + comma + noEggs;
 
     const finalSort = values.sort === "sort by..." ? "" : values.sort;

@@ -1,6 +1,8 @@
 import React, { useLayoutEffect, useState } from "react";
 import { Pagination } from "react-bootstrap";
 
+import PaginationItem from "./PaginationItem";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleRight,
@@ -10,7 +12,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import classes from "./MealsPagination.module.css";
-import PaginationItem from "./PaginationItem";
 
 const MealsPagination = ({ setActive, mealsList, active }) => {
   const [showEllipsis, setShowEllipsis] = useState(window.innerWidth < 1000);
@@ -50,7 +51,6 @@ const MealsPagination = ({ setActive, mealsList, active }) => {
   };
 
   const firstPaginationHandler = (e) => {
-    console.log(e);
     setActive(1);
   };
 
@@ -72,9 +72,9 @@ const MealsPagination = ({ setActive, mealsList, active }) => {
       >
         <FontAwesomeIcon icon={faAngleLeft} />
       </button>
-      {showEllipsis && <Pagination.Ellipsis />}
+      {showEllipsis && active !== 1 && <Pagination.Ellipsis />}
       <PaginationItem active={active} mealsList={mealsList} />
-      {showEllipsis && <Pagination.Ellipsis />}
+      {showEllipsis && active !== mealsList.length && <Pagination.Ellipsis />}
       <button
         className={` ${classes["btn-page"]}`}
         onClick={nextPaginationHandler}

@@ -12,7 +12,7 @@ const MealChunk = ({ setInfoHandler, mealChunk }) => {
     />
   ));
 
-  return <div className={classes["chunk-meals"]}>{content}</div>;
+  return <div className={`fx-cntr ${classes["chunk-meals"]}`}>{content}</div>;
 };
 
 export default MealChunk;

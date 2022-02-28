@@ -16,12 +16,12 @@ const Menu = ({ setInfoHandler, meals }) => {
   };
 
   return (
-    <section id="menu" className={classes.menu}>
+    <section id="menu" className={`fx-cntr ${classes.menu}`}>
       <div className={classes.title}>
         <h2>MENU</h2>
       </div>
       <div className={classes.box}>
-        <ul>
+        <ul className="fx-cntr ">
           {meals.map((dish) => {
             return (
               <MenuDish
@@ -34,9 +34,7 @@ const Menu = ({ setInfoHandler, meals }) => {
           })}
         </ul>
 
-        <div className={classes.actions}>
-          <OrderMenuButton />
-        </div>
+        <OrderMenuButton className={classes.order} />
       </div>
     </section>
   );

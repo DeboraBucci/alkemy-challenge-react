@@ -11,72 +11,6 @@
   height: 330px;
 }
 
-.text-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 90%;
-}
-
-.title {
-  font-size: 1rem;
-  margin-bottom: 0.5rem !important;
-}
-
-.diet-list li {
-  padding: 2px 5px;
-  border-radius: 7px;
-  background-color: green;
-}
-
-.list {
-  list-style: none;
-
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  padding: 0rem 1rem !important;
-}
-
-.list li {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-
-  border-bottom: 1px solid #dfdfdf;
-  padding-bottom: 5px;
-}
-
-.list li:last-child {
-  border: none;
-}
-
-.list li p {
-  margin: 0 !important;
-  color: #5f5f5f;
-}
-
-.strong {
-  color: #232323;
-  font-weight: bolder;
-}
-
-.diet-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  font-size: 0.7rem;
-  color: white;
-  padding: 0 !important;
-}
-
-.actions {
-  display: flex;
-  justify-content: space-between;
-}
-
 .price {
   position: absolute;
   top: 10px;
@@ -91,6 +25,60 @@
   border-radius: 4px;
 }
 
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 90%;
+}
+
+.diet-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.diet-list li {
+  padding: 2px 5px;
+  border-radius: 7px;
+
+  background-color: green;
+  color: white;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.list li {
+  color: #5f5f5f;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  border-bottom: 1px solid #dfdfdf;
+  padding-bottom: 5px;
+}
+
+.list li:last-child {
+  border: none;
+}
+
+.strong {
+  color: #232323;
+  font-weight: bolder;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* MEDIA QUERIES
 --------------------------------------------------*/
 @media (max-width: 850px) {
@@ -99,20 +87,13 @@
   }
 
   .card {
-    display: flex !important;
     flex-direction: row !important;
-    width: 90%;
+    width: 100%;
   }
 
   .card-body,
   .img-box {
-    width: 50% !important;
-  }
-
-  .img-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 50%;
   }
 
   .img-box img {

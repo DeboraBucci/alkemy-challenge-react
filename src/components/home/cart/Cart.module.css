@@ -13,15 +13,13 @@
 }
 
 .title-box {
-  width: 100%;
-  border-bottom: 3px solid rgb(var(--main));
+  border-bottom: 2px solid rgb(var(--main));
 }
 
 .info {
-  display: flex;
-  justify-content: center;
   gap: 2rem;
   font-size: 1.4rem;
+  padding: 1rem 0;
 }
 
 .info p {
@@ -37,8 +35,6 @@
 /* BUTTONS
 --------------------------------------------------------------------*/
 .actions {
-  display: flex;
-  justify-content: center;
   gap: 1rem;
 }
 
@@ -48,24 +44,41 @@
   right: 30px;
 
   font-size: 2rem;
-  border: none;
 
   background-color: transparent;
   color: rgb(var(--dark-secondary));
 }
 
 .btn-close {
+  border-radius: 14px;
   border: 2px solid rgb(var(--dark-secondary)) !important;
+
   color: rgb(var(--dark-secondary));
   background-color: transparent;
+
+  transition: all 0.4s;
+
   font-weight: 500;
-  border: none;
   padding: 0.5rem 2rem;
-  border-radius: 14px;
+}
+
+.btn-close:hover {
+  background-color: rgb(var(--dark-secondary)) !important;
+  color: white;
 }
 
 @media (max-width: 800px) {
   .list {
     overflow-x: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .info {
+    gap: 0.5rem;
+  }
+
+  .info p {
+    border: none;
   }
 }

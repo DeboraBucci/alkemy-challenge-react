@@ -1,25 +1,20 @@
 .footer {
-  color: white;
-
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 1rem;
 
+  color: white;
   padding: 3rem 2rem 5rem 2rem;
 }
 
 .copyright-box {
   display: flex;
-  gap: 10px;
+  gap: 0.6rem;
 }
 
 .footer a:link,
 .footer a:visited {
-  text-decoration: none;
-
   color: white;
-
+  text-decoration: none;
   padding-bottom: 3px;
 }
 

@@ -20,7 +20,7 @@ const MoreInfoButton = ({ meal, setInfoHandler, className }) => {
       className={`${classes["btn-info"]} ${className}`}
       variant="primary"
     >
-      More Info <FontAwesomeIcon className={classes.icon} icon={faCircleInfo} />
+      More Info <FontAwesomeIcon icon={faCircleInfo} />
     </Button>
   );
 };
