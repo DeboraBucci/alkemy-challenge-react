@@ -33,7 +33,9 @@ function App() {
 
       if (response) {
         setIsLoggedIn(true);
-        setTokenInLocalStorage(response.data.token);
+        setTokenInLocalStorage();
+
+        // setTokenInLocalStorage(response.data.token);
       }
 
       if (!response) setFormIsValid(false);

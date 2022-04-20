@@ -1,24 +1,32 @@
-import axios from "axios";
+// import axios from "axios";
 import SweetAlert from "../components/UI/SweetAlert";
 
 const validateLogin = async (email, password) => {
-  try {
-    const response = await axios.post("http://challenge-react.alkemy.org", {
-      email: email,
-      password: password,
-    });
+  if (email === "challenge@alkemy.org" && password === "react") return true;
 
-    return response;
-  } catch (err) {
-    SweetAlert({
-      text: "Wrong credentials!",
-    });
+  SweetAlert({
+    text: "Wrong credentials!",
+  });
+  return false;
 
-    return false;
-  }
+  // COMMENTED OUT BECAUSE OF HTTP REQUEST
+  // try {
+  //   const response = await axios.post("http://challenge-react.alkemy.org", {
+  //     email: email,
+  //     password: password,
+  //   });
+
+  //   return response;
+  // } catch (err) {
+  //   SweetAlert({
+  //     text: "Wrong credentials!",
+  //   });
+
+  //   return false;
+  // }
 };
 
-const setTokenInLocalStorage = (token) => {
+const setTokenInLocalStorage = (token = "1") => {
   localStorage.setItem("isLoggedIn", `${token}`);
 };
 
