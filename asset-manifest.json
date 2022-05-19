@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/lilys-cuisine/static/css/main.fc266a0a.css",
-    "main.js": "/lilys-cuisine/static/js/main.114df97d.js",
+    "main.js": "/lilys-cuisine/static/js/main.48ea1b05.js",
     "static/js/787.b1e93d4c.chunk.js": "/lilys-cuisine/static/js/787.b1e93d4c.chunk.js",
     "static/media/login-background.webp": "/lilys-cuisine/static/media/login-background.5a55ad42b9dbc38fb991.webp",
     "static/media/menu-background.webp": "/lilys-cuisine/static/media/menu-background.d973b72c32e56dc6c696.webp",
@@ -9,11 +9,11 @@
     "static/media/brand.webp": "/lilys-cuisine/static/media/brand.83daeb16dbf034abff73.webp",
     "index.html": "/lilys-cuisine/index.html",
     "main.fc266a0a.css.map": "/lilys-cuisine/static/css/main.fc266a0a.css.map",
-    "main.114df97d.js.map": "/lilys-cuisine/static/js/main.114df97d.js.map",
+    "main.48ea1b05.js.map": "/lilys-cuisine/static/js/main.48ea1b05.js.map",
     "787.b1e93d4c.chunk.js.map": "/lilys-cuisine/static/js/787.b1e93d4c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fc266a0a.css",
-    "static/js/main.114df97d.js"
+    "static/js/main.48ea1b05.js"
   ]
 }
