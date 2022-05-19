@@ -11,7 +11,7 @@ import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="go-scrum/">
+    <BrowserRouter basename="/lilys-cuisine">
       <CartProvider>
         <App />
       </CartProvider>
