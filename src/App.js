@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
 import Home from "./components/home/Home";
 import Login from "./components/login/Login";
@@ -51,31 +51,29 @@ function App() {
 
   return (
     <div className="app">
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            {recolacteUserAuth({
-              check: isLoggedIn,
-              component: <Home onLogout={logoutHandler} />,
-              to: <Redirect to={"/login"} />,
-            })}
-          </Route>
-          <Route path="/login">
-            {recolacteUserAuth({
-              check: !isLoggedIn,
-              component: (
-                <Login
-                  onLogin={loginHandler}
-                  isValid={formIsValid}
-                  setIsValid={setFormIsValid}
-                  isWaiting={waiting}
-                />
-              ),
-              to: <Redirect to={"/"} />,
-            })}
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          {recolacteUserAuth({
+            check: isLoggedIn,
+            component: <Home onLogout={logoutHandler} />,
+            to: <Redirect to={"/login"} />,
+          })}
+        </Route>
+        <Route path="/login">
+          {recolacteUserAuth({
+            check: !isLoggedIn,
+            component: (
+              <Login
+                onLogin={loginHandler}
+                isValid={formIsValid}
+                setIsValid={setFormIsValid}
+                isWaiting={waiting}
+              />
+            ),
+            to: <Redirect to={"/"} />,
+          })}
+        </Route>
+      </Switch>
     </div>
   );
 }

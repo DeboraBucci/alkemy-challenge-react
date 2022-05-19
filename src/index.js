@@ -7,12 +7,15 @@ import App from "./App";
 import CartProvider from "./store/CartProvider";
 
 import "./index.css";
+import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CartProvider>
-      <App />
-    </CartProvider>
+    <BrowserRouter basename="go-scrum/">
+      <CartProvider>
+        <App />
+      </CartProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
