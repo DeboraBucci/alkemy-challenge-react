@@ -7,15 +7,15 @@ import App from "./App";
 import CartProvider from "./store/CartProvider";
 
 import "./index.css";
-import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { HashRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/lilys-cuisine">
+    <HashRouter>
       <CartProvider>
         <App />
       </CartProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
