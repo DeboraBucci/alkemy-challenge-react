@@ -7,7 +7,7 @@ import App from "./App";
 import CartProvider from "./store/CartProvider";
 
 import "./index.css";
-import { HashRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { HashRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>

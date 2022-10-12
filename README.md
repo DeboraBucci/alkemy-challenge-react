@@ -58,22 +58,6 @@ The Axios calls and the react-router-dom components (such as BrowserRouter, Redi
 
 I'm looking forward to learn more about them in the future.
 
-## Summary
-
-It was a very demanding project, and very fun to code.
-
-I really liked the instructions, they were clear enough to understand, but not too specific so it left room for creativity.
-
-Would totally love to code something similar in the future, though this one left me exhausted, after a long month of hard work, I'll definitely take some days off!
-
-Thank you so much, Alkemy's team!
-
-Hope you like it,
-
-Débora Bucci.
-
----
-
 #### `Versión en Español`
 
 # Lily's Cuisine
@@ -131,17 +115,3 @@ Esta tecnología, al igual que Formik, fue nueva para mí, pero fue de gran ayud
 #### `Axios & react-router-dom`
 
 Las llamadas con Axios y los componentes de react-router-dom (como BrowserRouter, Redirect, Route, Switch) fueron de mucha ayuda, definitivamente volveré a usar estas tecnologías, y espero con ansias aprender más acerca de ellas.
-
-## Resumen
-
-Fue un proyecto muy demandante, y muy divertido de desarrollar.
-
-Me gustaron mucho las instrucciones, eran lo suficientemente claras para entender, pero no muy específicas, por lo que dejaron espacio para que la creatividad entre en juego.
-
-Amaría totalmente programar algo similar en el futuro, aunque este proyecto me ha dejado exhausta, después de un largo mes de trabajo arduo, definitivamente me tomaré unos días para descansar!
-
-Muchas gracias, equipo de Alkemy!
-
-Espero les guste,
-
-Débora Bucci.
